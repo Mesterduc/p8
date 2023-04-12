@@ -75,3 +75,4 @@ Thumbs.db.meta
 # Jetbrain Rider Cache
 .idea/
 Assets/Plugins/Editor/JetBrains*
+.idea
