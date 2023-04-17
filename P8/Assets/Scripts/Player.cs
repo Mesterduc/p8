@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+[System.Serializable]
+public class Player {
+    private string name;
+
+    public Player(string name) {
+        this.name = name;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public string GetName() {
+        return this.name;
+    }
+
+    public void SetName(string newName) {
+        this.name = newName;
     }
 }
