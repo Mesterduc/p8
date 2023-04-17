@@ -8,8 +8,12 @@ namespace DataPersistence {
     public class GameData {
         public Player player;
 
+        public GameData() {
+            
+        }
         public GameData(Player player) {
             this.player = player;
         }
+        
     }
 }
