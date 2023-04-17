@@ -10,7 +10,7 @@ namespace Navigation {
         }
     
         public enum Scene {
-            MainMenu,
+            Menu,
             AddAnimal,
             Colletions,
             Friends,
@@ -22,7 +22,7 @@ namespace Navigation {
         }
 
         public void LoadMenu() {
-            SceneManager.LoadScene(Scene.MainMenu.ToString());
+            SceneManager.LoadScene(Scene.Menu.ToString());
         }
     }
 }

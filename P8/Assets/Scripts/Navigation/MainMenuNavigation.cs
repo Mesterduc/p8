@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 namespace Navigation {
     public class MainMenuNavigation : MonoBehaviour {
-        [SerializeField] private Button _Menu;
+        [SerializeField] private Button _menu;
     
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-            _Menu.onClick.AddListener(LoadMainMenu);
+            _menu.onClick.AddListener(LoadMainMenu);
         
         }
 
