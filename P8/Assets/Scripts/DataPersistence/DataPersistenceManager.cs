@@ -2,12 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-    // Class for saving and loading game objects 
+// Class for saving and loading game objects 
 namespace DataPersistence {
     public class DataPersistenceManager: MonoBehaviour {
+        [Header("File Storage Config")]
+        [SerializeField] private string fileName;
+        
         private GameData gameData;
         private Player player;
         private List<IDataPersistence> dataPersistenceObjects;
+        private FileDataHandler dataHandler;
 
         // Static only one instance of this class can be initialized
         public static DataPersistenceManager Instance { get; private set; }
@@ -21,6 +25,8 @@ namespace DataPersistence {
         }
         
         private void Start() {
+            // Application.persistentDataPath common file location for unity
+            this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
         }
@@ -35,16 +41,15 @@ namespace DataPersistence {
         // public void CreateFish() { }
         
         public void LoadGame() {
+            this.gameData = dataHandler.Load();
             if (this.gameData == null) {
                 Debug.Log("No data is found");
+                // TODO: start new game
             }
 
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.LoadData(gameData);
             }
-            
-            Debug.Log("Load" + gameData);
-            
         }
 
         public void SaveGame() {
@@ -58,8 +63,7 @@ namespace DataPersistence {
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.SaveData(gameData);
             }
-            
-            Debug.Log("saved: " + gameData);
+            dataHandler.Save(gameData);
         }
 
         private void SaveGameOnQuit() {

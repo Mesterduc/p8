@@ -11,8 +11,7 @@ namespace Scenes.Profile {
         void Start() {
             text.text = "My name is Hong";
         }
-
-
+        
         public void LoadData(GameData data) {
             // text.text = data
         }
