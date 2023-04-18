@@ -11,10 +11,12 @@ namespace Navigation {
     
         public enum Scene {
             Menu,
-            AddAnimal,
-            Colletions,
-            Friends,
-            Guides
+            TankScene,
+            AddAnimalsScene,
+            CollectionScene,
+            FriendsScrene, //obs. fejl i navnet
+            GuideScene,
+            ProfileScene
         }
 
         public void LoadScene(Scene scene) {
@@ -23,6 +25,31 @@ namespace Navigation {
 
         public void LoadMenu() {
             SceneManager.LoadScene(Scene.Menu.ToString());
+        }
+
+        public void LoadTanks () {
+            SceneManager.LoadScene(Scene.TankScene.ToString());
+        }
+
+        public void LoadAddAnimal () {
+            SceneManager.LoadScene(Scene.AddAnimalsScene.ToString());
+        }
+        
+        //obs. fejl i navnet
+        public void LoadFriends () {
+            SceneManager.LoadScene(Scene.FriendsScrene.ToString());
+        }
+
+        public void LoadCollection () {
+            SceneManager.LoadScene(Scene.CollectionScene.ToString());
+        }
+
+        public void LoadGuides () {
+            SceneManager.LoadScene(Scene.GuideScene.ToString());
+        }
+
+        public void LoadProfile () {
+            SceneManager.LoadScene(Scene.ProfileScene.ToString());
         }
     }
 }
