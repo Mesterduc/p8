@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GuideScene.unity
     guid: 90b9f080a9a06428e952419171e6f6bb
   - enabled: 1
-    path: Assets/Scenes/ProfileScene.unity
+    path: Assets/Scenes/Profile/ProfileScene.unity
     guid: cfb8192a1f5624155a93306edaef5398
   - enabled: 1
     path: Assets/Scenes/AchievementsScene.unity
