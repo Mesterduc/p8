@@ -2,38 +2,31 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Adjust this value to control the camera move speed
+    public float moveSpeed = 5f; // hvor hurtigt kameraet bevæger sig
     public Vector2 mapSize = new Vector2(20f, 20f);
-
-    public float zoomSpeed = 0.1f; // Adjust this value to control the zoom speed
-    public float minZoom = 1f; // Minimum zoom level
-    public float maxZoom = 5f; // Maximum zoom level
+    public float zoomSpeed = 0.1f; // Hvor hurtigt den zoomer
+    public float minZoom = 1f; // Min zoom level
+    public float maxZoom = 5f; // Max zoom level
 
 
     void Update()
     {
-         // Get keyboard input for camera movement
+         // Få WASD eller piletaster ind i systemet
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        // Calculate camera target position
         Vector3 targetPos = transform.position + new Vector3(horizontal, vertical, 0) * moveSpeed * Time.deltaTime;
 
-        // Clamp camera position to stay inside the map
+        // Lav boundaries til kameraet og flyt
         targetPos.x = Mathf.Clamp(targetPos.x, -mapSize.x / 2f, mapSize.x / 2f);
         targetPos.y = Mathf.Clamp(targetPos.y, -mapSize.y / 2f, mapSize.y / 2f);
-
-        // Update camera position
         transform.position = targetPos;
 
-        // Get zoom input
+        // Få input til systemet når du scroller
         float zoomInput = Input.GetAxis("Mouse ScrollWheel");
 
-        // Calculate new zoom level
+        // Plus eller minus Scroll-værdien
         float newZoom = Camera.main.orthographicSize - zoomInput * zoomSpeed;
         newZoom = Mathf.Clamp(newZoom, minZoom, maxZoom);
-
-        // Apply zoom to camera
         Camera.main.orthographicSize = newZoom;
     }
 }
