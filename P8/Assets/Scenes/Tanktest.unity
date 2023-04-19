@@ -185,7 +185,7 @@ Transform:
   m_GameObject: {fileID: 418849136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.4809048, y: 6.469502, z: -1.0718238}
-  m_LocalScale: {x: 20.997633, y: 0.19472091, z: 0.92045}
+  m_LocalScale: {x: 20.997633, y: 0.16046919, z: 0.92045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 93819722}
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -340,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 1425229675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.86, y: 1.46, z: -1.0718238}
-  m_LocalScale: {x: 0.17716044, y: 10.050423, z: 0.92045}
+  m_LocalScale: {x: 0.06062209, y: 10.050423, z: 0.92045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 93819722}
@@ -368,7 +368,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -424,7 +424,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -449,7 +449,7 @@ Transform:
   m_GameObject: {fileID: 1612349416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.4809048, y: -3.510498, z: -1.0718238}
-  m_LocalScale: {x: 20.997633, y: 0.19472091, z: 0.92045}
+  m_LocalScale: {x: 20.997633, y: 0.04244194, z: 0.92045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 93819722}
@@ -482,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 1704261583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.93, y: 1.46, z: -1.0718238}
-  m_LocalScale: {x: 0.14435296, y: 9.924792, z: 0.92045}
+  m_LocalScale: {x: -0.0026107586, y: 9.924792, z: 0.92045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 93819722}
@@ -510,7 +510,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -696,5 +696,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8125, y: 0.875}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
