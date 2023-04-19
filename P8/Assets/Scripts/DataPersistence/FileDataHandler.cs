@@ -4,22 +4,20 @@ using UnityEngine;
 
 namespace DataPersistence {
     // Handles conversion of data to file
-    public class FileDataHandler: MonoBehaviour {
-        // private string dataDirectoryPath = "";
-        // private string dataFileName = "";
-        
+    public class FileDataHandler {
+        private string dataDirPath = "";
+        private string dataFileName = "";
         // Path.Combine account for different OS's/styre system having different path separators... sammen sætter path
-        private string fullPath = "";
-
-        public FileDataHandler(string dataDirectoryPath, string dataFileName) {
-            // this.dataDirectoryPath = dataDirectoryPath;
-            // this.dataFileName = dataFileName;
-            this.fullPath = Path.Combine(dataDirectoryPath, dataFileName);
+        // private string fullPath = "";
+        public FileDataHandler(string dataDirPath, string dataFileName) {
+            this.dataDirPath = dataDirPath;
+            this.dataFileName = dataFileName;
+            // this.fullPath = Path.Combine(dataDirPath, dataFileName);
         }
 
         public GameData Load() {
             // use Path.Combine to account for different OS's having different path separators
-            // string fullPath = Path.Combine(dataDirPath, dataFileName);
+            string fullPath = Path.Combine(dataDirPath, dataFileName);
             GameData loadedData = null;
             if (File.Exists(fullPath)) 
             {
@@ -47,9 +45,11 @@ namespace DataPersistence {
         }
 
         public void Save(GameData data) {
+            // use Path.Combine to account for different OS's having different path separators
+            string fullPath = Path.Combine(dataDirPath, dataFileName);
             try {
                 // create the directory the file will be written to if it doesn't already exist
-                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+                Directory.CreateDirectory(Path.GetDirectoryName(fullPath) ?? "mitnavnerelon");
 
                 // serialize the C# game data object into Json
                 // Omskriver vores object/data om til JSON format

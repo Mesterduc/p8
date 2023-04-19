@@ -6,14 +6,10 @@ namespace DataPersistence {
     // Place to get data 
     [System.Serializable]
     public class GameData {
-        public Player player;
-
-        public GameData() {
-            
-        }
-        public GameData(Player player) {
-            this.player = player;
-        }
+        public PlayerData playerData;
         
+        public GameData(PlayerData playerData) {
+            this.playerData = playerData;
+        }
     }
 }

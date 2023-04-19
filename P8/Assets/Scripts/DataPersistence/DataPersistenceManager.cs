@@ -3,13 +3,14 @@ using UnityEngine;
 using System.Linq;
 
 // Class for saving and loading game objects 
+// Save methods
 namespace DataPersistence {
     public class DataPersistenceManager: MonoBehaviour {
         [Header("File Storage Config")]
         [SerializeField] private string fileName;
         
         private GameData gameData;
-        private Player player;
+        private PlayerData player;
         private List<IDataPersistence> dataPersistenceObjects;
         private FileDataHandler dataHandler;
 
@@ -23,27 +24,19 @@ namespace DataPersistence {
             }
             Instance = this;
         }
-        
+        // loads the data to classes.
         private void Start() {
             // Application.persistentDataPath common file location for unity
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+            Debug.Log(Application.persistentDataPath);
             LoadGame();
         }
-
-        public void NewGame() {
-            this.player = new Player("Anivia"); 
-            this.gameData = new GameData(this.player);
-        }
-        // public void CreateTank() { }
-        // public void LoadTank() { }
-        // public void CreatePlayer() { }
-        // public void CreateFish() { }
         
         public void LoadGame() {
             this.gameData = dataHandler.Load();
             if (this.gameData == null) {
-                Debug.Log("No data is found");
+                Debug.Log("No data is found dataManager");
                 // TODO: start new game
             }
 

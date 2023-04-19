@@ -6,18 +6,24 @@ using UnityEngine.UI;
 
 namespace Scenes.Profile {
     public class ProfileScript : MonoBehaviour, IDataPersistence {
-        public TMP_Text text;
-        // Start is called before the first frame update
-        void Start() {
-            text.text = "My name is Hong";
-        }
         
+        private string _name = "asd";
+        public TMP_Text text;
+        
+        void Start() {
+            text.text = _name;
+        }
+
+        private void Update() {
+            text.text = _name;
+        }
+
         public void LoadData(GameData data) {
-            // text.text = data
+            this._name = data.playerData.name;
         }
 
         public void SaveData(GameData data) {
-            throw new NotImplementedException();
+            data.playerData.name = this.name;
         }
     }
 }
