@@ -8,7 +8,7 @@ public class Swim : MonoBehaviour
     public float range;
     public float maxDistance;
 
-    Vector2 waypoint; 
+   public Vector2 waypoint; 
     
     void Start()
     {
