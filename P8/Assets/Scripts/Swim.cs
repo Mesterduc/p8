@@ -16,7 +16,6 @@ public class Swim : MonoBehaviour
         setNewDestination();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position,waypoint, speed * Time.deltaTime);
@@ -27,7 +26,7 @@ public class Swim : MonoBehaviour
     }
     
 
-    void setNewDestination()
+   public void setNewDestination()
     {
        waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
 

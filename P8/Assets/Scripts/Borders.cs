@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Borders : MonoBehaviour
 {
- private void OnCollision2D(Collider2D collision)
+ private void OnCollisionEnter2D(Collision2D collision)
  {
     Collider2D collider = GetComponent<Collider2D>();
     Bounds bounds = collider.bounds;
@@ -15,6 +15,10 @@ public class Borders : MonoBehaviour
     float y = Mathf.Clamp(objPosition.y, bounds.min.y, bounds.max.y);
 
     objTransform.position = new Vector3(x, y, objPosition.z);
-  
+   
+   GameObject Salmon = collision.gameObject;
+   Swim swim = Salmon.GetComponent<Swim>();
+   swim.setNewDestination(); 
+   Debug.Log("Collided with " + collision.gameObject.name);
  }
 }
