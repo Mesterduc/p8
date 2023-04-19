@@ -7,11 +7,12 @@ public class Swim : MonoBehaviour
     public float speed;
     public float range;
     public float maxDistance;
+    SpriteRenderer fish;
+    public Vector2 waypoint; 
 
-   public Vector2 waypoint; 
-    
     void Start()
     {
+        fish = GetComponent<SpriteRenderer>(); 
         setNewDestination();
     }
 
@@ -25,8 +26,18 @@ public class Swim : MonoBehaviour
         }
     }
     
+
     void setNewDestination()
     {
+      Vector2 direction = waypoint - (Vector2)transform.position;   
+     if (direction.x < 0)
+       {
+        fish.flipX = true;
+       }
+       else
+       {
+        fish.flipX = false; 
+       }
         waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
     }
 }
