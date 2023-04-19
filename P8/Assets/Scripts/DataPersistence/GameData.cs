@@ -6,6 +6,7 @@ namespace DataPersistence {
     // Place data here 
     [System.Serializable]
     public class GameData {
+        // Alle data modeller samles her, det er dem som bliver gemt i en fil.
         public PlayerData playerData;
         public string _name;
         public List<Friend> friends = new List<Friend>();
@@ -15,7 +16,7 @@ namespace DataPersistence {
             PreLoad();
         }
         
-        
+        // loader vores program med nogen standard data
         private void PreLoad() {
             this.playerData = new PlayerData("halla halla");
             

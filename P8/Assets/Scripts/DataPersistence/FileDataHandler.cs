@@ -5,16 +5,17 @@ using UnityEngine;
 namespace DataPersistence {
     // Handles conversion of data to file
     public class FileDataHandler {
+        // sti til fil
         private string dataDirPath = "";
+        // fil navn
         private string dataFileName = "";
-        // Path.Combine account for different OS's/styre system having different path separators... sammen sætter path
-        // private string fullPath = "";
         public FileDataHandler(string dataDirPath, string dataFileName) {
             this.dataDirPath = dataDirPath;
             this.dataFileName = dataFileName;
             // this.fullPath = Path.Combine(dataDirPath, dataFileName);
         }
-
+        
+        // Load fil data til gameData
         public GameData Load() {
             // use Path.Combine to account for different OS's having different path separators
             string fullPath = Path.Combine(dataDirPath, dataFileName);
@@ -43,7 +44,8 @@ namespace DataPersistence {
             }
             return loadedData;
         }
-
+        
+        // gemmer data til fil
         public void Save(GameData data) {
             // use Path.Combine to account for different OS's having different path separators
             string fullPath = Path.Combine(dataDirPath, dataFileName);

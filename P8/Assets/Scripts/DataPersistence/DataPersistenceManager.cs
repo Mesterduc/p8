@@ -9,17 +9,21 @@ using UnityEngine.UI;
 namespace DataPersistence {
     public class DataPersistenceManager: MonoBehaviour {
         [Header("File Storage Config")]
-        [SerializeField] private string fileName;
+        // Data filnavn som indenholder vores data
+        [SerializeField] private string fileName = "data.json";
+        // Button til at manual gemme 
         [SerializeField] [CanBeNull] private Button manualSaveGame;
         
+        // Tom gameData class 
         private GameData gameData;
-        private PlayerData player;
+        // indenholder alle scenes som implementer IDataPersistence interface, så man kan loade og gemme data
         private List<IDataPersistence> dataPersistenceObjects;
+        // Håndtere fil konvertering fra Objekter til JSON fil
         private FileDataHandler dataHandler;
 
-        // Static only one instance of this class can be initialized
-        public static DataPersistenceManager Instance { get; private set; }
-
+        // Static: kun en instance af denne class kan blive initialized, den bliver sat i Awake() methoden:  
+        public static DataPersistenceManager Instance { get; private set; } // shorthand for en get og set methode
+        
         private void Awake() 
         {
             if (Instance != null) {
@@ -27,10 +31,12 @@ namespace DataPersistence {
             }
             Instance = this;
         }
-        // loads the data to classes.
+        // Start bliver kaldt i starten af programmet,og giver data til alle classer
         private void Start() {
-            // Application.persistentDataPath common file location for unity
+            // Application.persistentDataPath  file location
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+            // Udkommentere Debug hvis man vil se hvor filen bliver gemt
+            // Debug.Log(Application.persistentDataPath);
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             if (manualSaveGame) {
                 manualSaveGame.onClick.AddListener(SaveGame2);
@@ -49,23 +55,24 @@ namespace DataPersistence {
                 Debug.Log("No data is found dataManager");
                 NewGame();
             }
-
+            // Looper alle scener der implementere IDataPersistence interface, og loader alt data ind til gameData
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.LoadData(gameData);
             }
         }
 
         public void SaveGame() {
-            // if we don't have any data to save, log a warning here
+            // if we don't have any data to save
             if (this.gameData == null) 
             {
                 Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
                 return;
             }
-            
+            // Looper alle scener der implementere IDataPersistence interface, og gemmer alt data ind til gameData
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.SaveData(gameData);
             }
+            // gemmer gameData til fil
             dataHandler.Save(gameData);
         }
 
@@ -88,7 +95,7 @@ namespace DataPersistence {
             dataHandler.Save(gameData);
         }
         
-        // Custom save methods here
+        // Manual Save
         public void SaveGame2() {
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.SaveData(gameData);
