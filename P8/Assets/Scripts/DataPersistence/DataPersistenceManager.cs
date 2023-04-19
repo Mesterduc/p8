@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using JetBrains.Annotations;
+using UnityEngine.UI;
 
 // Class for saving and loading game objects 
 // Save methods
@@ -8,6 +10,7 @@ namespace DataPersistence {
     public class DataPersistenceManager: MonoBehaviour {
         [Header("File Storage Config")]
         [SerializeField] private string fileName;
+        [SerializeField] [CanBeNull] private Button manualSaveGame;
         
         private GameData gameData;
         private PlayerData player;
@@ -29,15 +32,22 @@ namespace DataPersistence {
             // Application.persistentDataPath common file location for unity
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-            Debug.Log(Application.persistentDataPath);
+            if (manualSaveGame) {
+                manualSaveGame.onClick.AddListener(SaveGame2);
+            }
+            PreLoad();
             LoadGame();
+        }
+        
+        public void NewGame() {
+            this.gameData = new GameData();
         }
         
         public void LoadGame() {
             this.gameData = dataHandler.Load();
             if (this.gameData == null) {
                 Debug.Log("No data is found dataManager");
-                // TODO: start new game
+                NewGame();
             }
 
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
@@ -68,6 +78,26 @@ namespace DataPersistence {
                 FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
             return new List<IDataPersistence>(dataPersistencesObjects);
         }
+        
+        // Add things here ----------------------------------------------------------------------------------------------
 
+        // init: what should be in the game when starting
+        private void PreLoad() {
+            // initialize a new clean gameData object where data is pre populate 
+            gameData = new GameData();
+            dataHandler.Save(gameData);
+        }
+        
+        // Custom save methods here
+        public void SaveGame2() {
+            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
+                dataObject.SaveData(gameData);
+            }
+            
+            dataHandler.Save(gameData);
+            // foreach (IDataPersistence dataObject in dataPersistenceObjects) {
+            //     dataObject.LoadData(gameData);
+            // }
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace DataPersistence {
             string fullPath = Path.Combine(dataDirPath, dataFileName);
             try {
                 // create the directory the file will be written to if it doesn't already exist
-                Directory.CreateDirectory(Path.GetDirectoryName(fullPath) ?? "mitnavnerelon");
+                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
                 // serialize the C# game data object into Json
                 // Omskriver vores object/data om til JSON format

@@ -1,5 +1,6 @@
 using System;
 using DataPersistence;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 namespace Scenes.Profile {
     public class ProfileScript : MonoBehaviour, IDataPersistence {
         
-        private string _name = "asd";
+        private string _name = "";
         public TMP_Text text;
         
         void Start() {
