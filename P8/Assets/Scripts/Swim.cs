@@ -29,15 +29,16 @@ public class Swim : MonoBehaviour
 
     void setNewDestination()
     {
-      Vector2 direction = waypoint - (Vector2)transform.position;   
+       waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
+
+     Vector2 direction = waypoint - (Vector2)transform.position;
      if (direction.x < 0)
        {
         fish.flipX = true;
        }
-       else
+       else if (direction.x >= 0)
        {
         fish.flipX = false; 
        }
-        waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
     }
 }
