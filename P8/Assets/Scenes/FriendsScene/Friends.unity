@@ -3909,6 +3909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Friend: {fileID: 564227178}
   Friendslist: {fileID: 1369202353}
+  sp: {fileID: 21300000, guid: 1c912f935546b4e8eb36658725d09dd3, type: 3}
 --- !u!1 &1916203487
 GameObject:
   m_ObjectHideFlags: 0

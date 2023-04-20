@@ -22,11 +22,11 @@ namespace DataPersistence {
             
             this._name = "Ole";
             
-            friends.Add(new Friend("Ole", 10, 4));
-            friends.Add(new Friend("Jax", 99, 99));
-            friends.Add(new Friend("Sune", 490, 13));
-            friends.Add(new Friend("Sune", 490, 13));
-            friends.Add(new Friend("Sune", 490, 13));
+            friends.Add(new Friend("Predo", 10, 4, "pedro"));
+            friends.Add(new Friend("Jax", 99, 99, "sifos"));
+            friends.Add(new Friend("Yuli", 490, 13, "yuli"));
+            friends.Add(new Friend("Sifos", 490, 13, "sifos"));
+            friends.Add(new Friend("Sune", 490, 13, "pedro"));
         }
     }
 }
