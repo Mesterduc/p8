@@ -648,8 +648,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  range: 1
-  maxDistance: 10
+  range: 2
+  maxDistance: 8
   waypoint: {x: 0, y: 0}
 --- !u!50 &2113809850
 Rigidbody2D:
