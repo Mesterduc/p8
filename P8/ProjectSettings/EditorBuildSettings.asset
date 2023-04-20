@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Profile/ProfileScene.unity
     guid: cfb8192a1f5624155a93306edaef5398
   - enabled: 1
+    path: Assets/Scenes/FriendsScene/Friends.unity
+    guid: a1ce679ce9ae14c7bb79e64b8a3c2ada
+  - enabled: 1
     path: Assets/Scenes/AchievementsScene.unity
     guid: 3bce46a39927e4bb3a914f99ec73117a
   - enabled: 1

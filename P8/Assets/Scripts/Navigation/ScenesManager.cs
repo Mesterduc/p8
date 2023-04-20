@@ -16,7 +16,8 @@ namespace Navigation {
             CollectionScene,
             FriendsScrene, //obs. fejl i navnet
             GuideScene,
-            ProfileScene
+            ProfileScene,
+            Friends
         }
 
         public void LoadScene(Scene scene) {
@@ -37,7 +38,7 @@ namespace Navigation {
         
         //obs. fejl i navnet
         public void LoadFriends () {
-            SceneManager.LoadScene(Scene.FriendsScrene.ToString());
+            SceneManager.LoadScene(Scene.Friends.ToString());
         }
 
         public void LoadCollection () {

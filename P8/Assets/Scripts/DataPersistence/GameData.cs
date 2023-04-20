@@ -25,6 +25,8 @@ namespace DataPersistence {
             friends.Add(new Friend("Ole", 10, 4));
             friends.Add(new Friend("Jax", 99, 99));
             friends.Add(new Friend("Sune", 490, 13));
+            friends.Add(new Friend("Sune", 490, 13));
+            friends.Add(new Friend("Sune", 490, 13));
         }
     }
 }
