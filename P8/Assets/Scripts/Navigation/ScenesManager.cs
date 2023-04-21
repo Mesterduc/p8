@@ -5,31 +5,28 @@ using UnityEngine.SceneManagement;
 namespace Navigation {
     public class ScenesManager : MonoBehaviour {
         private static bool destroyed = false;
-        private static object lockObject = new object();
         private static ScenesManager instance;
         private int lastScene;
 
         public static ScenesManager Instance {
             get {
-                lock (lockObject) {
+                if (instance == null) {
+                    // Search for existing instance.
+                    instance = (ScenesManager)FindObjectOfType(typeof(ScenesManager));
+
+                    // Create new instance if one doesn't already exist.
                     if (instance == null) {
-                        // Search for existing instance.
-                        instance = (ScenesManager)FindObjectOfType(typeof(ScenesManager));
+                        // Need to create a new GameObject to attach the singleton to.
+                        var singletonObject = new GameObject();
+                        instance = singletonObject.AddComponent<ScenesManager>();
+                        singletonObject.name = typeof(SceneManager).ToString() + " (Singleton)";
 
-                        // Create new instance if one doesn't already exist.
-                        if (instance == null) {
-                            // Need to create a new GameObject to attach the singleton to.
-                            var singletonObject = new GameObject();
-                            instance = singletonObject.AddComponent<ScenesManager>();
-                            singletonObject.name = typeof(SceneManager).ToString() + " (Singleton)";
-
-                            // Make instance persistent.
-                            DontDestroyOnLoad(singletonObject);
-                        }
+                        // Make instance persistent.
+                        DontDestroyOnLoad(singletonObject);
                     }
-
-                    return instance;
                 }
+
+                return instance;
             }
         }
 
