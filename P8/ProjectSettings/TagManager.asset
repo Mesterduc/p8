@@ -45,9 +45,12 @@ TagManager:
   - name: background
     uniqueID: 3293981
     locked: 0
-  - name: fish
+  - name: Behind sand
     uniqueID: 3913938157
     locked: 0
   - name: foreground
     uniqueID: 1008682939
+    locked: 0
+  - name: Plants on sand
+    uniqueID: 1773335529
     locked: 0
