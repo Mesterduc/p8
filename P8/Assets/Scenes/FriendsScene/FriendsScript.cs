@@ -20,7 +20,6 @@ namespace Scenes.FriendsScene {
             addFriend.onClick.AddListener(() => {
                 Friends.Add(new Friend("Predo2", 10, 4, "pedro"));
                 UpdateUi();
-                Debug.Log("helæ");
             });
         }
 
