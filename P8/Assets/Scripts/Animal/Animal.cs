@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
-public abstract class Animal
+
+
+public abstract class Animal : MonoBehaviour
 {
     public string name;
     public string species;

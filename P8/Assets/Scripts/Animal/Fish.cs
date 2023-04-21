@@ -9,7 +9,7 @@ public class Fish : Animal
     SpriteRenderer fish;
     public Vector2 waypoint; 
 
-    public Fish() : base(name, species, type, speed)
+    public Fish(string name, string species, string type, float speed) : base(name, species, type, speed)
     {
  
     }
