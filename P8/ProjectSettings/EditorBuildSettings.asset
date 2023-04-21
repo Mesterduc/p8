@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CollectionScene.unity
     guid: f12f6bfb2893a44e895b6d1a7398f591
-  - enabled: 1
-    path: Assets/Scenes/FriendsScrene.unity
-    guid: 8ffa7f4dcd09c4625a5dc5339d587b26
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GuideScene.unity
     guid: 90b9f080a9a06428e952419171e6f6bb
@@ -30,9 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FriendsScene/Friends.unity
     guid: a1ce679ce9ae14c7bb79e64b8a3c2ada
   - enabled: 1
-    path: Assets/Scenes/AchievementsScene.unity
-    guid: 3bce46a39927e4bb3a914f99ec73117a
-  - enabled: 1
     path: Assets/Scenes/TankScene.unity
     guid: 6e54e579f5ec94c2ca8d0c9852e1a568
+  - enabled: 1
+    path: Assets/Scenes/AchievementsScene.unity
+    guid: 3bce46a39927e4bb3a914f99ec73117a
   m_configObjects: {}

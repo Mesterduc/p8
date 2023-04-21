@@ -8,7 +8,7 @@ namespace Navigation {
         private void Awake() {
             Instance = this;
         }
-    
+
         public enum Scene {
             Menu,
             TankScene,
@@ -17,7 +17,8 @@ namespace Navigation {
             FriendsScrene, //obs. fejl i navnet
             GuideScene,
             ProfileScene,
-            Friends
+            Friends,
+            AchievementsScene
         }
 
         public void LoadScene(Scene scene) {
@@ -28,29 +29,33 @@ namespace Navigation {
             SceneManager.LoadScene(Scene.Menu.ToString());
         }
 
-        public void LoadTanks () {
+        public void LoadTanks() {
             SceneManager.LoadScene(Scene.TankScene.ToString());
         }
 
-        public void LoadAddAnimal () {
+        public void LoadAddAnimal() {
             SceneManager.LoadScene(Scene.AddAnimalsScene.ToString());
         }
-        
+
         //obs. fejl i navnet
-        public void LoadFriends () {
+        public void LoadFriends() {
             SceneManager.LoadScene(Scene.Friends.ToString());
         }
 
-        public void LoadCollection () {
+        public void LoadCollection() {
             SceneManager.LoadScene(Scene.CollectionScene.ToString());
         }
 
-        public void LoadGuides () {
+        public void LoadGuides() {
             SceneManager.LoadScene(Scene.GuideScene.ToString());
         }
 
-        public void LoadProfile () {
+        public void LoadProfile() {
             SceneManager.LoadScene(Scene.ProfileScene.ToString());
+        }
+
+        public void LoadAchievements() {
+            SceneManager.LoadScene(Scene.AchievementsScene.ToString());
         }
     }
 }
