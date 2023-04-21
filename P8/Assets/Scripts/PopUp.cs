@@ -6,16 +6,14 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopUp : MonoBehaviour, IDataPersistence
+public class PopUp : MonoBehaviour
 {
     [SerializeField] public Button closeButton;
     [SerializeField] public Button addButton;
     [SerializeField] public Button showModal;
     [SerializeField] public GameObject modal;
     
-
     private Boolean isHidden = true;
-
 
     // Start is called before the first frame update
     private void Awake() {
@@ -27,13 +25,5 @@ public class PopUp : MonoBehaviour, IDataPersistence
     {
         modal.SetActive(isHidden);
         isHidden = !isHidden;
-    }
-
-    public void LoadData(GameData data) {
-        
-    }
-
-    public void SaveData(GameData data) {
-        data.friends.Add(new Friend("Predo2", 10, 4, "pedro"));
     }
 }

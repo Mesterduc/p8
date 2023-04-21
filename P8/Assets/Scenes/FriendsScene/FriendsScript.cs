@@ -12,13 +12,15 @@ namespace Scenes.FriendsScene {
         [SerializeField] public GameObject friend;
         [SerializeField] public Transform friendslist;
         [SerializeField] public Button addFriend;
+        private string friendIdName;
 
+        
         // Data
         private List<Friend> Friends;
 
         private void Awake() {
             addFriend.onClick.AddListener(() => {
-                Friends.Add(new Friend("Predo2", 10, 4, "pedro"));
+                Friends.Add(new Friend(friendIdName, 10, 4, "pedro"));
                 UpdateUi();
             });
         }
@@ -40,6 +42,9 @@ namespace Scenes.FriendsScene {
             }
             friend.SetActive(false);
             // Destroy(friend);
+        }
+        public void ReadStringInput(string id) {
+            friendIdName = id;
         }
 
         void UpdateUi() {
