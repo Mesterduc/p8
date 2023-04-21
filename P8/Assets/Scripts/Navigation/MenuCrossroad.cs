@@ -9,43 +9,40 @@ namespace Navigation {
         [SerializeField] private Button _collection;
         [SerializeField] private Button _guides;
         [SerializeField] private Button _profile;
-    
+
         // Start is called before the first frame update
-        private void Start()
-        {
+        private void Start() {
             _tanks.onClick.AddListener(LoadTanks);
             _addAnimal.onClick.AddListener(LoadAddAnimal);
             _friends.onClick.AddListener(LoadFriends);
             _collection.onClick.AddListener(LoadCollection);
             _guides.onClick.AddListener(LoadGuides);
             _profile.onClick.AddListener(LoadProfile);
-        
         }
-
 
 
         private void LoadTanks() {
-            ScenesManager.Instance.LoadTanks();
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.TankScene);
         }
 
         private void LoadAddAnimal() {
-            ScenesManager.Instance.LoadAddAnimal();
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.AddAnimalsScene);
         }
 
         private void LoadFriends() {
-            ScenesManager.Instance.LoadFriends();
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Friends);
         }
 
         private void LoadCollection() {
-            ScenesManager.Instance.LoadCollection();
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.CollectionScene);
         }
 
         private void LoadGuides() {
-            ScenesManager.Instance.LoadGuides();
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.GuideScene);
         }
 
         private void LoadProfile() {
-            ScenesManager.Instance.LoadProfile();
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.ProfileScene);
         }
     }
 }

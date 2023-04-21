@@ -16,7 +16,7 @@ public class PopUp : MonoBehaviour
     private Boolean isHidden = true;
 
     // Start is called before the first frame update
-    private void Awake() {
+    private void Start() {
         showModal.onClick.AddListener(Show);
         closeButton.onClick.AddListener(Show);
         addButton.onClick.AddListener(Show);

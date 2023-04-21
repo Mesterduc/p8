@@ -1,12 +1,36 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Navigation {
     public class ScenesManager : MonoBehaviour {
-        public static ScenesManager Instance;
+        private static bool destroyed = false;
+        private static object lockObject = new object();
+        private static ScenesManager instance;
+        private int lastScene;
 
-        private void Awake() {
-            Instance = this;
+        public static ScenesManager Instance {
+            get {
+                lock (lockObject) {
+                    if (instance == null) {
+                        // Search for existing instance.
+                        instance = (ScenesManager)FindObjectOfType(typeof(ScenesManager));
+
+                        // Create new instance if one doesn't already exist.
+                        if (instance == null) {
+                            // Need to create a new GameObject to attach the singleton to.
+                            var singletonObject = new GameObject();
+                            instance = singletonObject.AddComponent<ScenesManager>();
+                            singletonObject.name = typeof(SceneManager).ToString() + " (Singleton)";
+
+                            // Make instance persistent.
+                            DontDestroyOnLoad(singletonObject);
+                        }
+                    }
+
+                    return instance;
+                }
+            }
         }
 
         public enum Scene {
@@ -14,48 +38,32 @@ namespace Navigation {
             TankScene,
             AddAnimalsScene,
             CollectionScene,
-            FriendsScrene, //obs. fejl i navnet
             GuideScene,
             ProfileScene,
             Friends,
             AchievementsScene
         }
 
-        public void LoadScene(Scene scene) {
+        public void LoadSceneName(Scene scene) {
+            Instance.lastScene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(scene.ToString());
         }
 
-        public void LoadMenu() {
-            SceneManager.LoadScene(Scene.Menu.ToString());
+        public void LoadSceneIndex(int index) {
+            Instance.lastScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(index);
         }
 
-        public void LoadTanks() {
-            SceneManager.LoadScene(Scene.TankScene.ToString());
+        public void LoadPreviousScene() {
+            SceneManager.LoadScene(Instance.lastScene);
         }
 
-        public void LoadAddAnimal() {
-            SceneManager.LoadScene(Scene.AddAnimalsScene.ToString());
+        private void Awake() {
+            lastScene = 0;
         }
 
-        //obs. fejl i navnet
-        public void LoadFriends() {
-            SceneManager.LoadScene(Scene.Friends.ToString());
-        }
-
-        public void LoadCollection() {
-            SceneManager.LoadScene(Scene.CollectionScene.ToString());
-        }
-
-        public void LoadGuides() {
-            SceneManager.LoadScene(Scene.GuideScene.ToString());
-        }
-
-        public void LoadProfile() {
-            SceneManager.LoadScene(Scene.ProfileScene.ToString());
-        }
-
-        public void LoadAchievements() {
-            SceneManager.LoadScene(Scene.AchievementsScene.ToString());
+        private void OnApplicationQuit() {
+            destroyed = true;
         }
     }
 }
