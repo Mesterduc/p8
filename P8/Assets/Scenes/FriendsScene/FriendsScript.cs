@@ -9,54 +9,31 @@ using System.Collections;
 namespace Scenes.FriendsScene {
     public class FriendsScript : MonoBehaviour, IDataPersistence {
         // set in editor
-        [SerializeField] public GameObject friend;
-        [SerializeField] public Transform friendslist;
-        [SerializeField] public Button addFriend;
-
+        [SerializeField] public GameObject Friend;
+        [SerializeField] public Transform Friendslist;
+        
         // Data
         private List<Friend> Friends;
 
-        private void Awake() {
-            addFriend.onClick.AddListener(() => {
-                Friends.Add(new Friend("Predo2", 10, 4, "pedro"));
-                UpdateUi();
-                Debug.Log("helæ");
-            });
-        }
-
         void Start() {
-            for (int i = 0; i < Friends.Count; i++) {
-                GameObject newFriend = Instantiate(friend, friendslist);
-                
-                // Image
-                newFriend.transform.GetChild(0).GetComponent<Image>().sprite =
-                    Resources.Load<Sprite>("ProfileIcon/" + Friends[i].image);
 
-                // Nested components: friend Information
+            GameObject newFriend;
+            for (int i = 0; i < Friends.Count; i++) {
+                newFriend = Instantiate(Friend, Friendslist);
+                newFriend.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("ProfileIcon/" + Friends[i].image);
+
+                // Nested components
                 Transform newFriendInfo = newFriend.transform.GetChild(1).transform;
                 newFriendInfo.GetChild(0).GetComponent<TMP_Text>().text = "Name: " + Friends[i].name;
                 newFriendInfo.GetChild(1).GetComponent<TMP_Text>().text = "Level: " + Friends[i].level;
                 newFriendInfo.GetChild(2).GetComponent<TMP_Text>().text =
                     "Achievements: " + Friends[i].numberOfAchievements;
             }
-            friend.SetActive(false);
-            // Destroy(friend);
+
+            Destroy(Friend);
         }
 
-        void UpdateUi() {
-            GameObject newFriend;
-            int i = Friends.Count - 1;
-            newFriend = Instantiate(friend, friendslist);
-            newFriend.transform.GetChild(0).GetComponent<Image>().sprite =
-                Resources.Load<Sprite>("ProfileIcon/" + Friends[i].image);
-
-            // Nested components
-            Transform newFriendInfo = newFriend.transform.GetChild(1).transform;
-            newFriendInfo.GetChild(0).GetComponent<TMP_Text>().text = "Name: " + Friends[i].name;
-            newFriendInfo.GetChild(1).GetComponent<TMP_Text>().text = "Level: " + Friends[i].level;
-            newFriendInfo.GetChild(2).GetComponent<TMP_Text>().text =
-                "Achievements: " + Friends[i].numberOfAchievements;
-            newFriend.SetActive(true);
+        void Update() {
         }
 
         public void LoadData(GameData data) {
@@ -65,7 +42,6 @@ namespace Scenes.FriendsScene {
 
         public void SaveData(GameData data) {
             // throw new System.NotImplementedException();
-            data.friends = this.Friends;
         }
     }
 }

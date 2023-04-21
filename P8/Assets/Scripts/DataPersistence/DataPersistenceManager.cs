@@ -102,9 +102,9 @@ namespace DataPersistence {
             }
             
             dataHandler.Save(gameData);
-            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
-                dataObject.LoadData(gameData);
-            }
+            // foreach (IDataPersistence dataObject in dataPersistenceObjects) {
+            //     dataObject.LoadData(gameData);
+            // }
         }
     }
 }
