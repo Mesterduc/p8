@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class Animal : MonoBehaviour
+[System.Serializable]
+public abstract class Animal
 {
-    private new string name;
-    private string species;
-    private string type;
+    public string name;
+    public string species;
+    public string type;
     public float speed; 
 
     public Animal(string name, string species, string type, float speed)
