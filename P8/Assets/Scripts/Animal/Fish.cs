@@ -4,54 +4,51 @@ using UnityEngine;
 
 public class Fish : Animal
 {
-    public float range;
-    public float maxDistance;
-    SpriteRenderer fish;
-    public Vector2 waypoint; 
+    // private float range { get; set; }
+    // private float maxDistance { get; set; }
+    // SpriteRenderer fish { get; set; }
+    // private Vector2 waypoint { get; set; }
+    private Swim swim;
 
-    public Fish(string name, string species, string type, float speed) : base(name, species, type, speed)
+    public Fish(string name, string species, string type, float speed, string animated, FishSize fishSize, string realLifeImage, bool isDisplayed)
+    // public Fish(Swim swim, string name, string species, string type, float speed, string animated, FishSize fishSize, string realLifeImage, bool isDisplayed)
+    : base(name, species, type, speed, animated, fishSize, realLifeImage, isDisplayed)
     {
- 
+        // this.swim = swim;
+
     }
     public override void Move()
     {
-        swim(); 
+        throw new System.NotImplementedException();
     }
+    // public override void Move()
+    // {
+    //     waypoint = new Vector2(Random.Range(-maxDistance, maxDistance), Random.Range(-maxDistance, maxDistance));
 
-    public void swim()
-    {
-          
-     waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
+    // void Update()
+    // {
+    //     transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+    //     if (Vector2.Distance(transform.position, waypoint) < range)
+    //     {
+    //         swim();
+    //     }
+    // }
 
-     Vector2 direction = waypoint - (Vector2)transform.position;
-     if (direction.x < 0)
-       {
-        fish.flipX = true;
-       }
-       else if (direction.x >= 0)
-       {
-        fish.flipX = false; 
-       }
-    }
-    
-    void Start()
-    {
-        fish = GetComponent<SpriteRenderer>(); 
-        swim();
-    }
+    // void Start()
+    // {
+    //     fish = GetComponent<SpriteRenderer>();
+    //     Move();
+    // }
 
-    void Update()
-    {
-        transform.position = Vector2.MoveTowards(transform.position,waypoint, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position,waypoint) < range)
-        {
-            swim(); 
-        }
-    }
+    // void Update()
+    // {
+    //     transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+    //     if (Vector2.Distance(transform.position, waypoint) < range)
+    //     {
+    //         Move();
+    //     }
+    // }
 
-    }  
-       
-
-        
+}
 
 
