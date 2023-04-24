@@ -10,7 +10,7 @@ public class Fish : Animal
     // private Vector2 waypoint { get; set; }
     private Swim swim;
 
-    public Fish(string name, string species, string type, float speed, string animated, FishSize fishSize, string realLifeImage, bool isDisplayed)
+    public Fish(string name, string species, string type, float speed, string animated, AnimalSize fishSize, string realLifeImage, bool isDisplayed)
     // public Fish(Swim swim, string name, string species, string type, float speed, string animated, FishSize fishSize, string realLifeImage, bool isDisplayed)
     : base(name, species, type, speed, animated, fishSize, realLifeImage, isDisplayed)
     {
