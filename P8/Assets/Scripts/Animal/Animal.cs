@@ -2,53 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public abstract class Animal : MonoBehaviour
+public enum FishSize
 {
-    public string name;
-    public string species;
-    public string type;
-    public float speed; 
+    Small,
+    medium,
+    large
+}
 
-    public Animal(string name, string species, string type, float speed)
+public abstract class Animal
+{
+    public string name { get; set; }
+    public string species { get; set; }
+    // land eller vand type osv.
+    public string type { get; set; }
+    public float speed { get; set; }
+    // animal image
+    public string animated { get; set; }
+    public FishSize fishSize { get; set; }
+    // image of caught gish
+    public string realLifeImage { get; set; }
+    public bool isDisplayed { get; set; }
+
+
+    protected Animal(string name, string species, string type, float speed, string animated, FishSize fishSize, string realLifeImage, bool isDisplayed)
     {
-        this.name = name; 
+        this.name = name;
         this.species = species;
         this.type = type;
+        this.speed = speed;
+        this.animated = animated;
+        this.fishSize = fishSize;
+        this.realLifeImage = realLifeImage;
+        this.isDisplayed = isDisplayed;
     }
 
-    public string GetName()
-    {
-        return name;
-    }
-    public void SetName(string newName)
-    {
-        name = newName;   
-    }
-  
-    public string GetSpicies()
-    {
-        return species;
-    }
-    public void SetSpecies(string newSpecies)
-    {
-        species = newSpecies;
-    }
-    
-    public new string GetType()
-    {
-        return type;
-    }
-    public void SetType(string newType)
-    {
-        type = newType;
-    }
-
-    public void SetSpeed(float newSpeed)
-    {
-        speed = newSpeed; 
-    }
-
-     public abstract void Move(); 
+    public abstract void Move();
 
 }
