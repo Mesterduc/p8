@@ -18,20 +18,21 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 
     private void Awake()
         {
-
-           /* if(strande[0].name != null)
-            {
-                textcomponent.text = strande[0].name;
-            }
-            else{textcomponent.text = "Johnny";}
-            */
+        
         }
 
     void Start()
     {
-        Console.WriteLine(strande);
 
-        Debug.Log(strande);
+        Debug.Log(strande[0].name);
+        if(strande[0].name != null)
+            {
+                textcomponent.text = strande[0].name;
+            }
+            else
+            {
+                textcomponent.text = "Johnny";
+            }
     }
 
     // Update is called once per frame

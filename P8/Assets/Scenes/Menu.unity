@@ -582,10 +582,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 499996639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82cc375a290ee3344baa3fcb1ea835b3, type: 3}
+  m_Script: {fileID: 11500000, guid: b0a88218d3c9d7c4c97315b98ace755f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textcomponent: {fileID: 1027465958}
+  textcomponent: {fileID: 0}
 --- !u!1 &508776719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,17 +1265,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7c3cc937ad53e748b887241f06605cb, type: 3}
---- !u!114 &832449853 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 638160254910162738, guid: a7c3cc937ad53e748b887241f06605cb, type: 3}
-  m_PrefabInstance: {fileID: 787005544}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &839174495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,17 +1474,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1027465958 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6871142662736217838, guid: 6bea63b65c139d94eb3ac0f7dd1dfcb1, type: 3}
-  m_PrefabInstance: {fileID: 1086529028}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1055983054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,7 +3454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.json
-  manualSaveGame: {fileID: 832449853}
+  manualSaveGame: {fileID: 0}
 --- !u!1 &2102872719
 GameObject:
   m_ObjectHideFlags: 0

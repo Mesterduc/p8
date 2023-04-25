@@ -3,6 +3,9 @@ using UnityEngine;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine.UI;
+using System;
+
+
 
 // Class for saving and loading game objects 
 // Save methods
@@ -20,6 +23,7 @@ namespace DataPersistence {
         private List<IDataPersistence> dataPersistenceObjects;
         // Håndtere fil konvertering fra Objekter til JSON fil
         private FileDataHandler dataHandler;
+        
 
         // Static: kun en instance af denne class kan blive initialized, den bliver sat i Awake() methoden:  
         public static DataPersistenceManager Instance { get; private set; } // shorthand for en get og set methode
@@ -30,6 +34,7 @@ namespace DataPersistence {
                 Debug.LogError("Found more the one instance of DataPersistenceManager in the scene.");
             }
             Instance = this;
+            Console.WriteLine("I found something");
         }
         // Start bliver kaldt i starten af programmet,og giver data til alle classer
         private void Start() {
