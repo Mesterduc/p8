@@ -5,9 +5,14 @@ using UnityEngine.EventSystems;
 
 public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDragHandler
 {
+    Transform parentAfterDrag;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("begin");
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -17,5 +22,6 @@ public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("end");
+        transform.SetParent(parentAfterDrag);
     }
 }
