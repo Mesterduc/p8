@@ -1,6 +1,8 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace DataPersistence
 {
@@ -49,7 +51,7 @@ namespace DataPersistence
             Destination ballehage = new Destination("Ballehage", "Ballehage er et super sted at være om sommeren", strand);
 
             strande.Add(ballehage);
-
+            strande.Add(new Destination("Johnson", "Johnson er et super sted at være om sommeren", strand));
 
         }
     }

@@ -1,11 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 using DataPersistence;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System;
 
 
-namespace Scenes{
+namespace Magnus.johnson{
 
 public class MenuScript : MonoBehaviour, IDataPersistence
 {
@@ -15,11 +18,21 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 
     private void Awake()
         {
-            if(Friends[0] != null)
-            {textcomponent.text = Friends[0].name;}
+
+           /* if(strande[0].name != null)
+            {
+                textcomponent.text = strande[0].name;
+            }
             else{textcomponent.text = "Johnny";}
-            
+            */
         }
+
+    void Start()
+    {
+        Console.WriteLine(strande);
+
+        Debug.Log(strande);
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,13 +43,11 @@ public class MenuScript : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.strande = data.strande;
-        this.Friends = data.friends;
     }
 
     public void SaveData(GameData data)
     {
          // throw new System.NotImplementedException();
         data.strande = this.strande;
-        data.friends = this.Friends;
     }
 }}
