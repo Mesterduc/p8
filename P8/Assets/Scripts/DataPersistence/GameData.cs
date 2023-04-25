@@ -1,6 +1,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using Animals;
 using UnityEngine;
 
 
@@ -53,6 +54,9 @@ namespace DataPersistence
             strande.Add(ballehage);
             strande.Add(new Destination("Johnson", "Johnson er et super sted at være om sommeren", strand));
 
+            fishes.Add(new Fish("Predo", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
+            fishes.Add(new Fish("Predo2", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
+            // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
         }
     }
 }
