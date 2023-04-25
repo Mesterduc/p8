@@ -15,4 +15,10 @@ public class ButtonGone : MonoBehaviour
     {
         
     }
+
+    void OnMouseDown(){
+         // this object was clicked - do something
+     Destroy (this.gameObject); 
+    }
+    
 }
