@@ -5,14 +5,20 @@ using Random = UnityEngine.Random;
 
 namespace Animals {
     public class MovementTest : MonoBehaviour {
-        public Animal animal;
+        // public Animal animal;
         public float speed = 20;
         public float range = 10;
         public float maxDistance = 100;
         public SpriteRenderer fish;
         public Vector2 waypoint;
-        public Vector2 currentPosition;
-        
+        // public Vector2 currentPosition;
+
+        // private void Awake() {
+        //     speed = animal.movement.speed;
+        //     maxDistance = animal.movement.maxDistance;
+        //     range = animal.movement.range;
+        //     currentPosition = animal.movement.currentPosition;
+        // }
         void Start()
          {
              setNewDestination();
@@ -20,8 +26,8 @@ namespace Animals {
         
          void Update()
          {
-             transform.position = Vector2.MoveTowards(currentPosition,waypoint, speed * Time.deltaTime);
-             if (Vector2.Distance(currentPosition,waypoint) < range)
+             transform.position = Vector2.MoveTowards(transform.position,waypoint, speed * Time.deltaTime);
+             if (Vector2.Distance(transform.position,waypoint) < range)
              {
                  setNewDestination(); 
              }
@@ -48,10 +54,7 @@ namespace Animals {
         // }
         //
         // public void SaveData(GameData data) {
-        //     // Animal dbAnimal = data.animals.Find(animal => animal.id == this.animal.id);
-        //     // // this
-        //     // Animal dbAnimal = data.animals.Find(x => x.id == this.animal.id);
-        //     // dbAnimal.movement.currentPosition = transform.position;
+        //     data.animals.Find(animal => animal.id == this.animal.id);
         // }
     }
 }
