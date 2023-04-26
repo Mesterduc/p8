@@ -16,17 +16,14 @@ namespace Animals {
         public int id;
         public string name;
         public string animated;// animal image
-        public string animation; // animal image
+        public string animation; // animal animation
         public bool isDisplayed; // synlighed i inventory
         public Movement movement;
-
         public AnimalSize animalSize;
-
-        // public string species { get; set; } : ny class? colletion?
-        // public string type { get; set; } : land eller vand type osv.
-        // har vi ikke med endnu: image of caught animal
-        // public string realLifeImage { get; set; }
-        public Animal(int id, string name, string animated, string animation, bool isDisplayed, AnimalSize animalSize, Movement movement) {
+        public FishTrivia species;
+        
+        // public string realLifeImage { get; set; } : har vi ikke med endnu: image of caught animal
+        public Animal(int id, string name, string animated, string animation, bool isDisplayed, AnimalSize animalSize, Movement movement, FishTrivia species) {
             this.id = id;
             this.name = name;
             this.animated = animated;
@@ -34,7 +31,7 @@ namespace Animals {
             this.isDisplayed = isDisplayed;
             this.animalSize = animalSize;
             this.movement = movement;
-            // this.species = new species();
+            this.species = species;
             // this.type = type;
             // this.realLifeImage = realLifeImage;
 

@@ -15,6 +15,7 @@ namespace DataPersistence
         public string _name;
         public List<Friend> friends = new List<Friend>();
         public List<Animal> animals = new List<Animal>();
+        public List<FishTrivia> fishTrivia = new List<FishTrivia>();
 
         //Magnus datamodel
         public List<Destination> strande = new List<Destination>();
@@ -38,26 +39,21 @@ namespace DataPersistence
             friends.Add(new Friend("Sifos", 490, 13, "sifos"));
             // friends.Add(new Friend("Sune", 490, 13, "pedro"));
 
-            // fishes.Add(new Fish("Predo", "Sild", "Water animal", 2, "asd", FishSize.large, "wwq", false));
-            // fishes.Add(new Fish("Predo2", "Sild", "Water animal", 2, "asd", FishSize.large, "wwq", false));
-            // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", FishSize.large, "wwq", false));
-
-
-
             // Magnus' forsøg på at loade menu
             Activity fang_krabber = new Activity("Krabbejagt", "Lav et net og gå i gang");
             FishTrivia krabbe = new FishTrivia("Krabbe", "krabbebillede", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
             Biome strand = new Biome("Stranden", fang_krabber, krabbe);
             Destination ballehage = new Destination("Ballehage", "Ballehage er et super sted at være om sommeren", strand);
+            
+            fishTrivia.Add(krabbe);
 
             strande.Add(ballehage);
             strande.Add(new Destination("Johnson", "Johnson er et super sted at være om sommeren", strand));
 
+            
             Movement move = new Movement(30, 1, 100, new Vector2(0, 0));
-            Movement move = new Movement(30, 1, 100);
-            Movement move = new Movement(30, 1, 100, new Vector2(0, 0));
-            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move ));
-            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move));
+            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
+            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
         }
     }
