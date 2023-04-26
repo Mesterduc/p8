@@ -586,9 +586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinations: []
-  textcomponent: {fileID: 1027465958}
-  destinationPrefab: {fileID: 3588033181599642886, guid: aba70ab46a09bab4fb5dfae1eec22910, type: 3}
-  destinationList: {fileID: 1958684292}
+  textcomponent: {fileID: 0}
+  destinationPrefab: {fileID: 0}
+  destinationList: {fileID: 0}
 --- !u!1 &508776719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,17 +1464,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1027465958 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6871142662736217838, guid: 6bea63b65c139d94eb3ac0f7dd1dfcb1, type: 3}
-  m_PrefabInstance: {fileID: 1086529028}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1055983054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,8 +3150,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876593885}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.548, y: 6.036, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.548, y: 6.036, z: 100}
   m_LocalScale: {x: 0.11928954, y: 0.1213201, z: 0.03906032}
   m_ConstrainProportionsScale: 0
   m_Children:
