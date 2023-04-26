@@ -43,6 +43,9 @@ namespace Tank
                     move.animal = animal;
             }
         }
+        // TODO: Script
+        // TODO: Husk position
+        // TODO: Custom movement script 
 
         public void LoadData(GameData data)
         {
@@ -51,11 +54,7 @@ namespace Tank
 
         public void SaveData(GameData data)
         {
-            // foreach (var animal in animals) {
-            //     animal.movement.currentPosition = 
-            // }
             data.animals = this.animals;
-            // data.animals[0].movement.currentPosition = new Vector2(100, 100);
         }
     }
 }

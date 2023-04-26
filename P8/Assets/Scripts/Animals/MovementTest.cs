@@ -1,9 +1,10 @@
+using DataPersistence;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Animals 
 {
-    public class MovementTest : MonoBehaviour {
+    public class MovementTest : MonoBehaviour, IDataPersistence {
         public Animal animal;
         public float speed = 20;
         public float range = 10;
@@ -11,8 +12,7 @@ namespace Animals
         public SpriteRenderer fishSprite;
         public Vector2 waypoint;
 
-        void Start()
-         {
+        void Start() {
             speed = animal.movement.speed;
             maxDistance = animal.movement.maxDistance;
             range = animal.movement.range;
@@ -29,7 +29,6 @@ namespace Animals
              }
          }
          
-        
         private void SetNewDestination()
          {
             waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
@@ -45,17 +44,15 @@ namespace Animals
             }
          }
 
-        // public void LoadData(GameData data) {
-        //     Debug.Log("anni load");
-        //     
-        // }
-        //
-        // public void SaveData(GameData data) {
-        //     Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
-        //     Debug.Log(findAnimal);
-        //     Debug.Log("anni");
-        //      findAnimal.movement.currentPosition = transform.position;
-        //
-        // }
+        public void LoadData(GameData data) {
+            
+        }
+        
+        public void SaveData(GameData data) {
+            Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
+            Debug.Log(findAnimal);
+             findAnimal.movement.currentPosition = waypoint;
+        
+        }
     }
 }
