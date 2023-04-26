@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using DataPersistence;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 namespace Scenes.FriendsScene
 {
@@ -15,7 +13,6 @@ namespace Scenes.FriendsScene
         [SerializeField] public Transform friendslist;
         [SerializeField] public Button addFriend;
         private string friendIdName;
-
 
         // Data
         private List<Friend> Friends;
@@ -76,7 +73,6 @@ namespace Scenes.FriendsScene
 
         public void SaveData(GameData data)
         {
-            // throw new System.NotImplementedException();
             data.friends = this.Friends;
         }
     }

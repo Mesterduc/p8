@@ -1,9 +1,9 @@
-using System;
 using DataPersistence;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Animals {
+namespace Animals 
+{
     public class MovementTest : MonoBehaviour, IDataPersistence {
         public Animal animal;
         public float speed = 20;
@@ -12,9 +12,6 @@ namespace Animals {
         public SpriteRenderer fishSprite;
         public Vector2 waypoint;
 
-        private void Awake() {
-            // currentPosition = animal.movement.currentPosition;
-        }
         void Start()
          {
             speed = animal.movement.speed;
@@ -49,17 +46,16 @@ namespace Animals {
             }
          }
 
-        private void OnApplicationQuit() {
-            DataPersistenceManager.Instance.SaveGame2();
-        }
-
         public void LoadData(GameData data) {
+            Debug.Log("anni load");
             
         }
         
         public void SaveData(GameData data) {
             Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
-            findAnimal.movement.currentPosition = this.animal.movement.currentPosition;
+            Debug.Log(findAnimal);
+            Debug.Log("anni");
+             findAnimal.movement.currentPosition = new Vector2(100,100);
             data._name = "mad";
 
         }

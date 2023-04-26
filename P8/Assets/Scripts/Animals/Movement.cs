@@ -3,6 +3,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Animals {
+    [System.Serializable]
     public class Movement {
         public float speed = 1;
         public float range = 1;
