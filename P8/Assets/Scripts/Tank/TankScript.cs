@@ -11,6 +11,7 @@ namespace Tank
         private List<Animal> animals = new List<Animal>();
         [SerializeField] private Transform placement;
         private GameObject fishTemp;
+        private Vector3 fishSize;
         private void Awake() {
             fishTemp = new GameObject("Fish");
         }
@@ -20,12 +21,24 @@ namespace Tank
                     GameObject newFish = Instantiate(fishTemp, placement);
                     newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
                     newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
-                    // ændre størrelse
-                    newFish.transform.localScale = new Vector3(10, 10, 1);
+                    //size of fish
+                    switch (animal.animalSize) {
+                        case AnimalSize.large:
+                            fishSize = new Vector3(15 * 2, 15 * 2, 1);
+                            break;
+                        case AnimalSize.medium:
+                            fishSize = new Vector3(15 * 1.5f, 15 * 1.5f, 1);
+                            break;
+                        case AnimalSize.Small:
+                            fishSize = new Vector3(15, 15, 1);
+                            break;
+                    }
+                    newFish.transform.localScale = fishSize;
+                    
                     newFish.transform.position = animal.movement.currentPosition;   // start position
                     newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
                     
-                    // script: hvordan får jeg forskellige scripts på fisk???
+                    // TODO: script: hvordan får jeg forskellige scripts på fisk???
                     MovementTest move = newFish.AddComponent<MovementTest>();
                     move.animal = animal;
             }
@@ -38,7 +51,11 @@ namespace Tank
 
         public void SaveData(GameData data)
         {
+            // foreach (var animal in animals) {
+            //     animal.movement.currentPosition = 
+            // }
             data.animals = this.animals;
+            // data.animals[0].movement.currentPosition = new Vector2(100, 100);
         }
     }
 }
