@@ -42,12 +42,14 @@ namespace DataPersistence {
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             // Udkommentere Debug hvis man vil se hvor filen bliver gemt
             // Debug.Log(Application.persistentDataPath);
+            
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             if (manualSaveGame) {
                 manualSaveGame.onClick.AddListener(SaveGame2);
             }
             PreLoad();
             LoadGame();
+            // SaveGame();
         }
         
         public void NewGame() {
@@ -102,14 +104,15 @@ namespace DataPersistence {
         
         // Manual Save
         public void SaveGame2() {
+            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.SaveData(gameData);
             }
             
             dataHandler.Save(gameData);
-            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
-                dataObject.LoadData(gameData);
-            }
+            // foreach (IDataPersistence dataObject in dataPersistenceObjects) {
+            //     dataObject.LoadData(gameData);
+            // }
         }
     }
 }

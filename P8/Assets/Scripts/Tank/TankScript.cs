@@ -43,7 +43,6 @@ namespace Tank
                     move.animal = animal;
             }
         }
-        // TODO: pop up
         // TODO: Script
         // TODO: Husk position
         // TODO: Custom movement script 
