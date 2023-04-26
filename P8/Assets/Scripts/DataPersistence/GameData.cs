@@ -1,6 +1,8 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace DataPersistence
 {
@@ -13,6 +15,9 @@ namespace DataPersistence
         public string _name;
         public List<Friend> friends = new List<Friend>();
         public List<Fish> fishes = new List<Fish>();
+
+        //Magnus datamodel
+        public List<Destination> strande = new List<Destination>();
 
 
         public GameData()
@@ -36,6 +41,18 @@ namespace DataPersistence
             // fishes.Add(new Fish("Predo", "Sild", "Water animal", 2, "asd", FishSize.large, "wwq", false));
             // fishes.Add(new Fish("Predo2", "Sild", "Water animal", 2, "asd", FishSize.large, "wwq", false));
             // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", FishSize.large, "wwq", false));
+
+
+
+            // Magnus' forsøg på at loade menu
+            Activity fang_krabber = new Activity("Krabbejagt", "Lav et net og gå i gang");
+            FishTrivia krabbe = new FishTrivia("Krabbe", "krabbebillede", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            Biome strand = new Biome("Stranden", fang_krabber, krabbe);
+            Destination ballehage = new Destination("Ballehage", "Ballehage er et super sted at være om sommeren", strand);
+
+            strande.Add(ballehage);
+            strande.Add(new Destination("Johnson", "Johnson er et super sted at være om sommeren", strand));
+
         }
     }
 }
