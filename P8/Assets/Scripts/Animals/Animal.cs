@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Animals;
 using UnityEngine;
 
 public enum AnimalSize
@@ -8,34 +9,30 @@ public enum AnimalSize
     medium,
     large
 }
-
-public abstract class Animal
+public class Animal
 {
+    public int id { get; set; }
     public string name { get; set; }
-    public string species { get; set; }
-    // land eller vand type osv.
-    public string type { get; set; }
-    public float speed { get; set; }
-    // animal image
-    public string animated { get; set; }
+    public string animated { get; set; } // animal image
+    public string animation { get; set; } // animal image
+    public bool isDisplayed { get; set; } // synlighed i inventory
+    public Movement movement;
     public AnimalSize animalSize { get; set; }
-    // image of caught animal
-    public string realLifeImage { get; set; }
-    public bool isDisplayed { get; set; }
-
-
-    protected Animal(string name, string species, string type, float speed, string animated, AnimalSize animalSize, string realLifeImage, bool isDisplayed)
-    {
+    // public string species { get; set; } : ny class? colletion?
+    // public string type { get; set; } : land eller vand type osv.
+    // har vi ikke med endnu: image of caught animal
+    // public string realLifeImage { get; set; }
+    public Animal(int id, string name, string animated, string animation, bool isDisplayed, AnimalSize animalSize, Movement movement) {
+        this.id = id;
         this.name = name;
-        this.species = species;
-        this.type = type;
-        this.speed = speed;
         this.animated = animated;
-        this.animalSize = animalSize;
-        this.realLifeImage = realLifeImage;
+        this.animation = animation;
         this.isDisplayed = isDisplayed;
+        this.animalSize = animalSize;
+        this.movement = movement;
+        // this.species = new species();
+        // this.type = type;
+        // this.realLifeImage = realLifeImage;
+
     }
-
-    public abstract void Move();
-
 }

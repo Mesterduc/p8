@@ -11,11 +11,10 @@ namespace DataPersistence
     [System.Serializable]
     public class GameData
     {
-        // Alle data modeller samles her, det er dem som bliver gemt i en fil.
         public PlayerData playerData;
         public string _name;
         public List<Friend> friends = new List<Friend>();
-        public List<Fish> fishes = new List<Fish>();
+        public List<Animal> animals = new List<Animal>();
 
         //Magnus datamodel
         public List<Destination> strande = new List<Destination>();
@@ -54,9 +53,33 @@ namespace DataPersistence
             strande.Add(ballehage);
             strande.Add(new Destination("Johnson", "Johnson er et super sted at være om sommeren", strand));
 
-            fishes.Add(new Fish("Predo", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
-            fishes.Add(new Fish("Predo2", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
+            Movement move = new Movement(30, 1, 100, new Vector2(0, 0));
+            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move ));
+            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move));
             // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

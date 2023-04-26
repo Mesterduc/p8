@@ -13,77 +13,45 @@ namespace Tank
 {
     public class TankScript : MonoBehaviour, IDataPersistence
     {
-        private List<Fish> fishes = new List<Fish>();
+        private List<Animal> animals = new List<Animal>();
         [SerializeField] private Transform placement;
-
-        private GameObject newFish;
-        private List<GameObject> fishObjects = new List<GameObject>();
-        
-        public float speed = 20;
-        public float range = 100;
-        public float maxDistance = 1000;
-        public Vector2 waypoint;
-        private SpriteRenderer sp;
+        private GameObject fishTemp;
 
         private void Awake() {
-            newFish = new GameObject("Fish");
+            fishTemp = new GameObject("Fish");
         }
 
-        void Start()
-        {
-            waypoint = new Vector2(Random.Range(-maxDistance, maxDistance), Random.Range(-maxDistance, maxDistance));
-            for (int i = 0; i < fishes.Count; i++)
-            {
-                // GameObject parent = Instantiate(new GameObject(), placement);
-                // parent.name = "parent";
-                
-                // GameObject newFish = Instantiate(new GameObject(), parent.transform, true);
-                Instantiate(newFish);
-                // newFish.name = "Fish";
-                newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Fish/" + "Sild");
-                sp = newFish.GetComponent<SpriteRenderer>();
-                newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
-                newFish.transform.localScale = new Vector3(10, 10, 1); 
-                newFish.transform.position = new Vector3(0, 0, 0);
-                newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Fish/SildAnimator");
-                fishObjects.Add(newFish);
-                // fishObjects.Add(parent);
-            }
-        }
-
-        private void Update() {
-            for (int i = 0; i < fishObjects.Count; i++) {
-                fishObjects[i].transform.position = Vector2.MoveTowards(fishObjects[i].transform.position,waypoint, speed * Time.deltaTime);
-                if (Vector2.Distance(fishObjects[i].transform.position,waypoint) < range)
-                {
-                    setNewDestination(fishObjects[i]); 
-                }
-            }
-        }
-        
-        public void setNewDestination(GameObject fish)
-        {
-            waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),Random.Range (-maxDistance, maxDistance));
-            
-            Vector2 direction = waypoint - (Vector2)transform.position;
-            if (direction.x < 0)
-            {
-                 sp.flipX = true;
-            }
-            else if (direction.x >= 0)
-            {
-                sp.flipX = false; 
+        void Start() {
+            foreach (var animal in animals) {
+                    // Create object 
+                    GameObject newFish = Instantiate(fishTemp, placement);
+                    
+                    newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
+                    newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
+                    // ændre størrelse
+                    newFish.transform.localScale = new Vector3(10, 10, 1);
+                    newFish.transform.position = animal.movement.currentPosition;   // start position
+                    newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
+                    
+                    // script
+                    MovementTest move = newFish.AddComponent<MovementTest>();
+                    // move.animal = animal;
+                    move.speed = animal.movement.speed;
+                    move.maxDistance = animal.movement.maxDistance;
+                    move.range = animal.movement.range;
+                    move.currentPosition = animal.movement.currentPosition;
+                    move.fish = newFish.GetComponent<SpriteRenderer>();
             }
         }
 
         public void LoadData(GameData data)
         {
-            this.fishes = data.fishes;
+            this.animals = data.animals;
         }
 
         public void SaveData(GameData data)
         {
-            data.fishes = this.fishes;
+            data.animals = this.animals;
         }
     }
 }
