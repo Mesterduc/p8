@@ -45,6 +45,9 @@ namespace DataPersistence
 
 
             // Magnus' forsøg på at loade menu
+
+            Vector2 position = new Vector2(3, 3);
+
             Activity fang_krabber = new Activity("Krabbejagt", "Find en tøjklemme og en snor. Put en blåmusling på tøjklemmen og sænk den ned i vandet. Så er der krabber!");
             Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
             Activity fang_myg = new Activity("Myggejagt", "Der er myg over det hele, bare vent og se");
@@ -100,10 +103,10 @@ namespace DataPersistence
             Biome skov = new Biome("Skov", skov_aktiviteter, skov_dyr);
             Biome hede = new Biome("Hede", hede_aktiviteter, hede_dyr);
 
-            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede);
-            Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov);
-            Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn);
-            Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand);
+            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, position);
+            Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, position);
+            Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, position);
+            Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand, position);
 
             destinations.Add(dall_hede);
             destinations.Add(rold_skov);
