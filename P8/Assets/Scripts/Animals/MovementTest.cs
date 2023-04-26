@@ -4,24 +4,24 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Animals {
-    public class MovementTest : MonoBehaviour {
-        // public Animal animal;
+    public class MovementTest : MonoBehaviour, IDataPersistence {
+        public Animal animal;
         public float speed = 20;
         public float range = 10;
         public float maxDistance = 100;
-        public SpriteRenderer fish;
+        public SpriteRenderer fishSprite;
         public Vector2 waypoint;
-        // public Vector2 currentPosition;
 
-        // private void Awake() {
-        //     speed = animal.movement.speed;
-        //     maxDistance = animal.movement.maxDistance;
-        //     range = animal.movement.range;
-        //     currentPosition = animal.movement.currentPosition;
-        // }
+        private void Awake() {
+            // currentPosition = animal.movement.currentPosition;
+        }
         void Start()
          {
-             setNewDestination();
+            speed = animal.movement.speed;
+            maxDistance = animal.movement.maxDistance;
+            range = animal.movement.range;
+            fishSprite = GetComponent<SpriteRenderer>();
+            setNewDestination();
          }
         
          void Update()
@@ -41,20 +41,27 @@ namespace Animals {
           Vector2 direction = waypoint - (Vector2)transform.position;
           if (direction.x < 0)
             {
-             fish.flipX = true;
+                fishSprite.flipX = true;
             }
             else if (direction.x >= 0)
             {
-             fish.flipX = false; 
+                fishSprite.flipX = false; 
             }
          }
 
-        // public void LoadData(GameData data) {
-        //     
-        // }
-        //
-        // public void SaveData(GameData data) {
-        //     data.animals.Find(animal => animal.id == this.animal.id);
-        // }
+        private void OnApplicationQuit() {
+            DataPersistenceManager.Instance.SaveGame2();
+        }
+
+        public void LoadData(GameData data) {
+            
+        }
+        
+        public void SaveData(GameData data) {
+            Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
+            findAnimal.movement.currentPosition = this.animal.movement.currentPosition;
+            data._name = "mad";
+
+        }
     }
 }

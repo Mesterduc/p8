@@ -2,12 +2,7 @@ using System;
 using System.Collections.Generic;
 using Animals;
 using DataPersistence;
-using JetBrains.Annotations;
-using Navigation;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 namespace Tank
 {
@@ -24,20 +19,15 @@ namespace Tank
             foreach (var animal in animals) {
                     GameObject newFish = Instantiate(fishTemp, placement);
                     newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
-                    // sp = newFish.GetComponent<SpriteRenderer>();
                     newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
                     // ændre størrelse
                     newFish.transform.localScale = new Vector3(10, 10, 1);
-                    newFish.transform.position = new Vector3(0,0);   // start position
+                    newFish.transform.position = animal.movement.currentPosition;   // start position
                     newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
                     
-                    // script
+                    // script: hvordan får jeg forskellige scripts på fisk???
                     MovementTest move = newFish.AddComponent<MovementTest>();
-                    move.speed = animal.movement.speed;
-                    move.maxDistance = animal.movement.maxDistance;
-                    move.range = animal.movement.range;
-                    // move.currentPosition = animal.movement.currentPosition;
-                    move.fish = newFish.GetComponent<SpriteRenderer>();
+                    move.animal = animal;
             }
         }
 

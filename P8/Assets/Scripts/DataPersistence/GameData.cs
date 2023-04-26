@@ -55,6 +55,7 @@ namespace DataPersistence
 
             Movement move = new Movement(30, 1, 100, new Vector2(0, 0));
             Movement move = new Movement(30, 1, 100);
+            Movement move = new Movement(30, 1, 100, new Vector2(0, 0));
             animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move ));
             animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move));
             // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
