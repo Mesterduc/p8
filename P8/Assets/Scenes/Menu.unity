@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a88218d3c9d7c4c97315b98ace755f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textcomponent: {fileID: 0}
+  textcomponent: {fileID: 1027465958}
 --- !u!1 &508776719
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +681,6 @@ GameObject:
   - component: {fileID: 551527807}
   - component: {fileID: 551527806}
   - component: {fileID: 551527809}
-  - component: {fileID: 551527808}
   m_Layer: 0
   m_Name: RoldSkov
   m_TagString: Untagged
@@ -757,18 +756,6 @@ Transform:
   m_Father: {fileID: 1958684292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &551527808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551527804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada33059ad1c284438e466f27640c11c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &551527809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1474,6 +1461,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1027465958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6871142662736217838, guid: 6bea63b65c139d94eb3ac0f7dd1dfcb1, type: 3}
+  m_PrefabInstance: {fileID: 1086529028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1055983054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,7 +2986,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1754787298}
   - component: {fileID: 1754787299}
-  - component: {fileID: 1754787300}
   - component: {fileID: 1754787301}
   m_Layer: 0
   m_Name: DallHede
@@ -3068,18 +3065,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1754787300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754787297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada33059ad1c284438e466f27640c11c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1754787301
 BoxCollider2D:
   m_ObjectHideFlags: 0
