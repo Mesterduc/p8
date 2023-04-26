@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scenes.FriendsScene
+
 {
     public class DestinationLoader : MonoBehaviour, IDataPersistence
     {
@@ -27,8 +27,8 @@ namespace Scenes.FriendsScene
             {
                 GameObject newDestination = Instantiate(destinationPrefab, destinationList); 
                 // Image
-                newDestination.transform.GetChild(0).GetComponent<Image>().sprite =
-                    Resources.Load<Sprite>("DestinationIcon/" + destinations[i].image);
+                newDestination.transform.GetComponent<SpriteRenderer>().sprite =
+                    Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
                 // Nested components: destination information
                 Transform newDestinationInfo = newDestination.transform.GetChild(1).transform;
                 newDestinationInfo.GetChild(0).GetComponent<TMP_Text>().text = destinations[i].name;
@@ -37,6 +37,7 @@ namespace Scenes.FriendsScene
             }
         }
 
+//Aner ikke hvorfor det her er der
         public void ReadStringInput(string id)
         {
             destinationID = id;
@@ -47,8 +48,8 @@ namespace Scenes.FriendsScene
             GameObject newDestination;
             int i = destinationList.Count - 1;
             newDestination = Instantiate(destinationPrefab, destinationList); 
-            newDestination.transform.GetChild(0).GetComponent<Image>().sprite =
-                    Resources.Load<Sprite>("DestinationIcon/" + destinations[i].image);
+            newDestination.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite =
+                    Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
 
             // Nested components
             Transform newDestinationInfo = newDestination.transform.GetChild(1).transform;
