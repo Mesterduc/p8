@@ -13,19 +13,28 @@ public class MenuScript : MonoBehaviour, IDataPersistence
     public List<Destination> destinations = new List<Destination>();
     public TMP_Text textcomponent;
 
+        [SerializeField] private GameObject destinationPrefab; 
+        [SerializeField] private Transform destinationList;
+        private string destinationID;
+
     private void Awake()
         {
         }
 
     void Start()
     {
-        if(destinations[0].name != null)
+       for (int i = 0; i < destinations.Count; i++)
             {
-                textcomponent.text = destinations[0].name;
-            }
-            else
-            {
-                textcomponent.text = "Johnny";
+
+                GameObject newDestination = Instantiate(destinationPrefab, destinationList); 
+                // Image
+                newDestination.transform.GetComponent<SpriteRenderer>().sprite =
+                    Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
+                // Nested components: destination information
+                // Transform newDestinationInfo = newDestination.transform.GetChild(1).transform;
+                // newDestinationInfo.GetChild(0).GetComponent<TMP_Text>().text = destinations[i].name;
+                // newDestinationInfo.GetChild(1).GetComponent<TMP_Text>().text = destinations[i].information;
+                // newDestinationInfo.GetChild(2).GetComponent<TMP_Text>().text = destinations[i].type.name; 
             }
     }
 
@@ -34,6 +43,12 @@ public class MenuScript : MonoBehaviour, IDataPersistence
     {
         
     }
+
+
+ public void ReadStringInput(string id)
+        {
+            destinationID = id;
+        }
 
     public void LoadData(GameData data)
     {

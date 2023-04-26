@@ -20,6 +20,8 @@ public class Destination
         this.name = name;
         this.information = info;
         this.type = biome;
+
+
         this.position = position;
     }
 

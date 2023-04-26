@@ -587,6 +587,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations: []
   textcomponent: {fileID: 1027465958}
+  destinationPrefab: {fileID: 3588033181599642886, guid: aba70ab46a09bab4fb5dfae1eec22910, type: 3}
+  destinationList: {fileID: 1958684292}
 --- !u!1 &508776719
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &551527806
 SpriteRenderer:
   m_ObjectHideFlags: 0
