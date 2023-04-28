@@ -70,7 +70,7 @@ namespace DataPersistence
             skov_aktiviteter.Add(fang_myg);
             List<FishTrivia> skov_dyr = new List<FishTrivia>();
 
-            FishTrivia krabbe = new FishTrivia("Krabbe", "krabbebillede", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            FishTrivia krabbe = new FishTrivia("Krabbe", "Fish/Trout", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
             FishTrivia laks = new FishTrivia("Laks", "laksebillede", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
             FishTrivia fladfisk = new FishTrivia("Fladfisk", "fladfiskebillede", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
             FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
