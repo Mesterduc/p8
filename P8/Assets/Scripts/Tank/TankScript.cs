@@ -21,7 +21,11 @@ namespace Tank
                     GameObject newFish = Instantiate(fishTemp, placement);
                     newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
                     newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
-                    //size of fish
+                    newFish.AddComponent<Rigidbody2D>();
+                    newFish.tag = "Fish";
+                    BoxCollider2D box = newFish.AddComponent<BoxCollider2D>();
+                    box.size = new Vector3(2, 2, 1);
+                    
                     switch (animal.animalSize) {
                         case AnimalSize.large:
                             fishSize = new Vector3(15 * 2, 15 * 2, 1);
@@ -33,6 +37,7 @@ namespace Tank
                             fishSize = new Vector3(15, 15, 1);
                             break;
                     }
+                    
                     newFish.transform.localScale = fishSize;
                     
                     newFish.transform.position = animal.movement.currentPosition;   // start position
@@ -43,7 +48,6 @@ namespace Tank
                     move.animal = animal;
             }
         }
-        // TODO: Script
         // TODO: Husk position
         // TODO: Custom movement script 
 

@@ -19,7 +19,9 @@ public class PopUp : MonoBehaviour
     private void Start()
     {
         showModal.onClick.AddListener(Show);
-        closeButton.onClick.AddListener(Show);
+        if (closeButton) {
+            closeButton.onClick.AddListener(Show);
+        }
         if (addButton)
         {
             addButton.onClick.AddListener(Show);
