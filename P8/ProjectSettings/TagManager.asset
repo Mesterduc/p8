@@ -54,3 +54,9 @@ TagManager:
   - name: Plants on sand
     uniqueID: 1773335529
     locked: 0
+  - name: popups
+    uniqueID: 2209453361
+    locked: 0
+  - name: popupsContent
+    uniqueID: 350397009
+    locked: 0

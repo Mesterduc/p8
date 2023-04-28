@@ -11,13 +11,12 @@ using System;
 public class MenuScript : MonoBehaviour, IDataPersistence
 {
     public List<Destination> destinations = new List<Destination>();
-    public TMP_Text textcomponent;
+    public GameObject modal;
+    public GameObject text;
+    private bool isHidden = true;
+    private int currentWindow = -1;
 
-    [SerializeField] private GameObject objectToSpawn; 
-    [SerializeField] private Transform destinationList;
-    private string destinationID;
 
-    public Vector3 spawnPosition;
 
     private void Awake()
         {
@@ -28,8 +27,11 @@ public class MenuScript : MonoBehaviour, IDataPersistence
         Debug.Log(destinations[0]);
         for(int i = 0; i < destinations.Count; i++)
         {
+            GameObject objectToSpawn = Resources.Load("Prefabs/" + destinations[i].type.name) as GameObject;
             GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
-            location.transform.parent = GameObject.Find("pngdenmark").transform;
+            location.transform.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
+            location.transform.SetParent(GameObject.Find("pngdenmark").transform, false);
+            location.name = i.ToString();
         }
     }
 
@@ -38,16 +40,31 @@ public class MenuScript : MonoBehaviour, IDataPersistence
     {
     }
 
-     void Spawn()
+    public void ShowModal(string tag)
     {
-        // Instantiate the objectToSpawn at the spawnPosition with no rotation
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        int id = int.Parse(tag);
+        if(isHidden == true)
+        {
+            text.GetComponent<TMP_Text>().text = destinations[id].name;
+            currentWindow = id;
+            modal.SetActive(isHidden);
+            isHidden = !isHidden;
+
+        } else if(isHidden == false && currentWindow != id)
+        {
+            text.GetComponent<TMP_Text>().text = destinations[id].name;
+            currentWindow = id;
+        }
+        else
+        {
+        modal.SetActive(isHidden);
+        isHidden = !isHidden;
+        }
+
+
     }
 
- public void ReadStringInput(string id)
-        {
-            destinationID = id;
-        }
+
 
     public void LoadData(GameData data)
     {
