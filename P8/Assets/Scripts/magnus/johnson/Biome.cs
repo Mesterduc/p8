@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Biome
 {   
     public string name;
-    private List<FishTrivia> available_animals;
-    private List<Activity> activities;
+    private List<FishTrivia> available_animals = new List<FishTrivia>();
+    private List<Activity> activities = new List<Activity>();
 
 
 
-    public Biome(string name, Activity activity, FishTrivia trivia)
+    public Biome(string name, List<Activity> activity, List<FishTrivia> trivia)
     {
         this.name = name;
 
-        available_animals = new List<FishTrivia>();
-        available_animals.Add(trivia);
+        available_animals = trivia;
 
-        activities = new List<Activity>();
-        activities.Add(activity);
+        activities = activity;
     }
 
 

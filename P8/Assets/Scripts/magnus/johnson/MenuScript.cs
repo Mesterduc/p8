@@ -7,48 +7,67 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-
-namespace Magnus.johnson{
-
+[System.Serializable]
 public class MenuScript : MonoBehaviour, IDataPersistence
 {
-    private List<Friend> Friends;
-    public List<Destination> strande = new List<Destination>();
+    public List<Destination> destinations = new List<Destination>();
     public TMP_Text textcomponent;
+
+    [SerializeField] private GameObject objectToSpawn; 
+    [SerializeField] private Transform destinationList;
+    private string destinationID;
+
+    public Vector3 spawnPosition;
 
     private void Awake()
         {
-        
         }
 
     void Start()
     {
+    //    for (int i = 0; i < destinations.Count; i++)
+    //         {
 
-        Debug.Log(strande[0].name);
-        if(strande[0].name != null)
-            {
-                textcomponent.text = strande[0].name;
-            }
-            else
-            {
-                textcomponent.text = "Johnny";
-            }
+    //             GameObject objectToSpawn = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity); 
+    //             Image
+    //             objectToSpawn.transform.GetComponent<SpriteRenderer>().sprite =
+    //                 Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
+    //             Nested components: destination information
+    //             Transform newDestinationInfo = newDestination.transform.GetChild(1).transform;
+    //             newDestinationInfo.GetChild(0).GetComponent<TMP_Text>().text = destinations[i].name;
+    //             newDestinationInfo.GetChild(1).GetComponent<TMP_Text>().text = destinations[i].information;
+    //             newDestinationInfo.GetChild(2).GetComponent<TMP_Text>().text = destinations[i].type.name; 
+    //         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+          if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Spawn(); // Call the Spawn() method when the Space key is pressed
+        }
     }
+
+     void Spawn()
+    {
+        // Instantiate the objectToSpawn at the spawnPosition with no rotation
+        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+    }
+
+ public void ReadStringInput(string id)
+        {
+            destinationID = id;
+        }
 
     public void LoadData(GameData data)
     {
-        this.strande = data.strande;
+        destinations = data.destinations;
     }
 
     public void SaveData(GameData data)
     {
          // throw new System.NotImplementedException();
-        data.strande = this.strande;
+        data.destinations = this.destinations;
     }
-}}
+}
