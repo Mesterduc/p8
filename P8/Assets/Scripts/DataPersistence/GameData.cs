@@ -117,6 +117,9 @@ namespace DataPersistence
             animalpictures.Add(krabbe);
             animalpictures.Add(laks);
             animalpictures.Add(fladfisk);
+            animalpictures.Add(reje);
+            animalpictures.Add(myg);
+            animalpictures.Add(edderkop);
 
         }
     }
