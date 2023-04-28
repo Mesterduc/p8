@@ -41,7 +41,7 @@ namespace DataPersistence
 
             // Magnus' forsøg på at loade menu
 
-            Vector2 position = new Vector2(3, 3);
+            Vector3 position = new Vector3(0, 0, 1);
 
             Activity fang_krabber = new Activity("Krabbejagt", "Find en tøjklemme og en snor. Put en blåmusling på tøjklemmen og sænk den ned i vandet. Så er der krabber!");
             Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
@@ -98,15 +98,17 @@ namespace DataPersistence
             Biome skov = new Biome("Skov", skov_aktiviteter, skov_dyr);
             Biome hede = new Biome("Hede", hede_aktiviteter, hede_dyr);
 
-            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, position);
-            Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, position);
-            Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, position);
-            Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand, position);
+            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, new Vector3(-1.588f, 4.229f, 1f));
+            Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, new Vector3(0f, 0.01f, 1f));
+            Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, new Vector3(-1.533f, 5.313f, 1f));
+            Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand, new Vector3(-0.325f, 4.3679f, 1f));
+            Destination limfjorden = new Destination("Østersstranden", "Jeg fandt den her strand da jeg kiggede på ugler", skov, new Vector3(-5.73f, 1.49f, 1f));
 
             destinations.Add(dall_hede);
             destinations.Add(rold_skov);
             destinations.Add(aalborghavn);
             destinations.Add(oest_stranden);
+            destinations.Add(limfjorden);
 
             
             Movement move = new Movement(150, 20, new Vector2(500, 200));

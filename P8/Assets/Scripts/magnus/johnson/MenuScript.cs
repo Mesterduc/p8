@@ -11,13 +11,12 @@ using System;
 public class MenuScript : MonoBehaviour, IDataPersistence
 {
     public List<Destination> destinations = new List<Destination>();
-    public TMP_Text textcomponent;
+    public GameObject modal;
+    public GameObject text;
+    private bool isHidden = true;
+    private int currentWindow = -1;
 
-    [SerializeField] private GameObject objectToSpawn; 
-    [SerializeField] private Transform destinationList;
-    private string destinationID;
 
-    public Vector3 spawnPosition;
 
     private void Awake()
         {
@@ -25,40 +24,47 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-    //    for (int i = 0; i < destinations.Count; i++)
-    //         {
-
-    //             GameObject objectToSpawn = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity); 
-    //             Image
-    //             objectToSpawn.transform.GetComponent<SpriteRenderer>().sprite =
-    //                 Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
-    //             Nested components: destination information
-    //             Transform newDestinationInfo = newDestination.transform.GetChild(1).transform;
-    //             newDestinationInfo.GetChild(0).GetComponent<TMP_Text>().text = destinations[i].name;
-    //             newDestinationInfo.GetChild(1).GetComponent<TMP_Text>().text = destinations[i].information;
-    //             newDestinationInfo.GetChild(2).GetComponent<TMP_Text>().text = destinations[i].type.name; 
-    //         }
+        Debug.Log(destinations[0]);
+        for(int i = 0; i < destinations.Count; i++)
+        {
+            GameObject objectToSpawn = Resources.Load("Prefabs/" + destinations[i].type.name) as GameObject;
+            GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
+            location.transform.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
+            location.transform.SetParent(GameObject.Find("pngdenmark").transform, false);
+            location.name = i.ToString();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-          if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Spawn(); // Call the Spawn() method when the Space key is pressed
-        }
     }
 
-     void Spawn()
+    public void ShowModal(string tag)
     {
-        // Instantiate the objectToSpawn at the spawnPosition with no rotation
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        int id = int.Parse(tag);
+        if(isHidden == true)
+        {
+            text.GetComponent<TMP_Text>().text = destinations[id].name;
+            currentWindow = id;
+            modal.SetActive(isHidden);
+            isHidden = !isHidden;
+
+        } else if(isHidden == false && currentWindow != id)
+        {
+            text.GetComponent<TMP_Text>().text = destinations[id].name;
+            currentWindow = id;
+        }
+        else
+        {
+        modal.SetActive(isHidden);
+        isHidden = !isHidden;
+        }
+
+
     }
 
- public void ReadStringInput(string id)
-        {
-            destinationID = id;
-        }
+
 
     public void LoadData(GameData data)
     {
