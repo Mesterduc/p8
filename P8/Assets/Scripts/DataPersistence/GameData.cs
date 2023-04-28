@@ -111,9 +111,10 @@ namespace DataPersistence
             destinations.Add(limfjorden);
 
             
-            Movement move = new Movement(150, 20, new Vector2(500, 200));
+            Movement move = new Movement(150, 20, 400);
             animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
             animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
+            animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
 
             animalpictures.Add(krabbe);

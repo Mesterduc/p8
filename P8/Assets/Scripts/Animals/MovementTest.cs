@@ -9,7 +9,7 @@ namespace Animals {
         public Animal animal;
         public float speed = 20;
         public float range = 10;
-        public Vector2 maxDistance;
+        public float maxDistance;
         public SpriteRenderer fishSprite;
         public Vector2 waypoint;
 
@@ -35,14 +35,21 @@ namespace Animals {
 
         void OnCollisionEnter2D(Collision2D collision) {
             if (!collision.gameObject.CompareTag("Fish")) {
-                // waypoint = new Vector2(700, 400);
-                FlipSprite();
+                waypoint = new Vector2(0, 0);
+                // FlipSprite();
+                Vector2 direction = waypoint - (Vector2)transform.position;
+                if (direction.x < 0) {
+                    fishSprite.flipX = true;
+                }
+                else if (direction.x >= 0) {
+                    fishSprite.flipX = false;
+                }
             }
         }
 
         private void FlipSprite() {
-            waypoint = new Vector2(Random.Range(-maxDistance.x, maxDistance.x),
-                Random.Range(-maxDistance.y, maxDistance.y));
+            waypoint = new Vector2(Random.Range(-maxDistance, maxDistance),
+                Random.Range(-maxDistance, maxDistance));
             Vector2 direction = waypoint - (Vector2)transform.position;
             if (direction.x < 0) {
                 fishSprite.flipX = true;

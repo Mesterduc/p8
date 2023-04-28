@@ -23,6 +23,7 @@ namespace Tank
                     newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
                     newFish.AddComponent<Rigidbody2D>();
                     newFish.tag = "Fish";
+                    newFish.layer = 6;
                     BoxCollider2D box = newFish.AddComponent<BoxCollider2D>();
                     box.size = new Vector3(2, 2, 1);
                     
@@ -43,13 +44,11 @@ namespace Tank
                     newFish.transform.position = animal.movement.currentPosition;   // start position
                     newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
                     
-                    // TODO: script: hvordan får jeg forskellige scripts på fisk???
                     MovementTest move = newFish.AddComponent<MovementTest>();
                     move.animal = animal;
             }
         }
         // TODO: Husk position
-        // TODO: Custom movement script 
 
         public void LoadData(GameData data)
         {
