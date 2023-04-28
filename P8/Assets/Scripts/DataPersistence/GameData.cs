@@ -15,7 +15,7 @@ namespace DataPersistence
         public string _name;
         public List<Friend> friends = new List<Friend>();
         public List<Animal> animals = new List<Animal>();
-        public List<FishTrivia> fishTrivia = new List<FishTrivia>();
+        public List<FishTrivia> animalpictures = new List<FishTrivia>();
 
         //Magnus datamodel
         public List<Destination> destinations = new List<Destination>();
@@ -113,6 +113,11 @@ namespace DataPersistence
             animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
             animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
+
+            animalpictures.Add(krabbe);
+            animalpictures.Add(laks);
+            animalpictures.Add(fladfisk);
+
         }
     }
 }

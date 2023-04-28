@@ -10,27 +10,14 @@ using System;
 
 public class AddAnimalScript : MonoBehaviour, IDataPersistence
 {
-    private List<Friend> Friends;
-    public List<Destination> strande = new List<Destination>();
-    public TMP_Text textcomponent;
+    public List<FishTrivia> animalpictures = new List<FishTrivia>();
 
     private void Awake()
         {
-        
         }
 
     void Start()
     {
-
-        Debug.Log(strande[0].name);
-        if(strande[0].name != null)
-            {
-                textcomponent.text = strande[0].name;
-            }
-            else
-            {
-                textcomponent.text = "Johnny";
-            }
     }
 
     // Update is called once per frame
@@ -41,12 +28,12 @@ public class AddAnimalScript : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.strande = data.strande;
+        this.animalpictures = data.animalpictures;
     }
 
     public void SaveData(GameData data)
     {
          // throw new System.NotImplementedException();
-        data.strande = this.strande;
+        data.animalpictures = this.animalpictures;
     }
 }
