@@ -587,8 +587,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations: []
   textcomponent: {fileID: 0}
-  destinationPrefab: {fileID: 0}
+  objectToSpawn: {fileID: 3588033181599642886, guid: aba70ab46a09bab4fb5dfae1eec22910, type: 3}
   destinationList: {fileID: 0}
+  spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &508776719
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,28 +25,17 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-    //    for (int i = 0; i < destinations.Count; i++)
-    //         {
-
-    //             GameObject objectToSpawn = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity); 
-    //             Image
-    //             objectToSpawn.transform.GetComponent<SpriteRenderer>().sprite =
-    //                 Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
-    //             Nested components: destination information
-    //             Transform newDestinationInfo = newDestination.transform.GetChild(1).transform;
-    //             newDestinationInfo.GetChild(0).GetComponent<TMP_Text>().text = destinations[i].name;
-    //             newDestinationInfo.GetChild(1).GetComponent<TMP_Text>().text = destinations[i].information;
-    //             newDestinationInfo.GetChild(2).GetComponent<TMP_Text>().text = destinations[i].type.name; 
-    //         }
+        Debug.Log(destinations[0]);
+        for(int i = 0; i < destinations.Count; i++)
+        {
+            GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
+            location.transform.parent = GameObject.Find("pngdenmark").transform;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-          if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Spawn(); // Call the Spawn() method when the Space key is pressed
-        }
     }
 
      void Spawn()

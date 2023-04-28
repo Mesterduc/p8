@@ -46,7 +46,7 @@ namespace DataPersistence
 
             // Magnus' forsøg på at loade menu
 
-            Vector2 position = new Vector2(3, 3);
+            Vector3 position = new Vector3(0, 0, 1);
 
             Activity fang_krabber = new Activity("Krabbejagt", "Find en tøjklemme og en snor. Put en blåmusling på tøjklemmen og sænk den ned i vandet. Så er der krabber!");
             Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
