@@ -9,13 +9,11 @@ namespace Animals {
         public Animal animal;
         public float speed = 20;
         public float range = 10;
-        public float maxDistance = 100;
+        public Vector2 maxDistance;
         public SpriteRenderer fishSprite;
         public Vector2 waypoint;
-        private Rigidbody2D hej;
 
         private void Awake() {
-            // throw new NotImplementedException();
             fishSprite = GetComponent<SpriteRenderer>();
         }
 
@@ -24,33 +22,27 @@ namespace Animals {
             maxDistance = animal.movement.maxDistance;
             range = animal.movement.range;
             FlipSprite();
-            hej = GetComponent<Rigidbody2D>();
         }
 
         void Update() {
             transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
             if (Vector2.Distance(transform.position, waypoint) < range) {
-                waypoint = new Vector2(Random.Range(-maxDistance, maxDistance), Random.Range(-maxDistance, maxDistance));
+                // waypoint = new Vector2(Random.Range(-maxDistance.x, maxDistance.x),
+                //     Random.Range(-maxDistance.y, maxDistance.y));
                 FlipSprite();
             }
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
-            Debug.Log("fish");
             if (!collision.gameObject.CompareTag("Fish")) {
-                Debug.Log("wall");
-                waypoint = new Vector2(0, 0);
-                Vector2 direction = waypoint - (Vector2)transform.position;
-                if (direction.x < 0) {
-                    fishSprite.flipX = true;
-                }
-                else if (direction.x >= 0) {
-                    fishSprite.flipX = false;
-                }
+                // waypoint = new Vector2(700, 400);
+                FlipSprite();
             }
         }
 
         private void FlipSprite() {
+            waypoint = new Vector2(Random.Range(-maxDistance.x, maxDistance.x),
+                Random.Range(-maxDistance.y, maxDistance.y));
             Vector2 direction = waypoint - (Vector2)transform.position;
             if (direction.x < 0) {
                 fishSprite.flipX = true;

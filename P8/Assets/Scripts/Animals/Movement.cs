@@ -7,11 +7,11 @@ namespace Animals {
     public class Movement {
         public float speed = 1;
         public float range = 1;
-        public float maxDistance = 100;
+        public Vector2 maxDistance;
         public Vector2 currentPosition;
         // public Vector2 waypoint;
 
-        public Movement(float speed, float range, float maxDistance) {
+        public Movement(float speed, float range, Vector2 maxDistance) {
             this.speed = speed;
             this.range = range;
             this.maxDistance = maxDistance;
