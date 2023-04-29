@@ -29,7 +29,6 @@ public class MenuScript : MonoBehaviour, IDataPersistence
         {
             GameObject objectToSpawn = Resources.Load("Prefabs/" + destinations[i].type.name) as GameObject;
             GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
-            location.transform.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DestinationIcon/" + destinations[i].type.name);
             location.transform.SetParent(GameObject.Find("pngdenmark").transform, false);
             location.name = i.ToString();
         }
