@@ -12,7 +12,8 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 {
     public List<Destination> destinations = new List<Destination>();
     public GameObject modal;
-    public GameObject text;
+    public GameObject title;
+    public Transform list;
     private bool isHidden = true;
     private int currentWindow = -1;
 
@@ -44,18 +45,22 @@ public class MenuScript : MonoBehaviour, IDataPersistence
         int id = int.Parse(tag);
         if(isHidden == true)
         {
-            text.GetComponent<TMP_Text>().text = destinations[id].name;
+            title.GetComponent<TMP_Text>().text = destinations[id].name;
             currentWindow = id;
+            PopulateAnimals(id);
             modal.SetActive(isHidden);
             isHidden = !isHidden;
 
         } else if(isHidden == false && currentWindow != id)
         {
-            text.GetComponent<TMP_Text>().text = destinations[id].name;
+            DePopulateAnimals();
+            PopulateAnimals(id);
+            title.GetComponent<TMP_Text>().text = destinations[id].name;
             currentWindow = id;
         }
         else
         {
+        DePopulateAnimals();
         modal.SetActive(isHidden);
         isHidden = !isHidden;
         }
@@ -63,6 +68,21 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 
     }
 
+    private void DePopulateAnimals()
+    {
+        while (list.transform.childCount > 0) {
+        DestroyImmediate(list.transform.GetChild(0).gameObject);
+}
+    }
+
+    private void PopulateAnimals(int index)
+    {
+        for(int i = 0; i < destinations[index].type.available_animals.Count; i++)
+        {
+            GameObject objectToSpawn = Resources.Load("Trivias/" + destinations[index].type.available_animals[i].name) as GameObject;
+            GameObject animalpicture = Instantiate(objectToSpawn, list);
+        }
+    } 
 
 
     public void LoadData(GameData data)

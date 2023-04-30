@@ -6,8 +6,8 @@ using UnityEngine;
 public class Biome
 {   
     public string name;
-    private List<FishTrivia> available_animals = new List<FishTrivia>();
-    private List<Activity> activities = new List<Activity>();
+    public List<FishTrivia> available_animals = new List<FishTrivia>();
+    public List<Activity> activities = new List<Activity>();
 
 
 
