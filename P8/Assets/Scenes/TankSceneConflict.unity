@@ -9251,8 +9251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa56041de6d9f4f13abe1cc19a59fa02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryPanel: {fileID: 1581719780}
-  FishPrefab: {fileID: 51722827}
+  inventoryPanel: {fileID: 1581719780}
+  animalPrefab: {fileID: 51722827}
+  availableAnimals: []
 --- !u!1 &746561374
 GameObject:
   m_ObjectHideFlags: 0
@@ -21428,7 +21429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb15ae470a3743f7941b26ad2a32e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PrevOrAchievementsScene: {fileID: 1915714720}
   placement: {fileID: 26836071}
 --- !u!1 &2097271525
 GameObject:
@@ -21621,6 +21621,7 @@ MonoBehaviour:
   zoomSpeed: 90
   minZoom: 70
   maxZoom: 385
+  modal: {fileID: 0}
 --- !u!1001 &1586478932901624018
 PrefabInstance:
   m_ObjectHideFlags: 0
