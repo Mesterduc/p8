@@ -25,7 +25,7 @@ public class MenuScript : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-        Debug.Log(destinations[0]);
+        // Debug.Log(destinations[0]);
         for(int i = 0; i < destinations.Count; i++)
         {
             GameObject objectToSpawn = Resources.Load("Prefabs/" + destinations[i].type.name) as GameObject;
