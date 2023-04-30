@@ -686,7 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomOutMin: 1
   zoomOutMax: 8
-  zoomHaste: 5
+  zoomHaste: 0.01
 --- !u!81 &839174497
 AudioListener:
   m_ObjectHideFlags: 0
