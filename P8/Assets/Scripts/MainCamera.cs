@@ -51,7 +51,7 @@ public class MainCamera : MonoBehaviour {
 //     public float minZoom = 1f; // Min zoom level
 //     public float maxZoom = 5f; // Max zoom level
 //     public float smoothTime = 1f;
-//     private float speed = 0.001f;
+     private float speed = 0.001f;
 
 
 
@@ -78,21 +78,21 @@ public class MainCamera : MonoBehaviour {
 //    }
 
 
-//     public void MoveToSelection(Vector3 target)
-//     {
-//         Vector3 targetPos = new Vector3(target.x, target.y, 0);
-//         float distance = Vector3.Distance(transform.position, targetPos);
-//         float duration = (distance / speed)*100;
-//         float t = 0;
+     public void MoveToSelection(Vector3 target)
+     {
+         Vector3 targetPos = new Vector3(target.x, target.y, 0);
+         float distance = Vector3.Distance(transform.position, targetPos);
+         float duration = (distance / speed)*100;
+         float t = 0;
 
-//         while (t < duration) {
-//             t += Time.deltaTime;
-//             transform.position = Vector3.Lerp(transform.position, targetPos, t / duration);
-//         }
+         while (t < duration) {
+             t += Time.deltaTime;
+             transform.position = Vector3.Lerp(transform.position, targetPos, t / duration);
+         }
 
-//         transform.position = targetPos;
+         transform.position = targetPos;
 
-//         // Vector3 velocity = Vector3.zero;
-//         // transform.position = targetPos;
-//     }
+         // Vector3 velocity = Vector3.zero;
+         // transform.position = targetPos;
+     }
 }
