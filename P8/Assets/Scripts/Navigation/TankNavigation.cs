@@ -12,10 +12,10 @@ public class TankNavigation : MonoBehaviour
     void Start()
     {
         _achievements.onClick.AddListener(() => ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.AchievementsScene));
-        if (_menu)
-        {
+        // if (_menu)
+        // {
             _menu.onClick.AddListener(() => ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Menu));
-        }
+        // }
 
     }
 

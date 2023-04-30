@@ -689,8 +689,7 @@ MonoBehaviour:
   zoomSpeed: 5
   minZoom: 1
   maxZoom: 8
-  modal: {fileID: 0}
-  smoothTime: 1
+  modal: {fileID: 839174495}
 --- !u!81 &839174497
 AudioListener:
   m_ObjectHideFlags: 0
