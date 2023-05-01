@@ -5,8 +5,8 @@ namespace magnus.johnson {
     public class Biome
     {   
         public string name;
-        public List<FishTrivia> available_animals = new List<FishTrivia>();
-        public List<Activity> activities = new List<Activity>();
+        public List<FishTrivia> available_animals;
+        public List<Activity> activities;
 
 
 

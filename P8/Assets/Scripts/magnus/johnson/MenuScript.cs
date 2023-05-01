@@ -4,31 +4,30 @@ using TMPro;
 using UnityEngine;
 
 namespace magnus.johnson {
-    [System.Serializable]
     public class MenuScript : MonoBehaviour, IDataPersistence {
-        public List<Destination> destinations = new List<Destination>();
+        public List<Destination> destinations;
         public GameObject modal;
         public GameObject title;
         public Transform list;
         private bool isHidden = true;
         private int currentWindow = -1;
-
-
-        private void Awake() {
+        
+        private void Awake()
+        {
+            Debug.Log("Awake");
         }
 
         void Start() {
+            Debug.Log("Start");
             for (int i = 0; i < destinations.Count; i++) {
-                Debug.Log(destinations[0].name);
-                GameObject objectToSpawn = Resources.Load("Prefabs/" + destinations[i].type.name) as GameObject;
-                GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
-                location.transform.SetParent(GameObject.Find("pngdenmark").transform, false);
-                location.name = i.ToString();
+                Debug.Log(destinations[i].name);
+                GameObject objectToSpawn = Resources.Load<GameObject>("Prefabs/" + destinations[i].type.name);
+                if (objectToSpawn) {
+                    GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
+                    location.transform.SetParent(GameObject.Find("pngdenmark").transform, false);
+                    location.name = i.ToString();
+                }
             }
-        }
-
-        // Update is called once per frame
-        void Update() {
         }
 
         public void ShowModal(string tag) {
@@ -69,11 +68,10 @@ namespace magnus.johnson {
 
 
         public void LoadData(GameData data) {
-            destinations = data.destinations;
+            this.destinations = data.destinations;
         }
 
         public void SaveData(GameData data) {
-            // throw new System.NotImplementedException();
             data.destinations = this.destinations;
         }
     }
