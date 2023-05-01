@@ -20,6 +20,15 @@ public class Inventory : MonoBehaviour
         AddAnimal(salmon);
         Animal Trout = new Animal(1, "Trout", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
         AddAnimal(Trout);
+        Animal Herring = new Animal(1, "Trout", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
+        AddAnimal(Herring);
+        Animal fish = new Animal(1, "Trout", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
+        AddAnimal(fish);
+        Animal fisk = new Animal(1, "Trout", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
+        AddAnimal(fisk);
+        Animal animal = new Animal(1, "Trout", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
+        AddAnimal(animal);
+
 
     }
 
@@ -29,12 +38,12 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < availableAnimals.Count; i++)
         {
             GameObject newAnimal = Instantiate(animalPrefab, scrollContent.transform);
-            newAnimal.transform.SetParent(inventoryPanel, false);
             newAnimal.transform.localPosition = new Vector3(i * 150, 0, 0);
             TextMeshProUGUI[] animalInfo = newAnimal.GetComponentsInChildren<TextMeshProUGUI>();
             animalInfo[0].text = availableAnimals[i].name;
             availableAnimals[i].species = new FishTrivia(animal.name, "description", new Activity("Swimming", "Swimming guide"), "habitat", "diet", "range");
         }
+
     }
 
     public void RemoveAnimal(Animal animal)
