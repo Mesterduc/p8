@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class Activity
-{
-    public string name;
-    public string guide;
-    public string image;
-
-    public Activity(string name, string guide)
+namespace magnus.johnson {
+    [System.Serializable]
+    public class Activity
     {
-        this.name = name;
-        this.guide = guide;
+        public string name;
+        public string guide;
+        public string image;
+
+        public Activity(string name, string guide)
+        {
+            this.name = name;
+            this.guide = guide;
+        }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using magnus.johnson;
 
 
 public class AddAnimalScript : MonoBehaviour, IDataPersistence
