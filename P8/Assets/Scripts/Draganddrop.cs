@@ -38,6 +38,6 @@ public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     {
         Debug.Log("end");
         Destroy(gameObject);
-        transform.SetParent(parentAfterDrag);
+        // transform.SetParent(parentAfterDrag);
     }
 }
