@@ -18,6 +18,7 @@ namespace Tank
 
         void Start() {
             foreach (var animal in animals) {
+                if (animal.isDisplayed) {
                     GameObject newFish = Instantiate(fishTemp, placement);
                     newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
                     newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
@@ -44,8 +45,9 @@ namespace Tank
                     newFish.transform.position = animal.movement.currentPosition;   // start position
                     newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
                     
-                    MovementTest move = newFish.AddComponent<MovementTest>();
+                    FishMovement move = newFish.AddComponent<FishMovement>();
                     move.animal = animal;
+                }
             }
         }
         // TODO: Husk position

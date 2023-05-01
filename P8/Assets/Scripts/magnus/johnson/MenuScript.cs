@@ -20,7 +20,6 @@ namespace magnus.johnson {
         void Start() {
             Debug.Log("Start");
             for (int i = 0; i < destinations.Count; i++) {
-                Debug.Log(destinations[i].name);
                 GameObject objectToSpawn = Resources.Load<GameObject>("Prefabs/" + destinations[i].type.name);
                 if (objectToSpawn) {
                     GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);

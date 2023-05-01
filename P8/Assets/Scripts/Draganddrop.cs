@@ -24,6 +24,7 @@ public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     {
         GameObject dropped = eventData.pointerDrag;
         Draganddrop draggableItem = dropped.GetComponent<Draganddrop>();
+        Debug.Log(draggableItem.name);
         draggableItem.parentAfterDrag = transform;
     }
 
