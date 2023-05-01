@@ -45,7 +45,7 @@ namespace Tank
                     newFish.transform.position = animal.movement.currentPosition;   // start position
                     newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
                     
-                    FishMovement move = newFish.AddComponent<FishMovement>();
+                    AnimalMovement move = newFish.AddComponent<AnimalMovement>();
                     move.animal = animal;
                 }
             }
