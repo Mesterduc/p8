@@ -63,9 +63,9 @@ namespace Animals {
         }
 
         public void SaveData(GameData data) {
-            Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
-            Debug.Log(findAnimal);
-            findAnimal.movement.currentPosition = waypoint;
+            // Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
+            // Debug.Log(findAnimal);
+            // findAnimal.movement.currentPosition = waypoint;
         }
     }
 }

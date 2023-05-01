@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FishId : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace Animals {
+    public class AnimalId : MonoBehaviour {
+        public int ID;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake() {
+            this.ID = 4;
+        }
     }
 }
