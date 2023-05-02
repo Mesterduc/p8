@@ -18,9 +18,9 @@ namespace Animals {
         }
 
         void Start() {
-            speed = animal.GetMovement().speed;
-            maxDistance = animal.GetMovement().maxDistance;
-            range = animal.GetMovement().range;
+            speed = animal.movement.speed;
+            maxDistance = animal.movement.maxDistance;
+            range = animal.movement.range;
             FlipSprite();
         }
 
