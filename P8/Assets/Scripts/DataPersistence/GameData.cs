@@ -66,27 +66,21 @@ namespace DataPersistence
             skov_aktiviteter.Add(fang_insekter);
             List<FishTrivia> skov_dyr = new List<FishTrivia>();
 
-            FishTrivia guldsmed = new FishTrivia("Guldsmed", fang_insekter, "Andre insekter", "Sjælden", "Guldsmeden flyver tit ved ferskvandssøer");
-            FishTrivia hornbille = new FishTrivia("Hornbille", fang_insekter, "Bæ", "Almindelig", "Hornbiller har horn");
-            FishTrivia husedderkop = new FishTrivia("Husedderkop", fang_edderkopper, "Fluer", "Sjælden", "Husedderkoppen kan blive KÆÆÆÆMPE stor");
-            FishTrivia stinkbille = new FishTrivia("Stinkbille", fang_insekter, "Kolort", "Sjælden", "Stinkbillen er kendt for at stinke");
-            FishTrivia spyflue = new FishTrivia("Spyflue", fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
-            FishTrivia tæge = new FishTrivia("Tæge", fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
-            FishTrivia snegl = new FishTrivia("Snegl", fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
-            // FishTrivia krabbe = new FishTrivia("Krabbe", "Fish/Trout", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
-            // FishTrivia laks = new FishTrivia("Laks", "laksebillede", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
-            // FishTrivia fladfisk = new FishTrivia("Fladfisk", "fladfiskebillede", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
-            // FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
-            // FishTrivia myg = new FishTrivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
-            // FishTrivia edderkop = new FishTrivia("Edderkop", "edderkoppebillede", fang_edderkopper, "Insekter", "Almindelig", "8 ben og lige så mange problemer i livet");
+            FishTrivia guldsmed = new FishTrivia("Guldsmed","Fish/Sild", fang_insekter, "Andre insekter", "Sjælden", "Guldsmeden flyver tit ved ferskvandssøer");
+            FishTrivia hornbille = new FishTrivia("Hornbille", "Fish/Sild",fang_insekter, "Bæ", "Almindelig", "Hornbiller har horn");
+            FishTrivia husedderkop = new FishTrivia("Husedderkop","Fish/Sild", fang_edderkopper, "Fluer", "Sjælden", "Husedderkoppen kan blive KÆÆÆÆMPE stor");
+            FishTrivia stinkbille = new FishTrivia("Stinkbille", "Fish/Sild",fang_insekter, "Kolort", "Sjælden", "Stinkbillen er kendt for at stinke");
+            FishTrivia spyflue = new FishTrivia("Spyflue", "Fish/Sild",fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
+            FishTrivia tæge = new FishTrivia("Tæge", "Fish/Sild",fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
+            FishTrivia snegl = new FishTrivia("Snegl", "Fish/Sild",fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
 
-            FishTrivia krabbe = new FishTrivia("Krabbe", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
-            FishTrivia ørred = new FishTrivia("Ørred", fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
-            FishTrivia hornfisk = new FishTrivia("Hornfisk", fang_fisk, "Andre fisk", "Almindelig", "Den er længere end turen hjem fra Roskilde");
-            FishTrivia skrubbe = new FishTrivia("Skrubbe", fang_fisk, "Rejer, muslinger", "Almindelig", "Skrubben er svær at finde (fordi den er flad)");
-            FishTrivia pighvar = new FishTrivia("Pighvar", fang_fisk, "Rejer, muslinger", "Sjælden", "Hans mener han er jordens bedste til at fange dem");
-            FishTrivia sild = new FishTrivia("Sild", fang_fisk, "Alt", "Almindelig", "Du kan næsten ikke undgå at finde sild");
-            FishTrivia torsk = new FishTrivia("Torsk", fang_fisk, "Alt", "Sjælden", "Engang var der mange torsk. Nu kan de være svære at finde");
+            FishTrivia krabbe = new FishTrivia("Krabbe","Fish/Sild", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
+            FishTrivia hornfisk = new FishTrivia("Hornfisk", "Fish/Sild",fang_fisk, "Andre fisk", "Almindelig", "Den er længere end turen hjem fra Roskilde");
+            FishTrivia skrubbe = new FishTrivia("Skrubbe", "Fish/Sild",fang_fisk, "Rejer, muslinger", "Almindelig", "Skrubben er svær at finde (fordi den er flad)");
+            FishTrivia pighvar = new FishTrivia("Pighvar","Fish/Sild", fang_fisk, "Rejer, muslinger", "Sjælden", "Hans mener han er jordens bedste til at fange dem");
+            FishTrivia sild = new FishTrivia("Sild", "Fish/Sild",fang_fisk, "Alt", "Almindelig", "Du kan næsten ikke undgå at finde sild");
+            FishTrivia torsk = new FishTrivia("Torsk", "Fish/Sild",fang_fisk, "Alt", "Sjælden", "Engang var der mange torsk. Nu kan de være svære at finde");
 
             hede_dyr.Add(hornbille);
             hede_dyr.Add(husedderkop);
@@ -149,9 +143,23 @@ namespace DataPersistence
             // animalpictures.Add(krabbe);
             // animalpictures.Add(laks);
             // animalpictures.Add(fladfisk);
+            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
+            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
+            animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
+            animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
+            
+            FishTrivia krabbe2 = new FishTrivia("Krabbe", "Fish/Trout", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            FishTrivia laks = new FishTrivia("Laks", "laksebillede", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
+            FishTrivia fladfisk = new FishTrivia("Fladfisk", "fladfiskebillede", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
+            // FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
+            // FishTrivia myg = new FishTrivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
+            FishTrivia edderkop = new FishTrivia("Edderkop", "edderkoppebillede", fang_edderkopper, "Insekter", "Almindelig", "8 ben og lige så mange problemer i livet");
+            animalpictures.Add(krabbe2);
+            animalpictures.Add(laks);
+            animalpictures.Add(fladfisk);
             // animalpictures.Add(reje);
             // animalpictures.Add(myg);
-            // animalpictures.Add(edderkop);
+            animalpictures.Add(edderkop);
 
         }
     }
