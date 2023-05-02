@@ -26,18 +26,18 @@
 // //             });
 // //         }
 
-//     void Start()
-//     {
-//         Debug.Log(animalpictures[0]);
+    void Start()
+    {
+        // Debug.Log(animalpictures[0]);
 
-//        for (int i = 0; i<animalpictures.Count; i++)
-//        {
-//             GameObject Signe = Instantiate(objectToSpawn, animalList);
-//             //Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Fish/Sild");
-//             Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].picture);
-//        }
-//        Destroy(objectToSpawn);
-//     }
+       for (int i = 0; i<animalpictures.Count; i++)
+       {
+            GameObject Signe = Instantiate(objectToSpawn, animalList);
+            //Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Fish/Sild");
+            // Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].picture);
+       }
+       Destroy(objectToSpawn);
+    }
 
 //     // void UpdateUi()
 //     //     {
