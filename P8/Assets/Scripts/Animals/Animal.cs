@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Animals;
+using magnus.johnson;
 using UnityEngine;
 
 public enum AnimalSize

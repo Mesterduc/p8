@@ -1,29 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+namespace magnus.johnson {
+    [System.Serializable]
 
-public class Destination
-{
-    public string name { get; set; }
-    public string information{get; set; }
-    public Vector3 position{get; set; }
-
-    public Biome type { get; set; }
-
-
-
-
-    public Destination(string name, string info, Biome biome, Vector3 position)
+    public class Destination
     {
-        this.name = name;
-        this.information = info;
-        this.type = biome;
+        public string name { get; set; }
+        public string information{get; set; }
+        public Vector3 position{get; set; }
+
+        public Biome type { get; set; }
 
 
-        this.position = position;
+
+
+        public Destination(string name, string info, Biome biome, Vector3 position)
+        {
+            this.name = name;
+            this.information = info;
+            this.type = biome;
+
+
+            this.position = position;
+        }
+
+
     }
-
-
 }

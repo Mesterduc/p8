@@ -2,13 +2,14 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using Animals;
+using magnus.johnson;
 using UnityEngine;
 
 
 namespace DataPersistence
 {
     // Place data here 
-    [System.Serializable]
+    // [System.Serializable]
     public class GameData
     {
         public PlayerData playerData;
@@ -103,6 +104,10 @@ namespace DataPersistence
             havn_dyr.Add(torsk);
             havn_dyr.Add(sild);
             havn_dyr.Add(hornfisk);
+            
+            animalpictures.Add(krabbe);
+            animalpictures.Add(ørred);
+            animalpictures.Add(skrubbe);
 
 
             Biome strand = new Biome("Strand", strand_aktiviteter, strand_dyr);
@@ -112,7 +117,6 @@ namespace DataPersistence
 
             Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, new Vector3(-1.588f, 4.229f, 1f));
             Destination egholm = new Destination("Egholm", "En stor mark med en masse insekter", hede, new Vector3(-2.28f, 5.497f, 1f));
-
             Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, new Vector3(-1.859f, 3.659f, 1f));
             Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, new Vector3(-1.533f, 5.313f, 1f));
             Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand, new Vector3(-0.325f, 4.3679f, 1f));
@@ -140,12 +144,7 @@ namespace DataPersistence
             animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
             animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
-            // fishes.Add(new Fish("Predo3", "Sild", "Water animal", 2, "asd", AnimalSize.large, "wwq", false));
-
-            animalpictures.Add(krabbe);
-            animalpictures.Add(ørred);
-            animalpictures.Add(skrubbe);
-
+            animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
         }
     }
 }

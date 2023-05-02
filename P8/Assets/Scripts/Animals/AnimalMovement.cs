@@ -5,7 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Animals {
-    public class MovementTest : MonoBehaviour, IDataPersistence {
+    public class AnimalMovement : MonoBehaviour, IDataPersistence {
         public Animal animal;
         public float speed = 20;
         public float range = 10;
@@ -63,9 +63,9 @@ namespace Animals {
         }
 
         public void SaveData(GameData data) {
-            Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
-            Debug.Log(findAnimal);
-            findAnimal.movement.currentPosition = waypoint;
+            // Animal findAnimal = data.animals.Find(x => x.id == this.animal.id);
+            // Debug.Log(findAnimal);
+            // findAnimal.movement.currentPosition = waypoint;
         }
     }
 }

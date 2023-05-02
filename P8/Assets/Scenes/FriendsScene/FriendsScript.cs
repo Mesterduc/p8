@@ -44,6 +44,8 @@ namespace Scenes.FriendsScene
             friend.SetActive(false);
             // Destroy(friend);
         }
+        
+        // bruges af UI til at få input, til at finde friend
         public void ReadStringInput(string id)
         {
             friendIdName = id;
