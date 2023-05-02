@@ -73,6 +73,12 @@ namespace DataPersistence
             FishTrivia spyflue = new FishTrivia("Spyflue", fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
             FishTrivia tæge = new FishTrivia("Tæge", fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
             FishTrivia snegl = new FishTrivia("Snegl", fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
+            // FishTrivia krabbe = new FishTrivia("Krabbe", "Fish/Trout", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            // FishTrivia laks = new FishTrivia("Laks", "laksebillede", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
+            // FishTrivia fladfisk = new FishTrivia("Fladfisk", "fladfiskebillede", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
+            // FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
+            // FishTrivia myg = new FishTrivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
+            // FishTrivia edderkop = new FishTrivia("Edderkop", "edderkoppebillede", fang_edderkopper, "Insekter", "Almindelig", "8 ben og lige så mange problemer i livet");
 
             FishTrivia krabbe = new FishTrivia("Krabbe", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
             FishTrivia ørred = new FishTrivia("Ørred", fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
@@ -103,8 +109,11 @@ namespace DataPersistence
             havn_dyr.Add(hornfisk);
             
             animalpictures.Add(krabbe);
-            animalpictures.Add(ørred);
-            animalpictures.Add(skrubbe);
+            animalpictures.Add(laks);
+            animalpictures.Add(fladfisk);
+            animalpictures.Add(reje);
+            animalpictures.Add(myg);
+            animalpictures.Add(edderkop);
 
 
             Biome strand = new Biome("Strand", strand_aktiviteter, strand_dyr);
@@ -142,6 +151,9 @@ namespace DataPersistence
             animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
+
+            
+
         }
     }
 }

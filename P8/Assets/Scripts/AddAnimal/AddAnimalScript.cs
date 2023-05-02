@@ -11,16 +11,45 @@ using magnus.johnson;
 
 public class AddAnimalScript : MonoBehaviour, IDataPersistence
 {
-    public List<FishTrivia> animalpictures = new List<FishTrivia>();
+    private List<FishTrivia> animalpictures = new List<FishTrivia>();
+    public Transform animalList;
+    public GameObject objectToSpawn;
+    // public Button addAnimal;
 
-    private void Awake()
-        {
-        }
+
+
+//  public void Awake()
+//         {
+//             addAnimal.onClick.AddListener(() =>
+//             {
+//                 UpdateUi();
+//             });
+//         }
 
     void Start()
     {
+        Debug.Log(animalpictures[0]);
+
+       for (int i = 0; i<animalpictures.Count; i++)
+       {
+            GameObject Signe = Instantiate(objectToSpawn, animalList);
+            //Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Fish/Sild");
+            Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].picture);
+       }
+       Destroy(objectToSpawn);
     }
 
+    // void UpdateUi()
+    //     {
+    //         GameObject newAnimal;
+    //         int i = animalpictures.Count - 1;
+    //         newAnimal = Instantiate(objectToSpawn, animalList);
+
+    //         newAnimal.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].name);
+       
+    //         newAnimal.SetActive(true);
+    //         //Debug.Log(newAnimal.name);
+    //     }
     // Update is called once per frame
     void Update()
     {
