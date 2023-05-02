@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour {
     // ------------------------------------- Phone touch -----------------------------------------------------
-
+// tank værdi skal manual justeres 
     // Vector3 touchStart;
     // public float zoomOutMin = 1;
     // public float zoomOutMax = 8;
@@ -43,6 +43,7 @@ public class MainCamera : MonoBehaviour {
     // }
 
     // --------------------------------- Keyboard -----------------------------------------------------------------
+    // tank værdi: moveSpeed = 500, mapSize x: 1000, y: 1000, zoomSpeed = 15, minZoom = 10, maxZoom = 500
 
     public float moveSpeed = 5f; // hvor hurtigt kameraet bevæger sig
     public Vector2 mapSize = new Vector2(20f, 20f);
