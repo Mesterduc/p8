@@ -108,12 +108,7 @@ namespace DataPersistence
             havn_dyr.Add(sild);
             havn_dyr.Add(hornfisk);
             
-            animalpictures.Add(krabbe);
-            animalpictures.Add(laks);
-            animalpictures.Add(fladfisk);
-            animalpictures.Add(reje);
-            animalpictures.Add(myg);
-            animalpictures.Add(edderkop);
+            
 
 
             Biome strand = new Biome("Strand", strand_aktiviteter, strand_dyr);
@@ -152,7 +147,12 @@ namespace DataPersistence
             animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
 
-            
+            // animalpictures.Add(krabbe);
+            // animalpictures.Add(laks);
+            // animalpictures.Add(fladfisk);
+            // animalpictures.Add(reje);
+            // animalpictures.Add(myg);
+            // animalpictures.Add(edderkop);
 
         }
     }
