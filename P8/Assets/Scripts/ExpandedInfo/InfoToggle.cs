@@ -9,9 +9,16 @@ public class InfoToggle : MonoBehaviour
 
     private static GameObject activeGameObject; // static variable to keep track of the currently active GameObject
 
+    
+
     private void Start()
     {
-        info.SetActive(false);
+        info.SetActive(false); //Hides all infoboxes
+        if (info.CompareTag("Natur")) //Show infobox with the tag "Natur"
+        {
+            info.SetActive(true);
+            activeGameObject = gameObject;
+        }
     }
 
     public void OnButtonClick()

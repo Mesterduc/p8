@@ -258,7 +258,7 @@ RectTransform:
   m_Children:
   - {fileID: 1892989483}
   m_Father: {fileID: 2041721376}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -310,7 +310,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 104018538}
-        m_TargetAssemblyTypeName: showInfo, Assembly-CSharp
+        m_TargetAssemblyTypeName: InfoToggle, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 104018533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612bb660edbba4d508d11d8ee34c71c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53902a2d793c5c54a865d934ee0df28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 267604317}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 246355927}
   - component: {fileID: 246355926}
   - component: {fileID: 246355925}
-  - component: {fileID: 246355924}
+  - component: {fileID: 246355928}
   m_Layer: 5
   m_Name: NaturButton
   m_TagString: Untagged
@@ -406,26 +406,13 @@ RectTransform:
   m_Children:
   - {fileID: 846504634}
   m_Father: {fileID: 2041721376}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -725, y: 191.96}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &246355924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246355922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612bb660edbba4d508d11d8ee34c71c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 1907990700}
 --- !u!114 &246355925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,8 +457,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 246355924}
-        m_TargetAssemblyTypeName: showInfo, Assembly-CSharp
+      - m_Target: {fileID: 246355928}
+        m_TargetAssemblyTypeName: InfoToggle, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -520,6 +507,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246355922}
   m_CullTransparentMesh: 1
+--- !u!114 &246355928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246355922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53902a2d793c5c54a865d934ee0df28a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 1907990700}
 --- !u!1 &267604317
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,11 +533,11 @@ GameObject:
   - component: {fileID: 267604319}
   m_Layer: 5
   m_Name: AktiviteterInfo
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &267604318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -668,11 +668,11 @@ GameObject:
   - component: {fileID: 602176070}
   m_Layer: 5
   m_Name: DyrInfo
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &602176069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1511,7 +1511,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1730329890}
-        m_TargetAssemblyTypeName: showInfo, Assembly-CSharp
+        m_TargetAssemblyTypeName: InfoToggle, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730329885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612bb660edbba4d508d11d8ee34c71c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53902a2d793c5c54a865d934ee0df28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 602176068}
@@ -1721,7 +1721,7 @@ GameObject:
   - component: {fileID: 1907990702}
   m_Layer: 5
   m_Name: NaturInfo
-  m_TagString: Untagged
+  m_TagString: Natur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1875,9 +1875,9 @@ RectTransform:
   m_Children:
   - {fileID: 959755390}
   - {fileID: 1267475013}
-  - {fileID: 104018534}
-  - {fileID: 1730329886}
   - {fileID: 246355923}
+  - {fileID: 1730329886}
+  - {fileID: 104018534}
   - {fileID: 1907990701}
   - {fileID: 602176069}
   - {fileID: 267604318}
