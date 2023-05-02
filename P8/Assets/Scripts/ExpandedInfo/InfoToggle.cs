@@ -9,7 +9,7 @@ public class InfoToggle : MonoBehaviour
 
     private static GameObject activeGameObject; // static variable to keep track of the currently active GameObject
 
-    
+
 
     private void Start()
     {
@@ -23,13 +23,16 @@ public class InfoToggle : MonoBehaviour
 
     public void OnButtonClick()
     {
-        if (activeGameObject != null && activeGameObject != gameObject) // if there's another GameObject with an active info GameObject
+        if (!info.activeSelf) // check if this GameObject's info box is currently inactive
         {
-            activeGameObject.GetComponent<InfoToggle>().info.SetActive(false); // deactivate its info GameObject
+            if (activeGameObject != null && activeGameObject != gameObject) // if there's another GameObject with an active info box
+            {
+                activeGameObject.GetComponent<InfoToggle>().info.SetActive(false); // deactivate its info box
+            }
+
+            activeGameObject = gameObject; // set this GameObject as the currently active one
+
+            info.SetActive(true); // activate this GameObject's info box
         }
-
-        activeGameObject = gameObject; // set this GameObject as the currently active one
-
-        info.SetActive(!info.activeSelf); // toggle the info GameObject of this GameObject
     }
 }
