@@ -50,9 +50,9 @@ public class MainCamera : MonoBehaviour {
     public float zoomSpeed = 0.1f; // Hvor hurtigt den zoomer
     public float minZoom = 1f; // Min zoom level
     public float maxZoom = 5f; // Max zoom level
-    public float smoothTime = 1f;
-    private float speed = 0.1f;
-
+    public float duration = 10;
+    public float transitionTime = 1f;
+    Vector3 targetPos = new Vector3(-1.529f, 5.332f, 0);
 
     void Update() {
         // Få WASD eller piletaster ind i systemet
@@ -72,23 +72,20 @@ public class MainCamera : MonoBehaviour {
         float newZoom = Camera.main.orthographicSize - zoomInput * zoomSpeed;
         newZoom = Mathf.Clamp(newZoom, minZoom, maxZoom);
         Camera.main.orthographicSize = newZoom;
+
+
+        Vector3 newPosition = Vector3.Lerp(transform.position, targetPos, Time.deltaTime / transitionTime);
+        transform.position = newPosition;
+
     }
 
 
     public void MoveToSelection(Vector3 target) {
         Vector3 targetPos = new Vector3(target.x, target.y, 0);
-        float distance = Vector3.Distance(transform.position, targetPos);
-        float duration = (distance / speed) * 100;
-        float t = 0;
-
-        while (t < duration) {
-            t += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, targetPos, t / duration);
-        }
-
+        Vector3 newPosition = Vector3.Lerp(transform.position, targetPos, Time.deltaTime / transitionTime);
         transform.position = targetPos;
+        }
 
         // Vector3 velocity = Vector3.zero;
         // transform.position = targetPos;
     }
-}
