@@ -51,12 +51,12 @@ public class MainCamera : MonoBehaviour {
 //     public float minZoom = 1f; // Min zoom level
 //     public float maxZoom = 5f; // Max zoom level
 //     public float smoothTime = 1f;
-     private float speed = 0.001f;
+     private float speed = 0.1f;
 
 
 
 
-//     void Update()
+//     void Update() //Funktion til at bevæge kameraet med WASD i stedet for touch
 //     {
 //          // Få WASD eller piletaster ind i systemet
 //         float horizontal = Input.GetAxis("Horizontal");
