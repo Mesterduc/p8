@@ -148,12 +148,17 @@ namespace DataPersistence
             animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
             animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
             
+            // Krabbe billede
             FishTrivia krabbe2 = new FishTrivia("Krabbe", "Fish/Trout", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
-            FishTrivia laks = new FishTrivia("Laks", "laksebillede", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
-            FishTrivia fladfisk = new FishTrivia("Fladfisk", "fladfiskebillede", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
+            // Laksebillede
+            FishTrivia laks = new FishTrivia("Laks", "Fish/Trout", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
+            // Fladfiskbillede
+            FishTrivia fladfisk = new FishTrivia("Fladfisk", "Fish/Trout", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
+            // Edderkoppebillede
+            FishTrivia edderkop = new FishTrivia("Edderkop", "Fish/Trout", fang_edderkopper, "Insekter", "Almindelig", "8 ben og lige så mange problemer i livet");
+            
             // FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
             // FishTrivia myg = new FishTrivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
-            FishTrivia edderkop = new FishTrivia("Edderkop", "edderkoppebillede", fang_edderkopper, "Insekter", "Almindelig", "8 ben og lige så mange problemer i livet");
             animalpictures.Add(krabbe2);
             animalpictures.Add(laks);
             animalpictures.Add(fladfisk);
