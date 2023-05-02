@@ -42,7 +42,7 @@ namespace Tank
                     
                     newFish.transform.localScale = fishSize;
                     
-                    newFish.transform.position = animal.movement.currentPosition;   // start position
+                    newFish.transform.position = animal.GetMovement().currentPosition;   // start position
                     newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
                     
                     AnimalMovement move = newFish.AddComponent<AnimalMovement>();
