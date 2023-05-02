@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void LoadMain()
     {
-        GameObject main = GameObject.Instantiate(Resources.Load<GameObject>("prefabs/main"));
+        GameObject main = GameObject.Instantiate(Resources.Load<GameObject>("prefabs/MainData"));
         GameObject.DontDestroyOnLoad(main);
     }
     // You can choose to add any "Service" component to the Main prefab.
