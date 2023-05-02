@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class hideInfo : MonoBehaviour
 {
     public GameObject infoToHide;
-    private bool isActive = true;
+    private bool isActive;
 
   
    public  void OnButtonClick() 
     {
-        !isActive = isActive; 
-        info.SetActive(!isActive);
+        if (isActive == true)
+        {
+            isActive = false; 
+            infoToHide.SetActive(!isActive);
       
+        }
     }
 }
