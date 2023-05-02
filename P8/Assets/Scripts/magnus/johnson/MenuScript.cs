@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DataPersistence;
 using TMPro;
 using UnityEngine;
+using System;
 
 namespace magnus.johnson {
     public class MenuScript : MonoBehaviour, IDataPersistence {
@@ -9,6 +10,9 @@ namespace magnus.johnson {
         public GameObject modal;
         public GameObject title;
         public Transform list;
+        public GameObject home;
+        public TMP_Text car;
+        public TMP_Text bus;
         private bool isHidden = true;
         private int currentWindow = -1;
 
@@ -23,10 +27,20 @@ namespace magnus.johnson {
             }
         }
 
-        public void ShowModal(string tag) {
+        public void ShowModal(string tag, Vector3 position) {
+
+
+            double travel = Math.Round(Vector3.Distance(position, home.transform.position), 1) * 20;
+            double travelbus = travel * 2;
+
+            string travelTime = travel.ToString();
+            string travelTimeBus = travelbus.ToString();
+
             int id = int.Parse(tag);
             if (isHidden == true) {
                 title.GetComponent<TMP_Text>().text = destinations[id].name;
+                car.text = travelTime + " minutes";
+                bus.text = travelTimeBus + " minutes";
                 currentWindow = id;
                 PopulateAnimals(id);
                 modal.SetActive(isHidden);
@@ -36,6 +50,8 @@ namespace magnus.johnson {
                 DePopulateAnimals();
                 PopulateAnimals(id);
                 title.GetComponent<TMP_Text>().text = destinations[id].name;
+                car.text = travelTime + " minutes";
+                bus.text = travelTimeBus + " minutes";
                 currentWindow = id;
             }
             else {

@@ -14,12 +14,13 @@ namespace magnus.johnson {
             GameObject menu = GameObject.Find("UI");
             MenuScript script = menu.GetComponent<MenuScript>();
 
-            script.ShowModal(this.name);
+            script.ShowModal(this.name, transform.position);
 
             GameObject maincamera = GameObject.Find("MainCamera");
             MainCamera camerascript = maincamera.GetComponent<MainCamera>();
 
             camerascript.MoveToSelection(transform.position);
+
         }
 
 

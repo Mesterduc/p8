@@ -112,7 +112,7 @@ namespace DataPersistence
             Biome skov = new Biome("Skov", skov_aktiviteter, skov_dyr);
             Biome hede = new Biome("Hede", hede_aktiviteter, hede_dyr);
 
-            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, new Vector3(-1.588f, 4.229f, 1f));
+            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, new Vector3(-2.288f, 4.229f, 1f));
             Destination egholm = new Destination("Egholm", "En stor mark med en masse insekter", hede, new Vector3(-2.28f, 5.497f, 1f));
             Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, new Vector3(-1.859f, 3.659f, 1f));
             Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, new Vector3(-1.533f, 5.313f, 1f));
@@ -126,7 +126,6 @@ namespace DataPersistence
 
             destinations.Add(dall_hede);
             destinations.Add(rold_skov);
-            destinations.Add(aalborghavn);
             destinations.Add(oest_stranden);
             destinations.Add(limfjorden);
             destinations.Add(nibehavn);
