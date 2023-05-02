@@ -3,42 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Animals;
+using DataPersistence;
 
 public class Inventory : MonoBehaviour
 {
-    // public Transform InventoryPanel;
-    // public GameObject FishPrefab;
-    // public List<Fish> availableFish = new List<Fish>();
-    // Fish Salmon = new Fish("test", "Salmon", "water animal", 1, "lol", AnimalSize.large, "lol", true);
+    public Transform inventoryPanel;
+    public GameObject animalPrefab;
+    public List<Animal> availableAnimals = new List<Animal>();
 
-    // Fish Herring = new Fish("test2", "Salmon", "water animal", 1, "lol", AnimalSize.large, "lol", true);
+    public GameObject scrollContent;
 
-    // Fish Trout = new Fish("test3", "Salmon", "water animal", 1, "lol", AnimalSize.large, "lol", true);
 
-    // void Start()
-    // {
-    //     AddFish(Salmon);
-    //     AddFish(Herring);
-    //     AddFish(Trout);
-    // }
-    // public void AddFish(Fish fish)
-    // {
-    //     availableFish.Add(fish);
-    //     for (int i = 0; i < availableFish.Count; i++)
-    //     {
-    //         GameObject newFish = Instantiate(FishPrefab, transform.position, Quaternion.identity);
-    //         newFish.transform.SetParent(InventoryPanel, false);
-    //         newFish.transform.localPosition = new Vector3(i * 150, 0, 0);
-    //         TextMeshProUGUI[] fishInfo = newFish.GetComponentsInChildren<TextMeshProUGUI>();
-    //         fishInfo[0].text = availableFish[i].name;
-    //     }
+    void Start()
+    {
+        Animal salmon = new Animal(1, "Salmon", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
+        availableAnimals.Add(salmon);
+        Animal Herring = new Animal(1, "Herring", "Salmon_Animated", "swim", true, AnimalSize.medium, new Movement(5f, 3f, 50f, Vector2.zero), new FishTrivia("Salmon", "description", new Activity("Swimming", "guide"), "habitat", "diet", "range"));
+        availableAnimals.Add(Herring);
+
+        for (int i = 0; i < availableAnimals.Count; i++)
+        {
+            GameObject newAnimal = Instantiate(animalPrefab, scrollContent.transform);
+            newAnimal.transform.localPosition = new Vector3(i * 150, 0, 0);
+            TextMeshProUGUI[] animalInfo = newAnimal.GetComponentsInChildren<TextMeshProUGUI>();
+            animalInfo[0].text = availableAnimals[i].name;
+            availableAnimals[i].species = new FishTrivia(availableAnimals[i].name, "description", new Activity("Swimming", "Swimming guide"), "habitat", "diet", "range");
+        }
 
 
 
-    // }
-    // public void RemoveFish(Fish fish)
-    // {
-    //     availableFish.Remove(fish);
-    // }
 
+    }
+
+
+    public void RemoveAnimal(Animal animal)
+    {
+        availableAnimals.Remove(animal);
+    }
 }
