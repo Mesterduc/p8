@@ -17,22 +17,40 @@ public class Inventory : MonoBehaviour
 
     public GameObject scrollContent;
 
+    public Dictionary<string, GameObject> animalPrefabs;
+
 
     void Start()
     {
+
 
         gameData = new GameData();
 
         availableAnimals = gameData.animals;
 
+
+        animalPrefabs = new Dictionary<string, GameObject>();
+        GameObject[] animalPrefabArray = Resources.LoadAll<GameObject>("trivias");
+        foreach (GameObject prefab in animalPrefabArray)
+        {
+            animalPrefabs[prefab.name] = prefab;
+        }
+
         UpdateAnimalList();
     }
+
 
     private void UpdateAnimalList()
     {
         for (int i = 0; i < availableAnimals.Count; i++)
         {
-            GameObject newAnimal = Instantiate(animalPrefab, scrollContent.transform);
+            GameObject prefab = Resources.Load<GameObject>("trivias/" + availableAnimals[i].animated);
+            if (prefab == null)
+            {
+                Debug.LogError("Prefab not found for animal: " + availableAnimals[i].name);
+                continue;
+            }
+            GameObject newAnimal = Instantiate(prefab, scrollContent.transform);
             newAnimal.transform.localPosition = new Vector3(i * 150, 0, 0);
             TextMeshProUGUI[] animalInfo = newAnimal.GetComponentsInChildren<TextMeshProUGUI>();
             animalInfo[0].text = availableAnimals[i].name;
