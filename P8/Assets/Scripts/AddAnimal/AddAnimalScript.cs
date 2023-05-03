@@ -1,69 +1,74 @@
-// using System.Collections.Generic;
-// using System.Linq;
-// using DataPersistence;
-// using TMPro;
-// using UnityEngine;
-// using UnityEngine.UI;
-// using System.Collections;
-// using System;
-// using magnus.johnson;
+using System;
+using System.Collections.Generic;
+using Animals;
+using DataPersistence;
+using magnus.johnson;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-
-// public class AddAnimalScript : MonoBehaviour, IDataPersistence
-// {
-//     private List<FishTrivia> animalpictures = new List<FishTrivia>();
-//     public Transform animalList;
-//     public GameObject objectToSpawn;
-//     // public Button addAnimal;
-
-
-
-// //  public void Awake()
-// //         {
-// //             addAnimal.onClick.AddListener(() =>
-// //             {
-// //                 UpdateUi();
-// //             });
-// //         }
-
-    void Start()
+namespace AddAnimal {
+    public class AddAnimalScript : MonoBehaviour, IDataPersistence
     {
-        // Debug.Log(animalpictures[0]);
-
-       for (int i = 0; i<animalpictures.Count; i++)
-       {
-            GameObject Signe = Instantiate(objectToSpawn, animalList);
-            //Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Fish/Sild");
-            // Signe.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].picture);
-       }
-       Destroy(objectToSpawn);
-    }
-
-//     // void UpdateUi()
-//     //     {
-//     //         GameObject newAnimal;
-//     //         int i = animalpictures.Count - 1;
-//     //         newAnimal = Instantiate(objectToSpawn, animalList);
-
-//     //         newAnimal.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].name);
-       
-//     //         newAnimal.SetActive(true);
-//     //         //Debug.Log(newAnimal.name);
-//     //     }
-//     // Update is called once per frame
-//     void Update()
-//     {
+        private List<FishTrivia> animalpictures = new List<FishTrivia>();
+        private List<Animal> animalListGameList = new List<Animal>();
+        public Transform animalList;
+        public GameObject objectToSpawn;
         
-//     }
+        public Button forwards;
+        public Button back;
+        public GameObject panelSpices;
+        public GameObject panelAnimalInfo;
+        // public Button addAnimal;
 
-//     public void LoadData(GameData data)
-//     {
-//         this.animalpictures = data.animalpictures;
-//     }
+        private void Awake() {
+            forwards.onClick.AddListener(ShowSpices);
+            back.onClick.AddListener(ShowAnimalInfo);
+        }
 
-//     public void SaveData(GameData data)
-//     {
-//          // throw new System.NotImplementedException();
-//         data.animalpictures = this.animalpictures;
-//     }
-// }
+        void Start()
+        {
+            for (int i = 0; i<animalpictures.Count; i++)
+            {
+                GameObject animalSpices = Instantiate(objectToSpawn, animalList);
+                animalSpices.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].picture);
+                animalSpices.transform.GetChild(1).GetComponent<TMP_Text>().text = animalpictures[i].name;
+            }
+        }
+
+        public void AddAnimal() {
+            Movement move = new Movement(150, 20, 400);
+            Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
+            FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
+            Animal animal = new Animal(5, "Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, ørred);
+            animalListGameList.Add(animal);
+        }
+        
+        public void ShowSpices() {
+            panelSpices.SetActive(true);
+            panelAnimalInfo.SetActive(false);
+        }
+        
+        public void ShowAnimalInfo() {
+            panelSpices.SetActive(false);
+            panelAnimalInfo.SetActive(true);
+        }
+        
+
+        public void RecogniseAnimal(string input) {
+            // return possible species
+        }
+    
+        public void LoadData(GameData data)
+        {
+            this.animalpictures = data.animalpictures;
+            this.animalListGameList = data.animals;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.animalpictures = this.animalpictures;
+            data.animals = this.animalListGameList;
+        }
+    }
+}
