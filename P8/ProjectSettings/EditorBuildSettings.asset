@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AchievementsScene.unity
     guid: 3bce46a39927e4bb3a914f99ec73117a
+  - enabled: 1
+    path: Assets/Scenes/MagnusRold.unity
+    guid: cf55ec8eb0c203440a88c6507d75febd
   m_configObjects: {}
