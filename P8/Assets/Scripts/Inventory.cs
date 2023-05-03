@@ -1,10 +1,10 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.UI;
-// using TMPro;
-// using Animals;
-// using DataPersistence;
+ using System.Collections;
+ using System.Collections.Generic;
+ using UnityEngine;
+ using UnityEngine.UI;
+ using TMPro;
+ using Animals;
+ using DataPersistence;
 
 public class Inventory : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
 
     public List<Animal> availableAnimals;
 
-//     public GameObject scrollContent;
+    public GameObject scrollContent;
 
     public Dictionary<string, GameObject> animalPrefabs;
 
@@ -54,16 +54,6 @@ public class Inventory : MonoBehaviour
             newAnimal.transform.localPosition = new Vector3(i * 150, 0, 0);
             TextMeshProUGUI[] animalInfo = newAnimal.GetComponentsInChildren<TextMeshProUGUI>();
             animalInfo[0].text = availableAnimals[i].name;
-        }
-
-
-
-
-//     }
-
-
-//     public void RemoveAnimal(Animal animal)
-//     {
-//         availableAnimals.Remove(animal);
-//     }
-// }
+        }  
+    } 
+}

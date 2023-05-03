@@ -141,10 +141,10 @@ namespace DataPersistence
 
             
             Movement move = new Movement(150, 20, 400);
-            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
-            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
-            animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
-            animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
+            animals.Add(new Animal(1,"Predo", "Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
+            animals.Add(new Animal(2,"Predo2", "Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
+            animals.Add(new Animal(3,"Predo3", "Torsk", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
+            animals.Add(new Animal(4,"Predo4", "Torsk", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
 
             // animalpictures.Add(krabbe);
             // animalpictures.Add(laks);
