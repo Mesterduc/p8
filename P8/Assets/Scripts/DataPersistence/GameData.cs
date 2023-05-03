@@ -15,7 +15,7 @@ namespace DataPersistence
         public PlayerData playerData;
         public List<Friend> friends = new List<Friend>();
         public List<Animal> animals = new List<Animal>();
-        public List<FishTrivia> animalpictures = new List<FishTrivia>();
+        public List<FishTrivia> species = new List<FishTrivia>();
 
         //Magnus datamodel
         public List<Destination> destinations = new List<Destination>();
@@ -151,7 +151,7 @@ namespace DataPersistence
             // Krabbe billede
             FishTrivia krabbe2 = new FishTrivia("Krabbe", "Fish/Trout", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
             // Laksebillede
-            FishTrivia laks = new FishTrivia("Laks", "Fish/Trout", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
+            FishTrivia laks = new FishTrivia("Laks", "Fish/Sild", fang_fisk, "Andre fisk", "Sjælden", "Laks finder du aldrig min dud");
             // Fladfiskbillede
             FishTrivia fladfisk = new FishTrivia("Fladfisk", "Fish/Trout", fang_fisk, "Rejer, muslinger", "Almindelig", "Fladfisken er svær at finde (fordi den er flad)");
             // Edderkoppebillede
@@ -159,12 +159,12 @@ namespace DataPersistence
             
             // FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
             // FishTrivia myg = new FishTrivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
-            animalpictures.Add(krabbe2);
-            animalpictures.Add(laks);
-            animalpictures.Add(fladfisk);
+            species.Add(krabbe2);
+            species.Add(laks);
+            species.Add(fladfisk);
+            species.Add(edderkop);
             // animalpictures.Add(reje);
             // animalpictures.Add(myg);
-            animalpictures.Add(edderkop);
 
         }
     }

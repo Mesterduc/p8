@@ -4,13 +4,14 @@ using Animals;
 using DataPersistence;
 using magnus.johnson;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AddAnimal {
     public class AddAnimalScript : MonoBehaviour, IDataPersistence
     {
-        private List<FishTrivia> animalpictures = new List<FishTrivia>();
+        private List<FishTrivia> animalTrivia = new List<FishTrivia>();
         private List<Animal> animalListGameList = new List<Animal>();
         public Transform animalList;
         public GameObject objectToSpawn;
@@ -19,7 +20,7 @@ namespace AddAnimal {
         public Button back;
         public GameObject panelSpices;
         public GameObject panelAnimalInfo;
-        // public Button addAnimal;
+        public GameObject SpecieInfoContainer;
 
         private void Awake() {
             forwards.onClick.AddListener(ShowSpices);
@@ -28,21 +29,26 @@ namespace AddAnimal {
 
         void Start()
         {
-            for (int i = 0; i<animalpictures.Count; i++)
+            for (int i = 0; i < animalTrivia.Count; i++)
             {
                 GameObject animalSpices = Instantiate(objectToSpawn, animalList);
-                animalSpices.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalpictures[i].picture);
-                animalSpices.transform.GetChild(1).GetComponent<TMP_Text>().text = animalpictures[i].name;
+                animalSpices.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalTrivia[i].picture);
+                animalSpices.transform.GetChild(1).GetComponent<TMP_Text>().text = animalTrivia[i].name;
+                var animal = animalTrivia[i];
+                animalSpices.GetComponent<Button>().onClick.AddListener(() => populateAnimalInfo(animal));
             }
+
+            populateAnimalInfo(animalTrivia[0]);
         }
 
-        public void AddAnimal() {
-            Movement move = new Movement(150, 20, 400);
-            Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
-            FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
-            Animal animal = new Animal(5, "Predo", "Fish/Sild", "Fish/SildAnimator", true, AnimalSize.large, move, ørred);
-            animalListGameList.Add(animal);
+
+        private void populateAnimalInfo(FishTrivia animal) {
+            SpecieInfoContainer.transform.Find("Title").GetComponent<TMP_Text>().text = animal.name;
+            SpecieInfoContainer.transform.Find("Beskrivelse").GetComponent<TMP_Text>().text = animal.bio;
+            SpecieInfoContainer.transform.Find("Images").GetComponent<Image>().sprite = Resources.Load<Sprite>(animal.picture);
         }
+
+        
         
         public void ShowSpices() {
             panelSpices.SetActive(true);
@@ -61,13 +67,13 @@ namespace AddAnimal {
     
         public void LoadData(GameData data)
         {
-            this.animalpictures = data.animalpictures;
+            this.animalTrivia = data.species;
             this.animalListGameList = data.animals;
         }
 
         public void SaveData(GameData data)
         {
-            data.animalpictures = this.animalpictures;
+            data.species = this.animalTrivia;
             data.animals = this.animalListGameList;
         }
     }
