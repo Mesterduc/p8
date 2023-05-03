@@ -4,13 +4,13 @@ using UnityEngine;
 using DataPersistence;
 using magnus.johnson;
 
-public class infoSceneScript : MonoBehaviour, IDataPersistence
+public class InfoSceneScript : MonoBehaviour, IDataPersistence
 {
     public List<Destination> destinations;
 
-    void start()
+    void Start()
     {      
-        Debug.Log(destinations);
+        Debug.Log("Johnny FuckJohnFace");
         for (int i = 0; i < destinations.Count; i++) {
             Debug.Log(destinations);
             GameObject objectToSpawn = Resources.Load<GameObject>("Prefabs/" + destinations[i].type.name);
