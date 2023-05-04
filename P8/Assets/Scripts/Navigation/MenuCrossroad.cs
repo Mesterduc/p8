@@ -38,7 +38,7 @@ namespace Navigation {
         }
 
         private void LoadGuides() {
-            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.GuideScene);
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.MagnusRold);
         }
 
         private void LoadProfile() {
