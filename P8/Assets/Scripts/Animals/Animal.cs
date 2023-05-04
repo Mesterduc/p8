@@ -24,18 +24,19 @@ namespace Animals {
         public FishTrivia species;
         
         // public string realLifeImage { get; set; } : har vi ikke med endnu: image of caught animal
-        public Animal(int id, string name, string animated, string animation, bool isDisplayed, AnimalSize animalSize, Movement movement, FishTrivia species) {
+        public Animal(int id, string name, string animated, string animation, AnimalSize animalSize, FishTrivia species) {
             this.id = id;
             this.name = name;
             this.animated = animated;
             this.animation = animation;
-            this.isDisplayed = isDisplayed;
+            this.isDisplayed = false;
             this.animalSize = animalSize;
-            this.movement = movement;
+            this.movement = new Movement(150, 20, 400);
             this.species = species;
             // this.type = type;
             // this.realLifeImage = realLifeImage;
 
         }
+        
     }
 }

@@ -1008,6 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _GoToTank: {fileID: 1475185334}
+  _GoToMenu: {fileID: 2105087863}
 --- !u!114 &189654806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,11 +1023,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalList: {fileID: 389882827}
   objectToSpawn: {fileID: 5837420025476793487, guid: 6104b86fc85d94eb79280a10abefb72b, type: 3}
+  textName: {fileID: 557210549}
+  size: 0
   forwards: {fileID: 161592644}
   back: {fileID: 2105087863}
   panelSpices: {fileID: 1126594460}
   panelAnimalInfo: {fileID: 56280978}
-  SpecieInfoContainer: {fileID: 130545739}
+  specieInfoContainer: {fileID: 130545739}
 --- !u!114 &189654807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,8 +1042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4b4d12d784bb99459d1cfad367a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textName: {fileID: 557210549}
-  size: 0
 --- !u!1 &235556473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5391,10 +5392,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 189654807}
-        m_TargetAssemblyTypeName: AddAnimal.CreateAnimalScript, Assembly-CSharp
+      - m_Target: {fileID: 189654806}
+        m_TargetAssemblyTypeName: AddAnimal.AddAnimalScript, Assembly-CSharp
         m_MethodName: AddAnimal
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

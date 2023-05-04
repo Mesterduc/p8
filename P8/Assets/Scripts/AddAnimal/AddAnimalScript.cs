@@ -16,11 +16,14 @@ namespace AddAnimal {
         public Transform animalList;
         public GameObject objectToSpawn;
         
+        public GameObject textName;
+        public int size;
+        
         public Button forwards;
         public Button back;
         public GameObject panelSpices;
         public GameObject panelAnimalInfo;
-        public GameObject SpecieInfoContainer;
+        public GameObject specieInfoContainer;
 
         private void Awake() {
             forwards.onClick.AddListener(ShowSpices);
@@ -40,16 +43,29 @@ namespace AddAnimal {
 
             populateAnimalInfo(animalTrivia[0]);
         }
-
-
+        
         private void populateAnimalInfo(FishTrivia animal) {
-            SpecieInfoContainer.transform.Find("Title").GetComponent<TMP_Text>().text = animal.name;
-            SpecieInfoContainer.transform.Find("Beskrivelse").GetComponent<TMP_Text>().text = animal.bio;
-            SpecieInfoContainer.transform.Find("Images").GetComponent<Image>().sprite = Resources.Load<Sprite>(animal.picture);
+            specieInfoContainer.transform.Find("Title").GetComponent<TMP_Text>().text = animal.name;
+            specieInfoContainer.transform.Find("Beskrivelse").GetComponent<TMP_Text>().text = animal.bio;
+            specieInfoContainer.transform.Find("Images").GetComponent<Image>().sprite = Resources.Load<Sprite>(animal.realPicture);
         }
 
+        public void AddAnimal() {
+            // Debug.Log(textName.transform.GetComponent<TMP_Text>().text);
+            // Debug.Log(AnimalSize.large == (AnimalSize)size);
+            // Movement move = new Movement(150, 20, 400);
+            // Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
+            // FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
+            // Animal animal = new Animal(this.animalListGameList.Count + 1, textName);
+            // return animal;
+        }
+
+        public void SetAnimalSize(int size) {
+            this.size = size;
+        }
+        // add spices
         
-        
+        // -------------------------------------------------- Panel navigation -------------------------------------------------------------------
         public void ShowSpices() {
             panelSpices.SetActive(true);
             panelAnimalInfo.SetActive(false);
@@ -59,7 +75,6 @@ namespace AddAnimal {
             panelSpices.SetActive(false);
             panelAnimalInfo.SetActive(true);
         }
-        
 
         public void RecogniseAnimal(string input) {
             // return possible species
@@ -75,6 +90,7 @@ namespace AddAnimal {
         {
             data.species = this.animalTrivia;
             data.animals = this.animalListGameList;
+            // data.animals.Add(AddAnimal());
         }
     }
 }
