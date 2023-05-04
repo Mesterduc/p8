@@ -17,6 +17,7 @@ namespace DataPersistence {
 
         // Button til at manual gemme 
         [SerializeField] [CanBeNull] private Button manualSaveGame;
+        [SerializeField] [CanBeNull] private Button manualLoadGame;
         // [SerializeField] [CanBeNull] private Button manualLoadDataButton;
 
         // Tom gameData class 
@@ -38,7 +39,6 @@ namespace DataPersistence {
             }
 
             Instance = this;
-            Console.WriteLine("I found something");
         }
 
         // Start bliver kaldt i starten af programmet,og giver data til alle classer
@@ -53,10 +53,10 @@ namespace DataPersistence {
                 manualSaveGame.onClick.AddListener(SaveGame2);
             }
 
-            // if (manualLoadDataButton) {
-            //     manualLoadDataButton.onClick.AddListener(manualLoadData);
-            // }
-
+            if (manualLoadGame) {
+                manualLoadGame.onClick.AddListener(manualLoadData);
+            }
+        
             PreLoad();
             LoadGame();
             // SaveGame();

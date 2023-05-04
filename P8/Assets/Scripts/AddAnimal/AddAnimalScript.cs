@@ -32,6 +32,7 @@ namespace AddAnimal {
 
         void Start()
         {
+            Debug.Log("start");
             for (int i = 0; i < animalTrivia.Count; i++)
             {
                 GameObject animalSpices = Instantiate(objectToSpawn, animalList);
@@ -41,7 +42,9 @@ namespace AddAnimal {
                 animalSpices.GetComponent<Button>().onClick.AddListener(() => populateAnimalInfo(animal));
             }
 
-            populateAnimalInfo(animalTrivia[0]);
+            if (animalTrivia.Count != 0) {
+                populateAnimalInfo(animalTrivia[0]);
+            }
         }
         
         private void populateAnimalInfo(FishTrivia animal) {
@@ -82,6 +85,7 @@ namespace AddAnimal {
     
         public void LoadData(GameData data)
         {
+            Debug.Log("load");
             this.animalTrivia = data.species;
             this.animalListGameList = data.animals;
         }

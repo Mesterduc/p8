@@ -43,7 +43,7 @@ namespace Navigation {
 
         public void LoadSceneName(Scene scene) {
             Instance.lastScene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(scene.ToString());
+            SceneManager.LoadSceneAsync(scene.ToString());
         }
 
         public void LoadSceneIndex(int index) {
