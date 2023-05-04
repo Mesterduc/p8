@@ -29,7 +29,7 @@ namespace Animals {
             this.name = name;
             this.animated = animated;
             this.animation = animation;
-            this.isDisplayed = false;
+            this.isDisplayed = true;
             this.animalSize = animalSize;
             this.movement = new Movement(150, 20, 400);
             this.species = species;
