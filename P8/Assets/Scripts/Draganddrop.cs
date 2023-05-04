@@ -6,10 +6,10 @@ using DataPersistence;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDragHandler, IDropHandler, IDataPersistence
-{
+public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDragHandler, IDropHandler, IDataPersistence {
+    public int fishId;
     private Draganddrop dragedItem;
-    AnimalId animalId;
+    // AnimalId animalId;
     private List<Animal> animals = new List<Animal>();
     private GameObject fishTemp;
     private GameObject canvas;
@@ -26,7 +26,6 @@ public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     }
     public void OnDrag(PointerEventData eventData)
     {
-        // Debug.Log("drag");
         transform.position = Input.mousePosition;
     }
 
@@ -39,11 +38,11 @@ public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        animalId = gameObject.GetComponent<AnimalId>();
+        // animalId = gameObject.GetComponent<AnimalId>();
         DataPersistenceManager hej = DataPersistenceManager.Instance;
         hej.manualLoadData();
         foreach (var animal in animals) {
-            if (animal.id == animalId.ID) {
+            if (animal.id == fishId) {
                 animal.isDisplayed = !animal.isDisplayed;
                 canvas = GameObject.Find("TankCanvas");
                 GameObject newFish = Instantiate(fishTemp, canvas.transform);
@@ -77,7 +76,6 @@ public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
             }
         }
         Destroy(gameObject);
-        // transform.SetParent(parentAfterDrag);
     }
 
     public void LoadData(GameData data) {

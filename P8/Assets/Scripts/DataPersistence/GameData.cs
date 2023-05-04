@@ -26,7 +26,7 @@ namespace DataPersistence
             PreLoad();
         }
 
-        // loader vores program med nogen standard data
+        // loader program med standard data
         private void PreLoad()
         {
             this.playerData = new PlayerData("Jeff");
@@ -35,7 +35,6 @@ namespace DataPersistence
             friends.Add(new Friend("Jax", 99, 99, "sifos"));
             friends.Add(new Friend("Yuli", 490, 13, "yuli"));
             friends.Add(new Friend("Sifos", 490, 13, "sifos"));
-            // friends.Add(new Friend("Sune", 490, 13, "pedro"));
 
             // Magnus' forsøg på at loade menu
 
@@ -134,19 +133,20 @@ namespace DataPersistence
             destinations.Add(lundby);
 
             
-            Movement move = new Movement(150, 20, 400);
-            // animals.Add(new Animal(1,"Predo", "Sild", "Fish/SildAnimator", true, AnimalSize.large, move, krabbe ));
-            // animals.Add(new Animal(2,"Predo2", "Sild", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
-            // animals.Add(new Animal(3,"Predo3", "Torsk", "Fish/SildAnimator", true, AnimalSize.Small, move, krabbe));
-            // animals.Add(new Animal(4,"Predo4", "Torsk", "Fish/SildAnimator", false, AnimalSize.Small, move, krabbe));
 
             // animalpictures.Add(krabbe);
             // animalpictures.Add(laks);
             // animalpictures.Add(fladfisk);
-            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", AnimalSize.large, krabbe ));
+            // Movement move = new Movement(150, 20, 400);
+            Animal predo4 = new Animal(4, "Predo4", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe);
+            predo4.isDisplayed = false;
+            Animal predo5 = new Animal(5, "Predo5", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe);
+            predo5.isDisplayed = false;
+            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", AnimalSize.large, krabbe));
             animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe));
             animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe));
-            animals.Add(new Animal(4,"Predo4", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe));
+            animals.Add(predo4);
+            animals.Add(predo5);
             
             
             FishTrivia lundsneglen = new FishTrivia("Lundsneglen", "DyrIcon/snail", "Real/lundsnegl" , fang_krabber, "Kød", "Almindelig", "Lundsneglen er en mellemstor snegl med fladt, kugleformet hus og mørk skalåbning. Huset bliver mellem 12-22 mm i højde og 18-25 mm i brede, huset varierer i farve og tegning fra gullig til rødlig eller brunlig med eller uden mørke spiralbånd. >Kroppen er grålig");
