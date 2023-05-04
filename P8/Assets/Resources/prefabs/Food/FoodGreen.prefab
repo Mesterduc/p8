@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodScript: {fileID: 0}
-  lifeTime: 3
+  lifeTime: 18
 --- !u!60 &6076575458830893910
 PolygonCollider2D:
   m_ObjectHideFlags: 0

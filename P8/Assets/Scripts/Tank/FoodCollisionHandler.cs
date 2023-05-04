@@ -8,7 +8,7 @@ public class FoodCollisionHandler : MonoBehaviour
     public FoodScript foodScript;
     
 
-    public int lifeTime = 3; //Leve tid på maden
+    public int lifeTime = 18; //Leve tid på maden
 
     //void Start()
     //{

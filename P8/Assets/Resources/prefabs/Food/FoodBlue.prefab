@@ -196,4 +196,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodScript: {fileID: 0}
-  lifeTime: 3
+  lifeTime: 18
