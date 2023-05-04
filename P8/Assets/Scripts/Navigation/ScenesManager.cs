@@ -38,8 +38,7 @@ namespace Navigation {
             GuideScene,
             ProfileScene,
             Friends,
-            MagnusRold,
-            AchievementsScene
+            MagnusRold
         }
 
         public void LoadSceneName(Scene scene) {
