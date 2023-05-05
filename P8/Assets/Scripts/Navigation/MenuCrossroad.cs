@@ -12,7 +12,7 @@ namespace Navigation {
         // Start is called before the first frame update
         private void Start() {
             _tanks.onClick.AddListener(LoadTanks);
-            _addAnimal.onClick.AddListener(LoadAddAnimal);
+            // _addAnimal.onClick.AddListener(LoadAddAnimal);
             // _friends.onClick.AddListener(LoadFriends);
             _collection.onClick.AddListener(LoadCollection);
             _guides.onClick.AddListener(LoadGuides);
