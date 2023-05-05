@@ -12,7 +12,6 @@ public class InfoSceneScript : MonoBehaviour, IDataPersistence
     {      
         Debug.Log("Johnny FuckJohnFace");
         for (int i = 0; i < destinations.Count; i++) {
-            Debug.Log(destinations);
             GameObject objectToSpawn = Resources.Load<GameObject>("Prefabs/" + destinations[i].type.name);
             if (objectToSpawn)
             {
