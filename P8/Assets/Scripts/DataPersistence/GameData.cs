@@ -17,7 +17,7 @@ namespace DataPersistence
         public List<Friend> friends = new List<Friend>();
         public List<Animal> animals = new List<Animal>();
         public List<FishTrivia> species = new List<FishTrivia>();
-        public List<Gallery> galleries = new List<Gallery>();
+        public List<Journey> journeys = new List<Journey>();
 
         //Magnus datamodel
         public List<Destination> destinations = new List<Destination>();
@@ -130,9 +130,12 @@ namespace DataPersistence
             destinations.Add(egholm);
             destinations.Add(lundby);
 
-            Gallery g1 = new Gallery(rold_skov);
-            Gallery g2 = new Gallery(lundby);
-            Gallery g3 = new Gallery(dall_hede);
+            Journey g1 = new Journey(rold_skov);
+            Journey g2 = new Journey(lundby);
+            Journey g3 = new Journey(dall_hede);
+            journeys.Add(g1);
+            journeys.Add(g2);
+            journeys.Add(g3);
 
         }
 

@@ -4,12 +4,12 @@ using magnus.johnson;
 
 namespace Models {
     [System.Serializable]
-    public class Gallery {
+    public class Journey {
         private Destination destination;
         public List<string> gallery;
         private DateTime date;
 
-        public Gallery(Destination destination) {
+        public Journey(Destination destination) {
             this.destination = destination;
             this.gallery = new List<string>();
             this.date = DateTime.Now.Date;

@@ -5,11 +5,14 @@ using Models;
 using UnityEngine;
 
 public class GalleryScript : MonoBehaviour, IDataPersistence {
-    private List<Gallery> galleries = new List<Gallery>();
+    private List<Journey> journeys = new List<Journey>();
     
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < journeys.Count; i++) {
+            
+        }
         
     }
 
@@ -20,10 +23,10 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
-        this.galleries = data.galleries;
+        this.journeys = data.journeys;
     }
 
     public void SaveData(GameData data) {
-        data.galleries = this.galleries;
+        data.journeys = this.journeys;
     }
 }
