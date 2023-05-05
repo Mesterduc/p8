@@ -130,9 +130,9 @@ namespace DataPersistence
             destinations.Add(egholm);
             destinations.Add(lundby);
 
-            Gallery g1 = new Gallery(lundby);
+            Gallery g1 = new Gallery(rold_skov);
             Gallery g2 = new Gallery(lundby);
-            Gallery g3 = new Gallery(lundby);
+            Gallery g3 = new Gallery(dall_hede);
 
         }
 
