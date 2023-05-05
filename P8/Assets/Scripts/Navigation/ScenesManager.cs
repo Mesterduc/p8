@@ -35,10 +35,8 @@ namespace Navigation {
             TankScene,
             AddAnimalsScene,
             CollectionScene,
-            GuideScene,
-            ProfileScene,
-            Friends,
-            MagnusRold
+            ChooseTrip,
+
         }
 
         public void LoadSceneName(Scene scene) {
