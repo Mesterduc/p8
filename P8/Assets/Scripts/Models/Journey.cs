@@ -5,9 +5,9 @@ using magnus.johnson;
 namespace Models {
     [System.Serializable]
     public class Journey {
-        private Destination destination;
+        public Destination destination;
         public List<string> gallery;
-        private DateTime date;
+        public DateTime date;
 
         public Journey(Destination destination) {
             this.destination = destination;
