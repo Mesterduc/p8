@@ -11,7 +11,6 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
     private List<Journey> journeys = new List<Journey>();
     [SerializeField] private Transform placement;
     
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < journeys.Count; i++) {
@@ -22,13 +21,12 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
             journeyItem.transform.Find("content/activeTrip/Date/").GetComponent<TMP_Text>().text =
                 // dddd: dag i text
                 journeys[i].date.ToString("dddd dd-MM-yyyy", new CultureInfo("en-US"));
-        }
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+            // Billeder --------------------------------------------
+            // Transform gallery = journeyItem.transform.Find("content/activeTrip/GalleryScroller/Mask/Gallery").transform;
+            
+            
+        }
         
     }
 
