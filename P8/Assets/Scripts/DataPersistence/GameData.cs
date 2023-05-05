@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Animals;
 using magnus.johnson;
+using Models;
 using UnityEngine;
 
 
@@ -16,6 +17,7 @@ namespace DataPersistence
         public List<Friend> friends = new List<Friend>();
         public List<Animal> animals = new List<Animal>();
         public List<FishTrivia> species = new List<FishTrivia>();
+        public List<Journey> journeys = new List<Journey>();
 
         //Magnus datamodel
         public List<Destination> destinations = new List<Destination>();
@@ -127,6 +129,13 @@ namespace DataPersistence
             destinations.Add(hals);
             destinations.Add(egholm);
             destinations.Add(lundby);
+
+            Journey g1 = new Journey(rold_skov);
+            Journey g2 = new Journey(lundby);
+            Journey g3 = new Journey(dall_hede);
+            journeys.Add(g1);
+            journeys.Add(g2);
+            journeys.Add(g3);
 
         }
 
