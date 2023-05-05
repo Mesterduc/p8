@@ -34,7 +34,7 @@ namespace Navigation {
             Menu,
             TankScene,
             AddAnimalsScene,
-            CollectionScene,
+            Gallery,
             ChooseTrip,
 
         }
