@@ -31,11 +31,8 @@ namespace DataPersistence
         // loader program med standard data
         private void PreLoad() {
             måskeSlet();
-            createFish();
             listOfSpices();
-            
-            // -- Destination information -- 
-            
+
             // -------------------------------------------- Activity ---------------------------------------------------------------
             Activity fang_krabber = new Activity("Krabbejagt", "Find en tøjklemme og en snor. Put en blåmusling på tøjklemmen og sænk den ned i vandet. Så er der krabber!");
             Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
@@ -136,6 +133,20 @@ namespace DataPersistence
             journeys.Add(g1);
             journeys.Add(g2);
             journeys.Add(g3);
+            
+            // ----------------------------------- Animal ---------------------------------------------------------------------------------
+            
+           
+            // Movement move = new Movement(150, 20, 400);
+            Animal predo4 = new Animal(4, "Predo4", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g1);
+            predo4.isDisplayed = false;
+            Animal predo5 = new Animal(5, "Predo5", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g1);
+            predo5.isDisplayed = false;
+            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", AnimalSize.large, krabbe, g1));
+            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g2));
+            animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g3));
+            animals.Add(predo4);
+            animals.Add(predo5);
 
         }
 
@@ -146,21 +157,6 @@ namespace DataPersistence
             friends.Add(new Friend("Jax", 99, 99, "sifos"));
             friends.Add(new Friend("Yuli", 490, 13, "yuli"));
             friends.Add(new Friend("Sifos", 490, 13, "sifos"));
-        }
-
-        private void createFish() {
-            Activity fang_krabber = new Activity("Krabbejagt", "Find en tøjklemme og en snor. Put en blåmusling på tøjklemmen og sænk den ned i vandet. Så er der krabber!");
-            FishTrivia krabbe = new FishTrivia("Krabbe","Fish/Sild","", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
-            // Movement move = new Movement(150, 20, 400);
-            Animal predo4 = new Animal(4, "Predo4", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe);
-            predo4.isDisplayed = false;
-            Animal predo5 = new Animal(5, "Predo5", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe);
-            predo5.isDisplayed = false;
-            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", AnimalSize.large, krabbe));
-            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe));
-            animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe));
-            animals.Add(predo4);
-            animals.Add(predo5);
         }
 
         private void listOfSpices() {

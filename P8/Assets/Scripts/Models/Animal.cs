@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Animals;
 using magnus.johnson;
+using Models;
 using UnityEngine;
 
 public enum AnimalSize
@@ -22,9 +23,10 @@ namespace Animals {
         public Movement movement;
         public AnimalSize animalSize;
         public FishTrivia species;
+        public Journey journey;
         
         // public string realLifeImage { get; set; } : har vi ikke med endnu: image of caught animal
-        public Animal(int id, string name, string animated, string animation, AnimalSize animalSize, FishTrivia species) {
+        public Animal(int id, string name, string animated, string animation, AnimalSize animalSize, FishTrivia species, Journey journey) {
             this.id = id;
             this.name = name;
             this.animated = animated;
@@ -33,9 +35,7 @@ namespace Animals {
             this.animalSize = animalSize;
             this.movement = new Movement(150, 20, 400);
             this.species = species;
-            // this.type = type;
-            // this.realLifeImage = realLifeImage;
-
+            this.journey = journey;
         }
         
     }
