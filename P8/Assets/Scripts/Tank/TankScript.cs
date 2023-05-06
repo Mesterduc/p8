@@ -18,35 +18,12 @@ namespace Tank
 
         void Start() {
             foreach (var animal in animals) {
+                // only instantiate animals where property isDisplayed is set to true
                 if (animal.isDisplayed) {
-                    GameObject newFish = Instantiate(fishTemp, placement);
-                    newFish.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
-                    newFish.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
-                    newFish.AddComponent<Rigidbody2D>();
-                    newFish.tag = "Fish";
-                    newFish.layer = 6;
-                    BoxCollider2D box = newFish.AddComponent<BoxCollider2D>();
-                    box.size = new Vector3(2, 2, 1);
-                    
-                    switch (animal.animalSize) {
-                        case AnimalSize.large:
-                            fishSize = new Vector3(15 * 2, 15 * 2, 1);
-                            break;
-                        case AnimalSize.medium:
-                            fishSize = new Vector3(15 * 1.5f, 15 * 1.5f, 1);
-                            break;
-                        case AnimalSize.Small:
-                            fishSize = new Vector3(15, 15, 1);
-                            break;
-                    }
-                    
-                    newFish.transform.localScale = fishSize;
-                    
-                    newFish.transform.position = animal.movement.currentPosition;   // start position
-                    newFish.AddComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(animal.animation);// animation
-                    
-                    AnimalMovement move = newFish.AddComponent<AnimalMovement>();
-                    move.animal = animal;
+                    GameObject newAnimal = Instantiate(fishTemp, placement);
+                    DisplayAnimal animalScript = newAnimal.AddComponent<DisplayAnimal>();
+                    animalScript.newAnimal = newAnimal;
+                    animalScript.animal = animal;
                 }
             }
         }
