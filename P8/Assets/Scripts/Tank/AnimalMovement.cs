@@ -1,10 +1,9 @@
-using System;
+using Animals;
 using DataPersistence;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Animals {
+namespace Tank {
     public class AnimalMovement : MonoBehaviour, IDataPersistence {
         public Animal animal;
         public float speed = 20;
