@@ -1,17 +1,20 @@
 using System;
 using Animals;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tank {
     public class DisplayAnimal : MonoBehaviour {
         public GameObject newAnimal;
         public Animal animal;
         private Vector3 animalSize;
+        private AnimalMovement move;
 
         private void Start() {
             newAnimal.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
             newAnimal.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
-            newAnimal.AddComponent<Rigidbody2D>();
+            Rigidbody2D rigid = newAnimal.AddComponent<Rigidbody2D>();
+            rigid.freezeRotation = true;
             newAnimal.tag = "Fish";
             newAnimal.layer = 6;
             BoxCollider2D box = newAnimal.AddComponent<BoxCollider2D>();
@@ -19,13 +22,13 @@ namespace Tank {
 
             switch (animal.animalSize) {
                 case AnimalSize.large:
-                    animalSize = new Vector3(15 * 2, 15 * 2, 1);
+                    animalSize = new Vector3(20 * 2, 20 * 2, 1);
                     break;
                 case AnimalSize.medium:
-                    animalSize = new Vector3(15 * 1.5f, 15 * 1.5f, 1);
+                    animalSize = new Vector3(20 * 1.5f, 20 * 1.5f, 1);
                     break;
                 case AnimalSize.Small:
-                    animalSize = new Vector3(15, 15, 1);
+                    animalSize = new Vector3(20, 20, 1);
                     break;
             }
 
@@ -35,8 +38,13 @@ namespace Tank {
             newAnimal.AddComponent<Animator>().runtimeAnimatorController =
                 Resources.Load<RuntimeAnimatorController>(animal.animation); // animation
 
-            AnimalMovement move = newAnimal.AddComponent<AnimalMovement>();
+            move = newAnimal.AddComponent<AnimalMovement>();
             move.animal = animal;
+        }
+
+        public void AnimalInfo() {
+            move.speed = 0;
+            Debug.Log("clicked");
         }
     }
 }

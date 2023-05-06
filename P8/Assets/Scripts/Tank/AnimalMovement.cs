@@ -1,5 +1,6 @@
 using Animals;
 using DataPersistence;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,8 +12,10 @@ namespace Tank {
         public float maxDistance;
         public SpriteRenderer fishSprite;
         public Vector2 waypoint;
+        private Collider2D animalClicked;
 
         private void Awake() {
+            animalClicked = GetComponent<Collider2D>();
             fishSprite = GetComponent<SpriteRenderer>();
         }
 
@@ -29,6 +32,23 @@ namespace Tank {
                 // waypoint = new Vector2(Random.Range(-maxDistance.x, maxDistance.x),
                 //     Random.Range(-maxDistance.y, maxDistance.y));
                 FlipSprite();
+            }
+
+            if (Input.GetMouseButtonDown(0)) {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                if (animalClicked.OverlapPoint(mousePosition)) {
+                    Debug.Log("Click");
+                    if (speed != 0) {
+                        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                        speed = 0;
+                    }
+                    else {
+                        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                        speed = 150;
+                    }
+
+                }
             }
         }
 
