@@ -16,6 +16,10 @@ namespace magnus.johnson {
         private bool isHidden = true;
         private int currentWindow = -1;
 
+        private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
+        }
+
         void Start() {
             for (int i = 0; i < destinations.Count; i++) {
                 GameObject objectToSpawn = Resources.Load<GameObject>("Prefabs/" + destinations[i].type.name);

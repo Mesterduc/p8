@@ -101,6 +101,7 @@ namespace DataPersistence {
 
         public void manualLoadData() {
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+            this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.gameData = dataHandler.Load();
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.LoadData(gameData);

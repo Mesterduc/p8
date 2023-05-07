@@ -36,6 +36,7 @@ namespace Navigation {
             AddAnimalsScene,
             Gallery,
             ChooseTrip,
+            PlayTrip,
 
         }
 
