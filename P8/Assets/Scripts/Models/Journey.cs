@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using magnus.johnson;
 
 namespace Models {
@@ -7,7 +8,7 @@ namespace Models {
     public class Journey {
         public Destination destination;
         public List<string> gallery;
-        public DateTime date;
+        private DateTime date;
 
         public Journey(Destination destination) {
             this.destination = destination;
@@ -16,6 +17,10 @@ namespace Models {
         }
         
         // lave metode til at tilføje mange billeder
+
+        public string GetDateTimeFormated() {
+            return date.ToString("dddd dd-MM-yyyy", new CultureInfo("en-US"));
+        }
 
     }
 }

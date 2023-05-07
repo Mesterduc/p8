@@ -8,14 +8,14 @@ namespace Animals {
         public float range;
         public float maxDistance;
         // SpriteRenderer fish;
-        public Vector2 currentPosition;
+        public Vector3 currentPosition;
         // public Vector2 waypoint;
 
         public Movement(float speed, float range, float maxDistance) {
             this.speed = speed;
             this.range = range;
             this.maxDistance = maxDistance;
-            this.currentPosition = new Vector2(0,0);
+            this.currentPosition = new Vector3(0,0, 1);
             // this.waypoint = waypoint;
         }
     }

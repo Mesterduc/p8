@@ -14,7 +14,7 @@ namespace Tank {
             newAnimal.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
             newAnimal.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
             Rigidbody2D rigid = newAnimal.AddComponent<Rigidbody2D>();
-            rigid.freezeRotation = true;
+            rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             newAnimal.tag = "Fish";
             newAnimal.layer = 6;
             BoxCollider2D box = newAnimal.AddComponent<BoxCollider2D>();

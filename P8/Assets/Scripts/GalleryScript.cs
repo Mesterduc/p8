@@ -20,7 +20,7 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
                 journeys[i].destination.name;
             journeyItem.transform.Find("content/activeTrip/Date/").GetComponent<TMP_Text>().text =
                 // dddd: dag i text
-                journeys[i].date.ToString("dddd dd-MM-yyyy", new CultureInfo("en-US"));
+                journeys[i].GetDateTimeFormated();
 
             // Billeder --------------------------------------------
             // Transform gallery = journeyItem.transform.Find("content/activeTrip/GalleryScroller/Mask/Gallery").transform;
