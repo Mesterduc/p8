@@ -5,7 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Tank {
-    public class AnimalMovement : MonoBehaviour, IDataPersistence {
+    public class AnimalState : MonoBehaviour, IDataPersistence {
         public Animal animal;
         public float speed = 20;
         public float range = 10;
