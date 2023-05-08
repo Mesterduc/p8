@@ -5,6 +5,7 @@ using DataPersistence;
 using Models;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class CameraManager : MonoBehaviour, IDataPersistence {
     private Journey journey;
@@ -29,32 +30,47 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     IEnumerator Start() {
+        // giv adgang til brug af camera
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
         if (Application.HasUserAuthorization(UserAuthorization.WebCam)) {
+            // TODO: find ud af hvilken camera der skal bruges
             webcam = new WebCamTexture(Screen.width, Screen.height);
             webcam.Play();
             background.texture = webcam;
         }
     }
-// IEnumerator for at kunne bruge StartCoroutine
-     private void takeSnapShot() {
-        
+
+    private void takeSnapShot() {
+        snapshot.gameObject.SetActive(false);
+        AcceptPanel.gameObject.SetActive(true);
+        webcam.Pause();
     }
 
-     public void RetakeImage() {
-         snapshot.gameObject.SetActive(true);
-         AcceptPanel.gameObject.SetActive(false);
-     }
+    public void RetakeImage() {
+        webcam.Play();
+        snapshot.gameObject.SetActive(true);
+        AcceptPanel.gameObject.SetActive(false);
+    }
 
-     public IEnumerator SaveImage() {
-         snapshot.gameObject.SetActive(false);
-         yield return new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
-         // Application.persistentDataPath: hvor skal billedet gemmes.  efter /: hvad skal billedet hedde.
-         ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + journey.id + "/" + journey.gallery.Count + ".png");
-         AcceptPanel.gameObject.SetActive(true);
-     }
+    // IEnumerator for at kunne bruge StartCoroutine
+    public IEnumerator SaveImage() {
+        AcceptPanel.gameObject.SetActive(false);
+        yield return
+            new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
+        // hvis folder ikke findes, laves der en ny folder
+        if (!Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
+            Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
+        }
+
+        string name = journey.destination.name.Replace(" ", "");
+        // Application.persistentDataPath: hvor skal billedet gemmes.  efter "/": hvad skal billedet hedde.
+        string path = Application.persistentDataPath + "/" + journey.id + "/" + name + journey.gallery.Count + ".png";
+        ScreenCapture.CaptureScreenshot(path);
+        journey.gallery.Add(path);
+        AcceptPanel.gameObject.SetActive(true);
+    }
+
     void Update() {
-        
         // if (!camAvailable) return;
 
         //
