@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 1619232772}
   fit: {fileID: 1619232774}
-  snapshot: {fileID: 0}
+  snapshot: {fileID: 1484031770}
 --- !u!1 &1369339099
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 0.5622189
+  m_AspectRatio: 0.7496252
 --- !u!1 &1827336629
 GameObject:
   m_ObjectHideFlags: 0

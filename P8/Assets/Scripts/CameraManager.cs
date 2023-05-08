@@ -16,26 +16,25 @@ public class CameraManager : MonoBehaviour {
 
     // TODO: front or back-side camera
     void Awake() {
+        // StartCoroutine: bruges til at stoppe programmet
         snapshot.onClick.AddListener(() => StartCoroutine(takeSnapShot()));
     }
 
-    void Start() {
+    IEnumerator Start() {
+        yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+        if (!Application.HasUserAuthorization(UserAuthorization.WebCam)) {
+            Debug.Log("No auth");
+        }
         webcam = new WebCamTexture(Screen.width, Screen.height);
         webcam.Play();
         background.texture = webcam;
-        // float ratio = (float)webcam.width / (float)webcam.height;
-        // fit.aspectRatio = ratio;
-        // camAvailable = true;
     }
-
+// IEnumerator for at kunne bruge StartCoroutine
      private IEnumerator takeSnapShot() {
-         // StartCoroutine(1);
         snapshot.gameObject.SetActive(false);
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
         ScreenCapture.CaptureScreenshot("hong.png");
-        
         snapshot.gameObject.SetActive(true);
-        Debug.Log("snapshot");
     }
     
     

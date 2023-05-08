@@ -20,6 +20,10 @@ public class QuickNavigation : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("gallery");
     }
+     public void GoToCamera()
+    {
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.CameraScene);
+    }
      public void GoToTank()
     {
         SceneManager.LoadSceneAsync("TankScene");
