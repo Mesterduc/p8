@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,22 +8,39 @@ public class CameraManager : MonoBehaviour {
     private bool camAvailable;
     private WebCamTexture webcam;
 
-    private Texture defaultBackground;
-
+    // private Texture defaultBackground;
     public RawImage background;
     public AspectRatioFitter fit;
 
-    void Start() {
-        defaultBackground = background.texture;
+    [SerializeField] private Button snapshot;
 
+    // TODO: front or back-side camera
+    void Awake() {
+        snapshot.onClick.AddListener(() => StartCoroutine(takeSnapShot()));
+    }
+
+    void Start() {
         webcam = new WebCamTexture(Screen.width, Screen.height);
         webcam.Play();
         background.texture = webcam;
-        float ratio = (float)webcam.width / (float)webcam.height;
-        fit.aspectRatio = ratio;
+        // float ratio = (float)webcam.width / (float)webcam.height;
+        // fit.aspectRatio = ratio;
         // camAvailable = true;
     }
+
+     private IEnumerator takeSnapShot() {
+         // StartCoroutine(1);
+        snapshot.gameObject.SetActive(false);
+        yield return new WaitForEndOfFrame();
+        ScreenCapture.CaptureScreenshot("hong.png");
+        
+        snapshot.gameObject.SetActive(true);
+        Debug.Log("snapshot");
+    }
+    
+    
     void Update() {
+        
         // if (!camAvailable) return;
 
         //
