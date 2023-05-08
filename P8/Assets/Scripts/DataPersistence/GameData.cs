@@ -120,10 +120,6 @@ namespace DataPersistence
             destinations.Add(rold_skov);
             destinations.Add(oest_stranden);
             destinations.Add(limfjorden);
-            destinations.Add(nibehavn);
-            destinations.Add(løgstør);
-            destinations.Add(trend);
-            destinations.Add(hals);
             destinations.Add(egholm);
             destinations.Add(lundby);
 

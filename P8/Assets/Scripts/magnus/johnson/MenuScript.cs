@@ -5,6 +5,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using Navigation;
+using UnityEngine.SceneManagement;
 
 namespace magnus.johnson {
     public class MenuScript : MonoBehaviour, IDataPersistence {
@@ -87,7 +88,7 @@ namespace magnus.johnson {
 
         private void NextVisit()
         {
-            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.ChooseTrip);
+            SceneManager.LoadSceneAsync("choosetrip");
         }
 
 

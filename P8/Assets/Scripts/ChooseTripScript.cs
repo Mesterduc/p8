@@ -10,15 +10,17 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
 {
     private List<Destination> destinations;
     public GameObject content;
-    public GameObject tripInfo;
+    [SerializeField] public GameObject tripInfo;
     public GameObject playInfo;
     public GameObject bottomPanel;
     
+    private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
+        }
 
     void Start()
     {
-
-        if(Hogsmeade.nextTrip == null){
+        if(Hogsmeade.nextTrip < 0){
             NoTrip();
         }
         else{
@@ -29,21 +31,23 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
 
     private void activeTrip()
     {
-        PopulatePanels();
         OpenWindows();
+        PopulatePanels();
+        
         
     }
     private void NoTrip()
     {
- 
         content.transform.Find("activeTrip").gameObject.SetActive(false);
         content.transform.Find("noTrip").gameObject.SetActive(true);
         content.transform.Find("comingTrip").gameObject.SetActive(false);
-
     }
 
     private void PopulatePanels()
     {
+        Debug.Log(destinations[0].address);
+        Debug.Log(destinations[0].name);
+
         tripInfo.GetComponent<TMP_Text>().text = destinations[Hogsmeade.nextTrip].address;
     }
     private void OpenWindows()
@@ -53,10 +57,6 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
         content.transform.Find("comingTrip").gameObject.SetActive(true);
         bottomPanel.SetActive(true);
     }
-
-
-
-
 
 
 
