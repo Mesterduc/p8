@@ -3,6 +3,8 @@ using DataPersistence;
 using TMPro;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using Navigation;
 
 namespace magnus.johnson {
     public class MenuScript : MonoBehaviour, IDataPersistence {
@@ -13,6 +15,9 @@ namespace magnus.johnson {
         public GameObject home;
         public TMP_Text car;
         public TMP_Text bus;
+        [SerializeField] private Button chooseTrip;
+
+
         private bool isHidden = true;
         private int currentWindow = -1;
 
@@ -21,6 +26,7 @@ namespace magnus.johnson {
         }
 
         void Start() {
+            chooseTrip.onClick.AddListener(NextVisit);
             for (int i = 0; i < destinations.Count; i++) {
                 GameObject objectToSpawn = Resources.Load<GameObject>("Prefabs/" + destinations[i].type.name);
                 if (objectToSpawn) {
@@ -77,6 +83,12 @@ namespace magnus.johnson {
                     Resources.Load("Trivias/" + destinations[index].type.available_animals[i].name) as GameObject;
                 GameObject animalpicture = Instantiate(objectToSpawn, list);
             }
+        }
+
+        private void NextVisit()
+        {
+            Hogsmeade.nextTrip = title.GetComponent<TMP_Text>().text;
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.ChooseTrip);
         }
 
 

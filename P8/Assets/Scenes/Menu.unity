@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 499996641}
   - component: {fileID: 499996640}
   - component: {fileID: 499996645}
-  - component: {fileID: 499996644}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -237,22 +236,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &499996644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499996639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef1506c8361fa340a06ad0d2c29a14e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tanks: {fileID: 0}
-  _addAnimal: {fileID: 0}
-  _collection: {fileID: 0}
-  _guides: {fileID: 0}
 --- !u!114 &499996645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +255,7 @@ MonoBehaviour:
   home: {fileID: 538035887}
   car: {fileID: 547646739}
   bus: {fileID: 719983392}
+  chooseTrip: {fileID: 1792838887}
 --- !u!1 &538035887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2870260578851499289, guid: c3121e15645109641857eef19d681666, type: 3}
@@ -1122,6 +1106,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792838887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8319843242657178288, guid: 6bea63b65c139d94eb3ac0f7dd1dfcb1, type: 3}
+  m_PrefabInstance: {fileID: 1192507992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1958684290
 GameObject:
   m_ObjectHideFlags: 0
