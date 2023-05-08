@@ -87,7 +87,6 @@ namespace magnus.johnson {
 
         private void NextVisit()
         {
-            Hogsmeade.nextTrip = title.GetComponent<TMP_Text>().text;
             ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.ChooseTrip);
         }
 

@@ -21,6 +21,9 @@ namespace magnus.johnson {
 
             camerascript.MoveToSelection(transform.position);
 
+            Hogsmeade.nextTrip = int.Parse(this.name);
+             Debug.Log(Hogsmeade.nextTrip);
+
         }
 
 

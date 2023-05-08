@@ -104,17 +104,17 @@ namespace DataPersistence
             Biome hede = new Biome("Hede", hede_aktiviteter, hede_dyr);
             
             // --------------------------------------- Destination --------------------------------------------------------------------
-            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, new Vector3(-2.288f, 4.229f, 1f));
-            Destination egholm = new Destination("Egholm", "En stor mark med en masse insekter", hede, new Vector3(-2.28f, 5.497f, 1f));
-            Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, new Vector3(-1.859f, 3.659f, 1f));
-            Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, new Vector3(-1.533f, 5.313f, 1f));
-            Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand, new Vector3(-0.325f, 4.3679f, 1f));
-            Destination limfjorden = new Destination("Østersstranden", "Jeg fandt den her strand da jeg kiggede på ugler", strand, new Vector3(-4.799f, 3.678f, 1f));
-            Destination nibehavn = new Destination("Nibe Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-2.438f, 4.995f, 1f));
-            Destination løgstør = new Destination("Løgstør Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-3.778f, 4.612f, 1f));
-            Destination trend = new Destination("Trend Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-3.919f, 4.126f, 1f));
-            Destination hals = new Destination("Hals Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-0.598f, 4.873f, 1f));
-            Destination lundby = new Destination("Lundby Krat", "Lundby krat er et fedt sted", skov, new Vector3(-1.146f, 4.412f, 1f));
+            Destination dall_hede = new Destination("Dall Hede", "Dall hede er et sted man kan slappe af om sommeren.", hede, new Vector3(-2.288f, 4.229f, 1f), "Dall Hede, Hedevej 12b, 9930");
+            Destination egholm = new Destination("Egholm", "En stor mark med en masse insekter", hede, new Vector3(-2.28f, 5.497f, 1f), "Ingen Addresse for denne destination");
+            Destination rold_skov = new Destination("Rold Skov", "Rold skov er fandeme ikke et sted du skal slappe for meget af", skov, new Vector3(-1.859f, 3.659f, 1f), "Rold Skov, Rebild Skovhusevej 30, 9520");
+            Destination aalborghavn = new Destination("Aalborg Havn", "Her kan du altid finde en ødelagt flaske eller to", havn, new Vector3(-1.533f, 5.313f, 1f), "Ingen Addresse for denne destination");
+            Destination oest_stranden = new Destination("Øst-stranden", "Ved en strand er der sand. Og ved sand er der vand.", strand, new Vector3(-0.325f, 4.3679f, 1f), "Ingen Addresse for denne destination");
+            Destination limfjorden = new Destination("Østersstranden", "Jeg fandt den her strand da jeg kiggede på ugler", strand, new Vector3(-4.799f, 3.678f, 1f), "Ingen Addresse for denne destination");
+            Destination nibehavn = new Destination("Nibe Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-2.438f, 4.995f, 1f), "Ingen Addresse for denne destination");
+            Destination løgstør = new Destination("Løgstør Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-3.778f, 4.612f, 1f), "Ingen Addresse for denne destination");
+            Destination trend = new Destination("Trend Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-3.919f, 4.126f, 1f), "Ingen Addresse for denne destination");
+            Destination hals = new Destination("Hals Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-0.598f, 4.873f, 1f), "Ingen Addresse for denne destination");
+            Destination lundby = new Destination("Lundby Krat", "Lundby krat er et fedt sted", skov, new Vector3(-1.146f, 4.412f, 1f), "Ingen Addresse for denne destination");
 
             destinations.Add(dall_hede);
             destinations.Add(rold_skov);
