@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DataPersistence;
+using Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraManager : MonoBehaviour {
+public class CameraManager : MonoBehaviour, IDataPersistence {
+    private Journey journey;
     private bool camAvailable;
     private WebCamTexture webcam;
     public RawImage background;
@@ -20,9 +23,9 @@ public class CameraManager : MonoBehaviour {
     // TODO: front or back-side camera
     void Awake() {
         // StartCoroutine: bruges til at stoppe programmet
-        snapshot.onClick.AddListener(() => StartCoroutine(takeSnapShot()));
+        snapshot.onClick.AddListener(takeSnapShot);
         retakeImageButton.onClick.AddListener(RetakeImage);
-        SaveImageButton.onClick.AddListener(SaveImage);
+        SaveImageButton.onClick.AddListener(() => StartCoroutine(SaveImage()));
     }
 
     IEnumerator Start() {
@@ -34,11 +37,8 @@ public class CameraManager : MonoBehaviour {
         }
     }
 // IEnumerator for at kunne bruge StartCoroutine
-     private IEnumerator takeSnapShot() {
-        snapshot.gameObject.SetActive(false);
-        yield return new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
-        ScreenCapture.CaptureScreenshot("hong.png");
-        AcceptPanel.gameObject.SetActive(true);
+     private void takeSnapShot() {
+        
     }
 
      public void RetakeImage() {
@@ -46,8 +46,12 @@ public class CameraManager : MonoBehaviour {
          AcceptPanel.gameObject.SetActive(false);
      }
 
-     public void SaveImage() {
-         Debug.Log("save");
+     public IEnumerator SaveImage() {
+         snapshot.gameObject.SetActive(false);
+         yield return new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
+         // Application.persistentDataPath: hvor skal billedet gemmes.  efter /: hvad skal billedet hedde.
+         ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + journey.id + "/" + journey.gallery.Count + ".png");
+         AcceptPanel.gameObject.SetActive(true);
      }
     void Update() {
         
@@ -59,5 +63,21 @@ public class CameraManager : MonoBehaviour {
         //
         // int orient = -webcam.videoRotationAngle;
         // background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
+    }
+
+    public void LoadData(GameData data) {
+        foreach (var journey in data.journeys) {
+            if (journey.id == Hogsmeade.activeTripId) {
+                this.journey = journey;
+            }
+        }
+    }
+
+    public void SaveData(GameData data) {
+        foreach (var journey in data.journeys) {
+            if (journey.id == Hogsmeade.activeTripId) {
+                journey.gallery = this.journey.gallery;
+            }
+        }
     }
 }

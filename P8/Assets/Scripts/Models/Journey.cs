@@ -6,11 +6,13 @@ using magnus.johnson;
 namespace Models {
     [System.Serializable]
     public class Journey {
+        public int id;
         public Destination destination;
         public List<string> gallery;
         private DateTime date;
 
-        public Journey(Destination destination) {
+        public Journey(int id, Destination destination) {
+            this.id = id;
             this.destination = destination;
             this.gallery = new List<string>();
             this.date = DateTime.Now.Date;

@@ -123,9 +123,9 @@ namespace DataPersistence
             destinations.Add(egholm);
             destinations.Add(lundby);
 
-            Journey g1 = new Journey(rold_skov);
-            Journey g2 = new Journey(lundby);
-            Journey g3 = new Journey(dall_hede);
+            Journey g1 = new Journey(1, rold_skov);
+            Journey g2 = new Journey(2, lundby);
+            Journey g3 = new Journey(3, dall_hede);
             journeys.Add(g1);
             journeys.Add(g2);
             journeys.Add(g3);
