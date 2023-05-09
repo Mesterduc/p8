@@ -9,16 +9,20 @@ using UnityEngine.Windows;
 
 public class CameraManager : MonoBehaviour, IDataPersistence {
     private Journey journey;
-    private bool camAvailable;
+    // Camera
     private WebCamTexture webcam;
     public RawImage background;
+    
+    [SerializeField] private GameObject AcceptPanel;
+    // Buttons
     [SerializeField] private Button snapshot;
     [SerializeField] private Button retakeImageButton;
     [SerializeField] private Button SaveImageButton;
-    [SerializeField] private GameObject AcceptPanel;
+    [SerializeField] private Button closeButton;
 
     // TODO: front or back-side camera
     void Awake() {
+        DataPersistenceManager.Instance.manualLoadData();
         // StartCoroutine: bruges til at stoppe programmet
         snapshot.onClick.AddListener(takeSnapShot);
         retakeImageButton.onClick.AddListener(RetakeImage);
@@ -45,15 +49,17 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     public void RetakeImage() {
         webcam.Play();
         snapshot.gameObject.SetActive(true);
+        // closeButton.gameObject.SetActive(true);
         AcceptPanel.gameObject.SetActive(false);
     }
 
     // IEnumerator for at kunne bruge StartCoroutine
     public IEnumerator SaveImage() {
         AcceptPanel.gameObject.SetActive(false);
+        closeButton.gameObject.SetActive(false);
         yield return
             new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
-        // hvis folder ikke findes, laves der en ny folder
+        // hvis folder ikke findes, laves en ny folder
         if (!Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
             Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
         }
@@ -63,7 +69,6 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         string path = Application.persistentDataPath + "/" + journey.id + "/" + name + journey.gallery.Count + ".png";
         ScreenCapture.CaptureScreenshot(path);
         journey.gallery.Add(path);
-        AcceptPanel.gameObject.SetActive(true);
         DataPersistenceManager.Instance.SaveGame2();
     }
 
