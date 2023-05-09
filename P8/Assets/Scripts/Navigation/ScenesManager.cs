@@ -38,7 +38,6 @@ namespace Navigation {
             ChooseTrip,
             PlayTrip,
             CameraScene,
-
         }
 
         public void LoadSceneName(Scene scene) {

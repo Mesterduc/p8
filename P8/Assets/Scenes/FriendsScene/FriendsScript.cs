@@ -4,10 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scenes.FriendsScene
-{
-    public class FriendsScript : MonoBehaviour, IDataPersistence
-    {
+namespace Scenes.FriendsScene {
+    public class FriendsScript : MonoBehaviour, IDataPersistence {
         // set in editor
         [SerializeField] public GameObject friend;
         [SerializeField] public Transform friendslist;
@@ -17,19 +15,15 @@ namespace Scenes.FriendsScene
         // Data
         private List<Friend> Friends;
 
-        private void Awake()
-        {
-            addFriend.onClick.AddListener(() =>
-            {
+        private void Awake() {
+            addFriend.onClick.AddListener(() => {
                 Friends.Add(new Friend(friendIdName, 10, 4, "pedro"));
                 UpdateUi();
             });
         }
 
-        void Start()
-        {
-            for (int i = 0; i < Friends.Count; i++)
-            {
+        void Start() {
+            for (int i = 0; i < Friends.Count; i++) {
                 GameObject newFriend = Instantiate(friend, friendslist);
                 // Image
                 newFriend.transform.GetChild(0).GetComponent<Image>().sprite =
@@ -41,18 +35,17 @@ namespace Scenes.FriendsScene
                 newFriendInfo.GetChild(2).GetComponent<TMP_Text>().text =
                     "Achievements: " + Friends[i].numberOfAchievements;
             }
+
             friend.SetActive(false);
             // Destroy(friend);
         }
-        
+
         // bruges af UI til at få input, til at finde friend
-        public void ReadStringInput(string id)
-        {
+        public void ReadStringInput(string id) {
             friendIdName = id;
         }
 
-        void UpdateUi()
-        {
+        void UpdateUi() {
             GameObject newFriend;
             int i = Friends.Count - 1;
             newFriend = Instantiate(friend, friendslist);
@@ -68,13 +61,11 @@ namespace Scenes.FriendsScene
             newFriend.SetActive(true);
         }
 
-        public void LoadData(GameData data)
-        {
+        public void LoadData(GameData data) {
             this.Friends = data.friends;
         }
 
-        public void SaveData(GameData data)
-        {
+        public void SaveData(GameData data) {
             data.friends = this.Friends;
         }
     }

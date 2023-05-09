@@ -3,8 +3,6 @@ using UnityEngine;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine.UI;
-using System;
-
 
 // Class for saving and loading game objects 
 // Save methods
@@ -17,6 +15,7 @@ namespace DataPersistence {
 
         // Button til at manual gemme 
         [SerializeField] [CanBeNull] private Button manualSaveGame;
+
         [SerializeField] [CanBeNull] private Button manualLoadGame;
         // [SerializeField] [CanBeNull] private Button manualLoadDataButton;
 
@@ -77,7 +76,6 @@ namespace DataPersistence {
 
             // Looper alle scener der implementere IDataPersistence interface, og loader alt data ind til gameData
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
-                
                 dataObject.LoadData(gameData);
             }
         }
@@ -109,7 +107,7 @@ namespace DataPersistence {
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.gameData = this.dataHandler.Load();
-            
+
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.LoadData(gameData);
             }

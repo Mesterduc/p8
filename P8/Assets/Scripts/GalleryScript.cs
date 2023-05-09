@@ -1,25 +1,20 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using DataPersistence;
-using magnus.johnson;
 using Models;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GalleryScript : MonoBehaviour, IDataPersistence {
     private List<Journey> journeys = new List<Journey>();
     [SerializeField] private Transform placement;
+
     private void Awake() {
         DataPersistenceManager.Instance.manualLoadData();
     }
 
     void Start() {
-
         foreach (var journey in journeys) {
             GameObject prefab = Resources.Load<GameObject>("prefabs/UdflugtPrefab");
             GameObject journeyItem = Instantiate(prefab, placement);
@@ -56,11 +51,9 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
 
     public void LoadData(GameData data) {
         this.journeys = data.journeys;
-
     }
 
     public void SaveData(GameData data) {
-        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
         data.journeys = this.journeys;
     }
 }

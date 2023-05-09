@@ -1,10 +1,6 @@
 using Animals;
-using DataPersistence;
-using Navigation;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Random = UnityEngine.Random;
 

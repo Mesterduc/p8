@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DataPersistence;
 using Models;
 using UnityEngine;
@@ -15,6 +13,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     public RawImage background;
     
     [SerializeField] private GameObject AcceptPanel;
+    
     // Buttons
     [SerializeField] private Button snapshot;
     [SerializeField] private Button retakeImageButton;
