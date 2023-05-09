@@ -10,7 +10,7 @@ using UnityEngine;
 namespace DataPersistence
 {
     // Place test data here 
-    [System.Serializable]
+    [Serializable]
     public class GameData
     {
         public PlayerData playerData;
@@ -22,14 +22,27 @@ namespace DataPersistence
         //Magnus datamodel
         public List<Destination> destinations = new List<Destination>();
 
+        public void addToList(Journey journey) {
+            journeys.Add(journey);
+        }
+
+        public List<Journey> getList() {
+            return journeys;
+        }
+        
+        public void setList(List<Journey> journeys) {
+            // Debug.Log("setList");
+            this.journeys = journeys;
+        }
+
 
         public GameData()
         {
-            PreLoad();
+            // PreLoad();
         }
 
         // loader program med standard data
-        private void PreLoad() {
+        public void PreLoad() {
             måskeSlet();
             listOfSpices();
 
@@ -123,12 +136,15 @@ namespace DataPersistence
             destinations.Add(egholm);
             destinations.Add(lundby);
 
-            Journey g1 = new Journey(1, "rold_skov");
-            Journey g2 = new Journey(2, "lundby");
-            Journey g3 = new Journey(3, "dall_hede");
-            journeys.Add(g1);
-            journeys.Add(g2);
-            journeys.Add(g3);
+            Journey g1 = new Journey(1, rold_skov);
+            Journey g2 = new Journey(2, lundby);
+            Journey g3 = new Journey(3, dall_hede);
+            addToList(g1);
+            // addToList(g2);
+            // addToList(g3);
+            // journeys.Add(g1);
+            // journeys.Add(g2);
+            // journeys.Add(g3);
             
             // ----------------------------------- Animal ---------------------------------------------------------------------------------
             

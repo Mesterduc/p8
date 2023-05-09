@@ -34,10 +34,11 @@ namespace DataPersistence {
                             dataToLoad = reader.ReadToEnd();
                         }
                     }
+                    // loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+                    // Debug.Log("DeserializeObject");
+                    loadedData = JsonConvert.DeserializeObject<GameData>(dataToLoad);
 
                     // deserialize the data from Json back into the C# object
-                    loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
-                    // loadedData = JsonConvert.DeserializeObject<GameData>(dataToLoad);
                 }
                 catch (Exception e) 
                 {

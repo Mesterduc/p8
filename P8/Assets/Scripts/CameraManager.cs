@@ -65,7 +65,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
             Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
         }
 
-        string name = journey.destinationName.Replace(" ", "");
+        string name = journey.destination.name.Replace(" ", "");
         // Application.persistentDataPath: hvor skal billedet gemmes.  efter "/": hvad skal billedet hedde.
         string path = Application.persistentDataPath + "/" + journey.id + "/" + name + journey.gallery.Count + ".png";
         ScreenCapture.CaptureScreenshot(path);
@@ -74,7 +74,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
-        foreach (var journey in data.journeys) {
+        foreach (var journey in data.getList()) {
             if (journey.id == Hogsmeade.activeTripId) {
                 this.journey = journey;
             }
@@ -82,7 +82,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     public void SaveData(GameData data) {
-        foreach (var journey in data.journeys) {
+        foreach (var journey in data.getList()) {
             if (journey.id == Hogsmeade.activeTripId) {
                 journey.gallery = this.journey.gallery;
             }

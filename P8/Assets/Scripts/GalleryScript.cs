@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using DataPersistence;
+using magnus.johnson;
 using Models;
 using TMPro;
 using Unity.VisualScripting;
@@ -13,13 +14,17 @@ using UnityEngine.UI;
 public class GalleryScript : MonoBehaviour, IDataPersistence {
     private List<Journey> journeys = new List<Journey>();
     [SerializeField] private Transform placement;
+    private void Awake() {
+        DataPersistenceManager.Instance.manualLoadData();
+    }
 
     void Start() {
+
         foreach (var journey in journeys) {
             GameObject prefab = Resources.Load<GameObject>("prefabs/UdflugtPrefab");
             GameObject journeyItem = Instantiate(prefab, placement);
             journeyItem.transform.Find("content/activeTrip/LocationIcon/Title/Text").GetComponent<TMP_Text>().text =
-                journey.destinationName;
+                journey.destination.name;
             journeyItem.transform.Find("content/activeTrip/Date/").GetComponent<TMP_Text>().text =
                 // dddd: dag i text
                 journey.GetDateTimeFormated();
@@ -37,7 +42,7 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
         }
     }
 
-    private Sprite LoadSprite(string path) { 
+    private Sprite LoadSprite(string path) {
         // læser billedet og conventere det til bytes
         byte[] bytes = System.IO.File.ReadAllBytes(path);
         Texture2D texture = new Texture2D(1, 1);
@@ -50,10 +55,12 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
-        this.journeys = data.journeys;
+        this.journeys = data.getList();
+
     }
 
     public void SaveData(GameData data) {
-        data.journeys = this.journeys;
+        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+        data.setList(this.journeys);
     }
 }

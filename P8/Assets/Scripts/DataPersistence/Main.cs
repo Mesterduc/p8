@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Main : MonoBehaviour
-{
-    // Runs before a scene gets loaded
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static void LoadMain()
+namespace DataPersistence {
+    public class Main : MonoBehaviour
     {
-        GameObject main = GameObject.Instantiate(Resources.Load<GameObject>("prefabs/MainData"));
-        GameObject.DontDestroyOnLoad(main);
+        // Runs before a scene gets loaded
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void LoadMain()
+        {
+            GameObject main = GameObject.Instantiate(new GameObject());
+            DataPersistenceManager hej = main.AddComponent<DataPersistenceManager>();
+            hej.PreLoad();
+            GameObject.DontDestroyOnLoad(main);
+        }
+        // You can choose to add any "Service" component to the Main prefab.
+        // Examples are: Input, Saving, Sound, Config, Asset Bundles, Advertisements
     }
-    // You can choose to add any "Service" component to the Main prefab.
-    // Examples are: Input, Saving, Sound, Config, Asset Bundles, Advertisements
 }

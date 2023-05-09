@@ -61,7 +61,7 @@ namespace Tank {
                         prefabModal.transform.Find("Name").transform.GetComponent<TMP_Text>().text = animal.name;
                         // prefabModal.transform.Find("Image").transform.GetComponent<Image>().sprite = Resources.Load<Image>(animal.realLifeImage));
                         Transform infoPanel = prefabModal.transform.Find("InfoPanel");
-                        infoPanel.transform.GetChild(0).transform.GetComponent<TMP_Text>().text = animal.journey.destinationName;
+                        infoPanel.transform.GetChild(0).transform.GetComponent<TMP_Text>().text = animal.journey.destination.name;
                         infoPanel.transform.GetChild(1).transform.GetComponent<TMP_Text>().text = animal.journey.GetDateTimeFormated();
                         
                     }

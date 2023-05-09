@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,79 +8,62 @@ using UnityEngine.UI;
 using TMPro;
 using Models;
 
-public class ChooseTripScript : MonoBehaviour, IDataPersistence
-{
+public class ChooseTripScript : MonoBehaviour, IDataPersistence {
     [SerializeField] private List<Destination> destinations = new List<Destination>();
     [SerializeField] private List<Journey> journeys = new List<Journey>();
     public GameObject content;
     [SerializeField] public GameObject tripInfo;
     public GameObject playInfo;
     public GameObject bottomPanel;
-    
-    private void Awake() {
-            DataPersistenceManager.Instance.manualLoadData();
-        }
 
-    void Start()
-    {
-        if(Hogsmeade.nextTrip < 0){
+    private void Awake() {
+        DataPersistenceManager.Instance.manualLoadData();
+    }
+
+    void Start() {
+        if (Hogsmeade.nextTrip < 0) {
             NoTrip();
         }
-        else{
+        else {
             activeTrip();
         }
     }
 
-    private void activeTrip()
-    {
+    private void activeTrip() {
         OpenWindows();
         PopulatePanels();
-        
-        
     }
-    private void NoTrip()
-    {
+
+    private void NoTrip() {
         content.transform.Find("activeTrip").gameObject.SetActive(false);
         content.transform.Find("noTrip").gameObject.SetActive(true);
         content.transform.Find("comingTrip").gameObject.SetActive(false);
     }
 
-    private void PopulatePanels()
-    {
-
+    private void PopulatePanels() {
         tripInfo.GetComponent<TMP_Text>().text = destinations[Hogsmeade.nextTrip].address;
     }
-    private void OpenWindows()
-    {
+
+    private void OpenWindows() {
         content.transform.Find("activeTrip").gameObject.SetActive(false);
         content.transform.Find("noTrip").gameObject.SetActive(false);
         content.transform.Find("comingTrip").gameObject.SetActive(true);
         bottomPanel.SetActive(true);
     }
 
-    public void BeginJourney()
-    {
-        Hogsmeade.activeTripId++;
-        Journey journey = new Journey(Hogsmeade.activeTripId, destinations[Hogsmeade.nextTrip].name);
-        journeys.Add(journey);
-
-        Debug.Log("ChooseTrip");
-            for(int i = 0; i < journeys.Count; i++)
-        {
-            Debug.Log(journeys[i].destinationName);
-        }
-        DataPersistenceManager.Instance.SaveGame();
+    public void BeginJourney() {
+        int id = Hogsmeade.activeTripId++;
+        journeys.Add(new Journey(id, destinations[Hogsmeade.nextTrip]));
+        DataPersistenceManager.Instance.SaveGame2();
     }
-
 
     public void LoadData(GameData data) {
         this.destinations = data.destinations;
-        this.journeys = data.journeys;
-}
+        this.journeys = data.getList();
+    }
 
     public void SaveData(GameData data) {
         data.destinations = this.destinations;
-        data.journeys = this.journeys;
-
-        }
+        data.setList(this.journeys);
+    }
 }

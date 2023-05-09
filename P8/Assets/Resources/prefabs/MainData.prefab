@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1292898811091498296}
-  - component: {fileID: 1292898811091498311}
   - component: {fileID: 1292898811091498310}
   m_Layer: 0
   m_Name: MainData
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1292898811091498311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292898811091498297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d4774171a1c40ab8e6a0b22326aa07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1292898811091498310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +46,214 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: data.json
   manualSaveGame: {fileID: 0}
+  manualLoadGame: {fileID: 0}
+  gameData:
+    playerData:
+      name: Jeff
+    animals:
+    - id: 1
+      name: Predo
+      animated: Fish/Sild
+      animation: Fish/SildAnimator
+      isDisplayed: 1
+      movement:
+        speed: 150
+        range: 20
+        maxDistance: 400
+        currentPosition: {x: 0, y: 0, z: 1}
+      animalSize: 2
+      species:
+        name: Krabbe
+        picture: Fish/Sild
+        realPicture: 
+        activities:
+          name: Krabbejagt
+          guide: "Find en t\xF8jklemme og en snor. Put en bl\xE5musling p\xE5 t\xF8jklemmen
+            og s\xE6nk den ned i vandet. S\xE5 er der krabber!"
+          image: 
+        diet: "K\xF8d"
+        status: Almindelig
+        bio: Krabben er fandeme over det hele man
+      journey:
+        id: 1
+        gallery: []
+    - id: 2
+      name: Predo2
+      animated: Fish/Sild
+      animation: Fish/SildAnimator
+      isDisplayed: 1
+      movement:
+        speed: 150
+        range: 20
+        maxDistance: 400
+        currentPosition: {x: 0, y: 0, z: 1}
+      animalSize: 0
+      species:
+        name: Krabbe
+        picture: Fish/Sild
+        realPicture: 
+        activities:
+          name: Krabbejagt
+          guide: "Find en t\xF8jklemme og en snor. Put en bl\xE5musling p\xE5 t\xF8jklemmen
+            og s\xE6nk den ned i vandet. S\xE5 er der krabber!"
+          image: 
+        diet: "K\xF8d"
+        status: Almindelig
+        bio: Krabben er fandeme over det hele man
+      journey:
+        id: 2
+        gallery: []
+    - id: 3
+      name: Predo3
+      animated: Fish/Sild
+      animation: Fish/SildAnimator
+      isDisplayed: 1
+      movement:
+        speed: 150
+        range: 20
+        maxDistance: 400
+        currentPosition: {x: 0, y: 0, z: 1}
+      animalSize: 0
+      species:
+        name: Krabbe
+        picture: Fish/Sild
+        realPicture: 
+        activities:
+          name: Krabbejagt
+          guide: "Find en t\xF8jklemme og en snor. Put en bl\xE5musling p\xE5 t\xF8jklemmen
+            og s\xE6nk den ned i vandet. S\xE5 er der krabber!"
+          image: 
+        diet: "K\xF8d"
+        status: Almindelig
+        bio: Krabben er fandeme over det hele man
+      journey:
+        id: 3
+        gallery: []
+    - id: 4
+      name: Predo4
+      animated: Fish/Sild
+      animation: Fish/SildAnimator
+      isDisplayed: 0
+      movement:
+        speed: 150
+        range: 20
+        maxDistance: 400
+        currentPosition: {x: 0, y: 0, z: 1}
+      animalSize: 0
+      species:
+        name: Krabbe
+        picture: Fish/Sild
+        realPicture: 
+        activities:
+          name: Krabbejagt
+          guide: "Find en t\xF8jklemme og en snor. Put en bl\xE5musling p\xE5 t\xF8jklemmen
+            og s\xE6nk den ned i vandet. S\xE5 er der krabber!"
+          image: 
+        diet: "K\xF8d"
+        status: Almindelig
+        bio: Krabben er fandeme over det hele man
+      journey:
+        id: 1
+        gallery: []
+    - id: 5
+      name: Predo5
+      animated: Fish/Sild
+      animation: Fish/SildAnimator
+      isDisplayed: 0
+      movement:
+        speed: 150
+        range: 20
+        maxDistance: 400
+        currentPosition: {x: 0, y: 0, z: 1}
+      animalSize: 0
+      species:
+        name: Krabbe
+        picture: Fish/Sild
+        realPicture: 
+        activities:
+          name: Krabbejagt
+          guide: "Find en t\xF8jklemme og en snor. Put en bl\xE5musling p\xE5 t\xF8jklemmen
+            og s\xE6nk den ned i vandet. S\xE5 er der krabber!"
+          image: 
+        diet: "K\xF8d"
+        status: Almindelig
+        bio: Krabben er fandeme over det hele man
+      journey:
+        id: 1
+        gallery: []
+    species:
+    - name: Lundsneglen
+      picture: DyrIcon/snail
+      realPicture: Real/lundsnegl
+      activities:
+        name: Krabbejagt
+        guide: "Find en t\xF8jklemme og en snor. Put en bl\xE5musling p\xE5 t\xF8jklemmen
+          og s\xE6nk den ned i vandet. S\xE5 er der krabber!"
+        image: 
+      diet: "K\xF8d"
+      status: Almindelig
+      bio: "Lundsneglen er en mellemstor snegl med fladt, kugleformet hus og m\xF8rk
+        skal\xE5bning. Huset bliver mellem 12-22 mm i h\xF8jde og 18-25 mm i brede,
+        huset varierer i farve og tegning fra gullig til r\xF8dlig eller brunlig
+        med eller uden m\xF8rke spiralb\xE5nd. >Kroppen er gr\xE5lig"
+    - name: Havesnegl
+      picture: DyrIcon/snail
+      realPicture: Real/havesnegl
+      activities:
+        name: Fisketur
+        guide: Anskaf dig en fiskestang og se en video
+        image: 
+      diet: Andre fisk
+      status: Almindelig
+      bio: "Havesneglens hus varierer meget i farven fra brunt til r\xF8dt og gult.
+        Snailen bliver ca. 2 cm lang og huset bliver ca. 2 cm i diameter. Huset kan
+        v\xE6re ensfarvet, eller det kan have 5 m\xF8rke b\xE5nd, som snor sig rundt
+        om sneglehuset."
+    - name: Sorte havemyrer
+      picture: DyrIcon/myre
+      realPicture: Real/myre
+      activities:
+        name: Fisketur
+        guide: Anskaf dig en fiskestang og se en video
+        image: 
+      diet: Rejer, muslinger
+      status: Almindelig
+      bio: "Sorte arbejder havemyrer: 3,5-5 mm. lang. Farven er gr\xE5brun til sortbrun
+        med lysere ben, og f\xF8lehorn med en matglinsende overflade. T\xE6t beh\xE5ring
+        med varierende l\xE6ngde. Sk\xE6llet er lavt og bredt med parallelle sider
+        og lige overkant."
+    - name: Korsedderkop
+      picture: DyrIcon/spider
+      realPicture: Real/Korsedderkop
+      activities:
+        name: Edderkoppe-Eventyr
+        guide: Find et edderkoppenet. Find en flue. Put en flue i nettet. WIN!
+        image: 
+      diet: Insekter
+      status: Almindelig
+      bio: "Korsedderkoppen har oftest p\xE5 oversiden et lyst m\xF8nster, der ligner
+        et kors. Korset er sammensat af mindre hvide pletter, der dog hos store individer
+        kan mangle eller v\xE6re meget sm\xE5, s\xE5 korset er utydeligt. Bagkroppen
+        er altid mere eller mindre trekantet, og spidser til bagtil. Forrest p\xE5
+        bagkroppen ses som regel to sm\xE5 pukler, der forst\xE6rker den trekantede
+        facon. Hannens kropsm\xE5l er ca. 8 mm, mens hunnen bliver op til ca. 17
+        mm, n\xE5r den om efter\xE5ret er fuld af \xE6g. I mods\xE6tning til de voksne
+        dyr er ungerne gule med sorte aftegninger."
+    - name: "Kratl\xF8ber"
+      picture: DyrIcon/stinkbille
+      realPicture: "Real/Kratl\xF8ber"
+      activities:
+        name: Edderkoppe-Eventyr
+        guide: Find et edderkoppenet. Find en flue. Put en flue i nettet. WIN!
+        image: 
+      diet: Insekter
+      status: Almindelig
+      bio: "Kratl\xF8ber bliver 22-26 mm. i l\xE6ngde. En ret stor og noget kompakt
+        l\xF8bebille, som p\xE5 afstand udm\xE6rker sig ved en svagt brunlig eller
+        bl\xE5violet farve p\xE5 d\xE6kvingerne. Kanten af pronotum og d\xE6kvingerne
+        er ofte klart violette. Det bedste kendetegn er en generel violetfarvning
+        kombineret med, at der p\xE5 hver d\xE6kvinge er tre r\xE6kker af tydeligt
+        runde fordybninger, ca. 10 i hver r\xE6kke."
+    number: 3
+    numberOfFriends: 0
+    destinations: []
