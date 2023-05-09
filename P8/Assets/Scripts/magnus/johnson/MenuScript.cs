@@ -50,8 +50,8 @@ namespace magnus.johnson {
             int id = int.Parse(tag);
             if (isHidden == true) {
                 title.GetComponent<TMP_Text>().text = destinations[id].name;
-                car.text = travelTime + " minutes";
-                bus.text = travelTimeBus + " minutes";
+                car.text = travelTime + " min";
+                bus.text = travelTimeBus + " min";
                 currentWindow = id;
                 PopulateAnimals(id);
                 modal.SetActive(isHidden);
