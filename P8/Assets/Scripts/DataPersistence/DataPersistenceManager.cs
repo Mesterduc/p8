@@ -57,9 +57,9 @@ namespace DataPersistence {
                 manualLoadGame.onClick.AddListener(manualLoadData);
             }
         
-            PreLoad();
+            // PreLoad();
             LoadGame();
-            SaveGame();
+            // SaveGame();
         }
 
         public void NewGame() {

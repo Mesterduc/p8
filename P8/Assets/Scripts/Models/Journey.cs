@@ -7,13 +7,13 @@ namespace Models {
     [System.Serializable]
     public class Journey {
         public int id;
-        public Destination destination;
+        public string destinationName;
         public List<string> gallery;
         private DateTime date;
 
-        public Journey(int id, Destination destination) {
+        public Journey(int id, string destinationName) {
             this.id = id;
-            this.destination = destination;
+            this.destinationName = destinationName;
             this.gallery = new List<string>();
             this.date = DateTime.Now.Date;
         }

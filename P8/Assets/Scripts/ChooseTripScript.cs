@@ -60,13 +60,13 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
     public void BeginJourney()
     {
         Hogsmeade.activeTripId++;
-        Journey journey = new Journey(Hogsmeade.activeTripId, destinations[Hogsmeade.nextTrip]);
+        Journey journey = new Journey(Hogsmeade.activeTripId, destinations[Hogsmeade.nextTrip].name);
         journeys.Add(journey);
 
         Debug.Log("ChooseTrip");
             for(int i = 0; i < journeys.Count; i++)
         {
-            Debug.Log(journeys[i].destination.name);
+            Debug.Log(journeys[i].destinationName);
         }
         DataPersistenceManager.Instance.SaveGame();
     }

@@ -19,7 +19,7 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
             GameObject prefab = Resources.Load<GameObject>("prefabs/UdflugtPrefab");
             GameObject journeyItem = Instantiate(prefab, placement);
             journeyItem.transform.Find("content/activeTrip/LocationIcon/Title/Text").GetComponent<TMP_Text>().text =
-                journey.destination.name;
+                journey.destinationName;
             journeyItem.transform.Find("content/activeTrip/Date/").GetComponent<TMP_Text>().text =
                 // dddd: dag i text
                 journey.GetDateTimeFormated();

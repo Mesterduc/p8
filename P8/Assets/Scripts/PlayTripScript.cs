@@ -29,7 +29,7 @@ public class PlayTripScript : MonoBehaviour, IDataPersistence
         this.journeys = data.journeys;
              for(int i = 0; i < journeys.Count; i++)
         {
-            Debug.Log(journeys[i].destination.name);
+            Debug.Log(journeys[i].destinationName);
         } 
 }
 

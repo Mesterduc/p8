@@ -64,7 +64,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
             Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
         }
 
-        string name = journey.destination.name.Replace(" ", "");
+        string name = journey.destinationName.Replace(" ", "");
         // Application.persistentDataPath: hvor skal billedet gemmes.  efter "/": hvad skal billedet hedde.
         string path = Application.persistentDataPath + "/" + journey.id + "/" + name + journey.gallery.Count + ".png";
         ScreenCapture.CaptureScreenshot(path);
