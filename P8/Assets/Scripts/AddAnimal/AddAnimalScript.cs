@@ -32,7 +32,6 @@ namespace AddAnimal {
 
         void Start()
         {
-            Debug.Log("start");
             for (int i = 0; i < animalTrivia.Count; i++)
             {
                 GameObject animalSpices = Instantiate(objectToSpawn, animalList);
@@ -85,7 +84,6 @@ namespace AddAnimal {
     
         public void LoadData(GameData data)
         {
-            Debug.Log("load");
             this.animalTrivia = data.species;
             this.animalListGameList = data.animals;
         }
@@ -94,7 +92,6 @@ namespace AddAnimal {
         {
             data.species = this.animalTrivia;
             data.animals = this.animalListGameList;
-            // data.animals.Add(AddAnimal());
         }
     }
 }
