@@ -15,34 +15,25 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
     [SerializeField] private Transform placement;
 
     void Start() {
-        for (int i = 0; i < journeys.Count; i++) {
+        foreach (var journey in journeys) {
             GameObject prefab = Resources.Load<GameObject>("prefabs/UdflugtPrefab");
             GameObject journeyItem = Instantiate(prefab, placement);
             journeyItem.transform.Find("content/activeTrip/LocationIcon/Title/Text").GetComponent<TMP_Text>().text =
-                journeys[i].destination.name;
+                journey.destination.name;
             journeyItem.transform.Find("content/activeTrip/Date/").GetComponent<TMP_Text>().text =
                 // dddd: dag i text
-                journeys[i].GetDateTimeFormated();
+                journey.GetDateTimeFormated();
 
             // Billeder --------------------------------------------
             Transform gallery = journeyItem.transform.Find("content/activeTrip/GalleryScroller/Mask/Gallery").transform;
-            if (Directory.Exists(Application.persistentDataPath + "/" + journeys[i].id)) {
-                DirectoryInfo dir = new DirectoryInfo(Application.persistentDataPath + "/" + journeys[i].id);
-                FileInfo[] info = dir.GetFiles();
-                // Debug.Log(info.Length);
-                for (int j = 0; j < info.Length; j++) {
-                    Debug.Log(info[j].ToString());
+            if (Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
+                foreach (var galleryPath in journey.gallery) {
                     GameObject image = new GameObject("Image");
-
                     image.transform.localScale -= new Vector3(0.36f, 0.36f, 0.36f);
-                    image.AddComponent<Image>().sprite = LoadSprite(info[j].ToString());
+                    image.AddComponent<Image>().sprite = LoadSprite(galleryPath);
                     image.transform.SetParent(gallery);
                 }
             }
-            // dir.GetFiles().Length;
-            // Application.persistentDataPath + "/" + journeys[i].id;
-            // gallery.transform
-            // gallery.
         }
     }
 
