@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.Windows;
 
 public class CameraManager : MonoBehaviour, IDataPersistence {
+
     private Journey journey;
     // Camera
     private WebCamTexture webcam;
@@ -34,7 +35,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
         if (Application.HasUserAuthorization(UserAuthorization.WebCam)) {
             // TODO: find ud af hvilken camera der skal bruges
-            webcam = new WebCamTexture(Screen.width, Screen.height);
+            webcam = new WebCamTexture(WebCamTexture.devices[1].name, Screen.width, Screen.height);
             webcam.Play();
             background.texture = webcam;
         }
@@ -86,5 +87,5 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
                 journey.gallery = this.journey.gallery;
             }
         }
-    }
+}
 }
