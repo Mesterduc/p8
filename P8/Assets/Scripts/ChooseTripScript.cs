@@ -59,11 +59,11 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence {
 
     public void LoadData(GameData data) {
         this.destinations = data.destinations;
-        this.journeys = data.getList();
+        this.journeys = data.journeys;
     }
 
     public void SaveData(GameData data) {
         data.destinations = this.destinations;
-        data.setList(this.journeys);
+        data.journeys = this.journeys;
     }
 }

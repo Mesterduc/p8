@@ -18,23 +18,7 @@ namespace DataPersistence
         public List<Animal> animals = new List<Animal>();
         public List<FishTrivia> species = new List<FishTrivia>();
         public List<Journey> journeys = new List<Journey>();
-
-        //Magnus datamodel
         public List<Destination> destinations = new List<Destination>();
-
-        public void addToList(Journey journey) {
-            journeys.Add(journey);
-        }
-
-        public List<Journey> getList() {
-            return journeys;
-        }
-        
-        public void setList(List<Journey> journeys) {
-            // Debug.Log("setList");
-            this.journeys = journeys;
-        }
-
 
         public GameData()
         {
@@ -139,7 +123,7 @@ namespace DataPersistence
             Journey g1 = new Journey(1, rold_skov);
             Journey g2 = new Journey(2, lundby);
             Journey g3 = new Journey(3, dall_hede);
-            addToList(g1);
+            journeys.Add(g1);
             // addToList(g2);
             // addToList(g3);
             // journeys.Add(g1);

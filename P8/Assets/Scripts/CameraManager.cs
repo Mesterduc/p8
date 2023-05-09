@@ -74,7 +74,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
-        foreach (var journey in data.getList()) {
+        foreach (var journey in data.journeys) {
             if (journey.id == Hogsmeade.activeTripId) {
                 this.journey = journey;
             }
@@ -82,7 +82,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     public void SaveData(GameData data) {
-        foreach (var journey in data.getList()) {
+        foreach (var journey in data.journeys) {
             if (journey.id == Hogsmeade.activeTripId) {
                 journey.gallery = this.journey.gallery;
             }

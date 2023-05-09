@@ -55,12 +55,12 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
-        this.journeys = data.getList();
+        this.journeys = data.journeys;
 
     }
 
     public void SaveData(GameData data) {
         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-        data.setList(this.journeys);
+        data.journeys = this.journeys;
     }
 }
