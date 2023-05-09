@@ -5,14 +5,20 @@ using TMPro;
 
 public class OpenSelectedGame : MonoBehaviour
 {
-    [SerializeField] TMP_Text textBar;
-    void Start()
+    public GameObject dyrepaneler;
+    private int current;
+
+    public void Start()
     {
-        
+        current = 0;
+        NextAnimal(0);
     }
 
-    void Update()
+    public void NextAnimal(int direction)
     {
-        
+            dyrepaneler.transform.GetChild(current).gameObject.SetActive(false);
+            current = current + direction;
+            dyrepaneler.transform.GetChild(current).gameObject.SetActive(true);
     }
+
 }

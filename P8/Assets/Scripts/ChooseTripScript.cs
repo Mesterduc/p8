@@ -9,8 +9,8 @@ using Models;
 
 public class ChooseTripScript : MonoBehaviour, IDataPersistence
 {
-    private List<Destination> destinations;
-    private List<Journey> journeys;
+    [SerializeField] private List<Destination> destinations = new List<Destination>();
+    [SerializeField] private List<Journey> journeys = new List<Journey>();
     public GameObject content;
     [SerializeField] public GameObject tripInfo;
     public GameObject playInfo;
@@ -46,8 +46,6 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
 
     private void PopulatePanels()
     {
-        Debug.Log(destinations[0].address);
-        Debug.Log(destinations[0].name);
 
         tripInfo.GetComponent<TMP_Text>().text = destinations[Hogsmeade.nextTrip].address;
     }
@@ -64,7 +62,13 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
         Hogsmeade.activeTripId++;
         Journey journey = new Journey(Hogsmeade.activeTripId, destinations[Hogsmeade.nextTrip]);
         journeys.Add(journey);
-        DataPersistenceManager.Instance.SaveGame2();
+
+        Debug.Log("ChooseTrip");
+            for(int i = 0; i < journeys.Count; i++)
+        {
+            Debug.Log(journeys[i].destination.name);
+        }
+        DataPersistenceManager.Instance.SaveGame();
     }
 
 
@@ -76,5 +80,6 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data) {
         data.destinations = this.destinations;
         data.journeys = this.journeys;
+
         }
 }

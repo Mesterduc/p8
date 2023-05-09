@@ -10,7 +10,7 @@ using UnityEngine;
 namespace DataPersistence
 {
     // Place test data here 
-    // [System.Serializable]
+    [System.Serializable]
     public class GameData
     {
         public PlayerData playerData;

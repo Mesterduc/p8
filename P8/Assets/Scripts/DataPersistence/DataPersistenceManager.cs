@@ -21,7 +21,7 @@ namespace DataPersistence {
         // [SerializeField] [CanBeNull] private Button manualLoadDataButton;
 
         // Tom gameData class 
-        private GameData gameData;
+        public GameData gameData;
 
         // indenholder alle scenes som implementer IDataPersistence interface, så man kan loade og gemme data
         private List<IDataPersistence> dataPersistenceObjects;
@@ -59,7 +59,7 @@ namespace DataPersistence {
         
             PreLoad();
             LoadGame();
-            // SaveGame();
+            SaveGame();
         }
 
         public void NewGame() {
@@ -90,6 +90,7 @@ namespace DataPersistence {
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.SaveData(gameData);
             }
+
 
             // gemmer gameData til fil
             dataHandler.Save(gameData);

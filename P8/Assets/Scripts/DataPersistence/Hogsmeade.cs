@@ -6,4 +6,6 @@ public class Hogsmeade {
    public static int activeTripId = -1;
    public static int nextTrip = -1;
    public static bool isPlaying;
+
+   
 }
