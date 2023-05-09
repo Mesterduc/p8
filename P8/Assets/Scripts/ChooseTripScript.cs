@@ -5,10 +5,12 @@ using DataPersistence;
 using magnus.johnson;
 using UnityEngine.UI;
 using TMPro;
+using Models;
 
 public class ChooseTripScript : MonoBehaviour, IDataPersistence
 {
     private List<Destination> destinations;
+    private List<Journey> journeys;
     public GameObject content;
     [SerializeField] public GameObject tripInfo;
     public GameObject playInfo;
@@ -26,7 +28,6 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
         else{
             activeTrip();
         }
-
     }
 
     private void activeTrip()
@@ -58,13 +59,21 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence
         bottomPanel.SetActive(true);
     }
 
+    public void BeginJourney()
+    {
+        Hogsmeade.activeTripId++;
+        Journey journey = new Journey(Hogsmeade.activeTripId, destinations[Hogsmeade.nextTrip]);
+        journeys.Add(journey);
+    }
 
 
     public void LoadData(GameData data) {
         this.destinations = data.destinations;
+        this.journeys = data.journeys;
 }
 
     public void SaveData(GameData data) {
         data.destinations = this.destinations;
+        data.journeys = this.journeys;
         }
 }
