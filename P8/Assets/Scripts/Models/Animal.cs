@@ -24,8 +24,8 @@ namespace Animals {
         public AnimalSize animalSize;
         public FishTrivia species;
         public Journey journey;
+        private string realLifeImage; //: har vi ikke med endnu: image of caught animal
         
-        // public string realLifeImage { get; set; } : har vi ikke med endnu: image of caught animal
         public Animal(int id, string name, string animated, string animation, AnimalSize animalSize, FishTrivia species, Journey journey) {
             this.id = id;
             this.name = name;
@@ -36,6 +36,14 @@ namespace Animals {
             this.movement = new Movement(150, 20, 400);
             this.species = species;
             this.journey = journey;
+        }
+
+        public string getRealImage() {
+            return realLifeImage;
+        }
+
+        public void setRealImage(string pathToImage) {
+            this.realLifeImage = pathToImage;
         }
         
     }

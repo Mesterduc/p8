@@ -37,6 +37,7 @@ namespace Navigation {
             Gallery,
             ChooseTrip,
             PlayTrip,
+            CameraScene,
 
         }
 

@@ -8,30 +8,34 @@ public class QuickNavigation : MonoBehaviour
 {
      public void GoToMap()
     {
-        SceneManager.LoadSceneAsync("menu");
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Menu);
     }
 
      public void GoToPlay()
     {
-        SceneManager.LoadSceneAsync("playtrip");
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.PlayTrip);
     }
 
      public void GoToGallery()
     {
-        SceneManager.LoadSceneAsync("gallery");
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Gallery);
+    }
+     public void GoToCamera()
+    {
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.CameraScene);
     }
      public void GoToTank()
     {
-        SceneManager.LoadSceneAsync("TankScene");
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.TankScene);
     }
      public void GoToChoose()
     {
-        SceneManager.LoadSceneAsync("ChooseTrip"); 
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.ChooseTrip);
     }
 
       public void GoToAnimal()
     {
-        SceneManager.LoadSceneAsync("AddAnimalsScene");
+        ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.AddAnimalsScene);
     }
 
     public void EndTrip()
