@@ -34,6 +34,7 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
                     Debug.Log(info[j].ToString());
                     GameObject image = new GameObject("Image");
 
+                    image.transform.localScale -= new Vector3(0.36f, 0.36f, 0.36f);
                     image.AddComponent<Image>().sprite = LoadSprite(info[j].ToString());
                     image.transform.SetParent(gallery);
                 }

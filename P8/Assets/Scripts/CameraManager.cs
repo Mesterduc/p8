@@ -17,10 +17,6 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     [SerializeField] private Button SaveImageButton;
     [SerializeField] private GameObject AcceptPanel;
 
-    // private Texture defaultBackground;
-    // public AspectRatioFitter fit;
-
-
     // TODO: front or back-side camera
     void Awake() {
         // StartCoroutine: bruges til at stoppe programmet
@@ -68,17 +64,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         ScreenCapture.CaptureScreenshot(path);
         journey.gallery.Add(path);
         AcceptPanel.gameObject.SetActive(true);
-    }
-
-    void Update() {
-        // if (!camAvailable) return;
-
-        //
-        // float scaleY = webcam.videoVerticallyMirrored ? -1f : 1f;
-        // background.rectTransform.localScale = new Vector3(1f, scaleY, 1f);
-        //
-        // int orient = -webcam.videoRotationAngle;
-        // background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
+        DataPersistenceManager.Instance.SaveGame2();
     }
 
     public void LoadData(GameData data) {
