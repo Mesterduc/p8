@@ -33,4 +33,10 @@ public class QuickNavigation : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("AddAnimalsScene");
     }
+
+    public void EndTrip()
+    {
+        Hogsmeade.nextTrip = -1;
+        GoToGallery();
+    }
 }

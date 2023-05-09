@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gallery.unity
     guid: 000270fa61be41041b6903c03e9977b9
+  - enabled: 1
+    path: Assets/Scenes/PlayTrip.unity
+    guid: de84da2ea5105854da86dc4070dde7b3
   m_configObjects: {}
