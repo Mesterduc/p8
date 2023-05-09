@@ -67,6 +67,7 @@ namespace DataPersistence {
         }
 
         public void LoadGame() {
+            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             this.gameData = dataHandler.Load();
             if (this.gameData == null) {
                 Debug.Log("No data is found dataManager");
@@ -80,6 +81,7 @@ namespace DataPersistence {
         }
 
         public void SaveGame() {
+            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             // if we don't have any data to save
             if (this.gameData == null) {
                 Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
@@ -96,7 +98,7 @@ namespace DataPersistence {
             dataHandler.Save(gameData);
         }
 
-        private void SaveGameOnQuit() {
+        private void OnDestroy() {
             SaveGame();
         }
 
