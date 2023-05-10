@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace magnus.johnson {
+namespace Models {
     [System.Serializable]
     public class Biome
     {   

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Animals;
+using ComponentScripts;
 using DataPersistence;
 using TMPro;
 using UnityEngine;

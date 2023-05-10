@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace magnus.johnson {
+namespace Models {
     [System.Serializable]
 
     public class Destination

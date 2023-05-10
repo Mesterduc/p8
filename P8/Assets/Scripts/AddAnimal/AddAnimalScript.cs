@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Animals;
 using DataPersistence;
-using magnus.johnson;
+using Models;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
