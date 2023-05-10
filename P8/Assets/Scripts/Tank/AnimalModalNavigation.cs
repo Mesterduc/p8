@@ -1,7 +1,8 @@
+using Navigation;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Navigation {
+namespace Tank {
     public class AnimalModalNavigation : MonoBehaviour
     {
         [SerializeField] private Button gallery;

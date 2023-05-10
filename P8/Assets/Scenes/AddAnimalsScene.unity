@@ -672,7 +672,6 @@ GameObject:
   - component: {fileID: 189654803}
   - component: {fileID: 189654802}
   - component: {fileID: 189654806}
-  - component: {fileID: 189654805}
   m_Layer: 0
   m_Name: addAnimalCanvas
   m_TagString: Untagged
@@ -764,20 +763,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &189654805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189654800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbfb1f8b06194fa1a4d7b861ac94c1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _GoToTank: {fileID: 1475185334}
-  _GoToMenu: {fileID: 1130818339}
 --- !u!114 &189654806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,6 +2202,7 @@ GameObject:
   - component: {fileID: 1130818341}
   - component: {fileID: 1130818340}
   - component: {fileID: 1130818339}
+  - component: {fileID: 1130818343}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -2267,7 +2253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1130818340}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1130818343}
+        m_TargetAssemblyTypeName: QuickNavigation, Assembly-CSharp
+        m_MethodName: GoToChoose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1130818340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2327,6 +2325,18 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1130818343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130818338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7ff32c0d9056c4e909410fda2d4c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1171707679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,6 +2946,7 @@ GameObject:
   - component: {fileID: 1475185336}
   - component: {fileID: 1475185335}
   - component: {fileID: 1475185334}
+  - component: {fileID: 1475185337}
   m_Layer: 0
   m_Name: addButton
   m_TagString: Untagged
@@ -3008,7 +3019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1475185335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475185337}
+        m_TargetAssemblyTypeName: QuickNavigation, Assembly-CSharp
+        m_MethodName: GoToTank
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1475185335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3047,6 +3070,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475185332}
   m_CullTransparentMesh: 1
+--- !u!114 &1475185337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475185332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7ff32c0d9056c4e909410fda2d4c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1591911022
 GameObject:
   m_ObjectHideFlags: 0

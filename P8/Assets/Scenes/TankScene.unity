@@ -19794,7 +19794,6 @@ GameObject:
   - component: {fileID: 1972841080}
   - component: {fileID: 1972841079}
   - component: {fileID: 1972841083}
-  - component: {fileID: 1972841084}
   - component: {fileID: 1972841085}
   - component: {fileID: 1972841086}
   - component: {fileID: 1972841087}
@@ -19904,19 +19903,6 @@ MonoBehaviour:
   addButton: {fileID: 0}
   showModal: {fileID: 1003531722}
   modal: {fileID: 185168309}
---- !u!114 &1972841084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972841078}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9794621ab9de0413fb36a451d1a69378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _menu: {fileID: 1188036381}
 --- !u!114 &1972841085
 MonoBehaviour:
   m_ObjectHideFlags: 0
