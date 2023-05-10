@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Models;
 using DataPersistence;
+using DataStore;
 
 public class PlayTripScript : MonoBehaviour, IDataPersistence {
     [SerializeField] private List<Journey> journeys = new List<Journey>();

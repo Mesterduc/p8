@@ -1,3 +1,4 @@
+using DataStore;
 using UnityEngine;
 
 public class DestinationClick : MonoBehaviour

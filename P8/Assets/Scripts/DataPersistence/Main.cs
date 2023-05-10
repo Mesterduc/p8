@@ -8,11 +8,9 @@ namespace DataPersistence {
         public static void LoadMain()
         {
             GameObject main = GameObject.Instantiate(new GameObject());
-            DataPersistenceManager hej = main.AddComponent<DataPersistenceManager>();
-            hej.PreLoad();
+            DataPersistenceManager data = main.AddComponent<DataPersistenceManager>();
+            data.PreLoad();
             GameObject.DontDestroyOnLoad(main);
         }
-        // You can choose to add any "Service" component to the Main prefab.
-        // Examples are: Input, Saving, Sound, Config, Asset Bundles, Advertisements
     }
 }

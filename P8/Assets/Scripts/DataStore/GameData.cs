@@ -1,12 +1,10 @@
-using System.Collections;
 using System;
 using System.Collections.Generic;
 using Animals;
 using Models;
 using UnityEngine;
 
-
-namespace DataPersistence
+namespace DataStore
 {
     // Place test data here 
     [Serializable]
