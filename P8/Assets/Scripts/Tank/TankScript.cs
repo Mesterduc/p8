@@ -13,6 +13,7 @@ namespace Tank
         private GameObject fishTemp;
         private Vector3 fishSize;
         private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
             fishTemp = new GameObject("Fish");
         }
 

@@ -26,6 +26,7 @@ namespace AddAnimal {
         public GameObject specieInfoContainer;
 
         private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
             forwards.onClick.AddListener(ShowSpices);
             back.onClick.AddListener(ShowAnimalInfo);
         }

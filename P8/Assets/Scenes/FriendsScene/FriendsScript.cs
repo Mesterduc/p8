@@ -16,6 +16,7 @@ namespace Scenes.FriendsScene {
         private List<Friend> Friends;
 
         private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
             addFriend.onClick.AddListener(() => {
                 Friends.Add(new Friend(friendIdName, 10, 4, "pedro"));
                 UpdateUi();

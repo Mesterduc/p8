@@ -10,7 +10,11 @@ namespace Scenes.Profile {
         
         private string _name = "";
         public TMP_Text text;
-        
+
+        private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
+        }
+
         void Start() {
             text.text = _name;
         }
