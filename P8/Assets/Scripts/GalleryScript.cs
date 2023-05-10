@@ -30,9 +30,9 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
             if (Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
                 foreach (var galleryPath in journey.gallery) {
                     GameObject image = new GameObject("Image");
-                    image.transform.localScale -= new Vector3(0.36f, 0.36f, 0.36f);
                     image.AddComponent<Image>().sprite = LoadSprite(galleryPath);
                     image.transform.SetParent(gallery);
+                    image.transform.localScale = new Vector3(1f, 1f, 1f);
                 }
             }
         }
@@ -46,7 +46,6 @@ public class GalleryScript : MonoBehaviour, IDataPersistence {
         texture.LoadImage(bytes);
         // putter en texture(vores billede) på en sprite 
         Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-        // return vores nye sprite
         return sprite;
     }
 

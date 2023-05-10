@@ -34,8 +34,13 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         // giv adgang til brug af camera
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
         if (Application.HasUserAuthorization(UserAuthorization.WebCam)) {
-            // TODO: find ud af hvilken camera der skal bruges
-            webcam = new WebCamTexture(WebCamTexture.devices[1].name, Screen.width, Screen.height);
+            int firstCameraFound = 0;
+            for (int i = 0; i < WebCamTexture.devices.Length; i++) {
+                if (WebCamTexture.devices[i].name != null) {
+                    firstCameraFound = i;
+                }
+            }
+            webcam = new WebCamTexture(WebCamTexture.devices[firstCameraFound].name, Screen.width, Screen.height);
             webcam.Play();
             background.texture = webcam;
         }

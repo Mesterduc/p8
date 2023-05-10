@@ -117,9 +117,9 @@ namespace DataStore
             destinations.Add(egholm);
             destinations.Add(lundby);
 
-            Journey g1 = new Journey(1, rold_skov);
-            Journey g2 = new Journey(2, lundby);
-            Journey g3 = new Journey(3, dall_hede);
+            Journey g1 = new Journey(0, rold_skov);
+            Journey g2 = new Journey(1, lundby);
+            Journey g3 = new Journey(2, dall_hede);
             journeys.Add(g1);
             // addToList(g2);
             // addToList(g3);

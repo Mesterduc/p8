@@ -49,7 +49,8 @@ public class ChooseTripScript : MonoBehaviour, IDataPersistence {
     }
 
     public void BeginJourney() {
-        int id = Hogsmeade.activeTripId++;
+        int id = this.journeys.Count + 1;
+        Hogsmeade.activeTripId = id;
         journeys.Add(new Journey(id, destinations[Hogsmeade.nextTrip]));
         DataPersistenceManager.Instance.SaveGame2();
     }
