@@ -66,8 +66,8 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         yield return
             new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
         // hvis folder ikke findes, laves en ny folder
-        if (!Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
-            Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
+        if (!System.IO.Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
+            System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
         }
 
         string name = journey.destination.name.Replace(" ", "");
