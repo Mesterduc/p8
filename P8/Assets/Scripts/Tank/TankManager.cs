@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Tank
 {
-    public class TankScript : MonoBehaviour, IDataPersistence
+    public class TankManager : MonoBehaviour, IDataPersistence
     {
         private List<Animal> animals = new List<Animal>();
         [SerializeField] private Transform placement;

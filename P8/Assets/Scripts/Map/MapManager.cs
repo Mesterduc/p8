@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using DataPersistence;
 using DataStore;
 using Models;
+using Navigation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Map {
-    public class MenuScript : MonoBehaviour, IDataPersistence {
+    public class MapManager : MonoBehaviour, IDataPersistence {
         public List<Destination> destinations;
         public GameObject modal;
         public GameObject title;
@@ -89,7 +90,7 @@ namespace Map {
 
         private void NextVisit()
         {
-            SceneManager.LoadSceneAsync("choosetrip");
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Menu);
         }
 
 

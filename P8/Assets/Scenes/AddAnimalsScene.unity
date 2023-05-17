@@ -2256,7 +2256,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1130818343}
         m_TargetAssemblyTypeName: QuickNavigation, Assembly-CSharp
-        m_MethodName: GoToChoose
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

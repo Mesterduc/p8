@@ -8,7 +8,7 @@ namespace Tank {
         public GameObject newAnimal;
         public Animal animal;
         private Vector3 animalSize;
-        private AnimalState move;
+        private AnimalStateManager move;
 
         private void Start() {
             newAnimal.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
@@ -38,7 +38,7 @@ namespace Tank {
             newAnimal.AddComponent<Animator>().runtimeAnimatorController =
                 Resources.Load<RuntimeAnimatorController>(animal.animation); // animation
 
-            move = newAnimal.AddComponent<AnimalState>();
+            move = newAnimal.AddComponent<AnimalStateManager>();
             move.animal = animal;
         }
 

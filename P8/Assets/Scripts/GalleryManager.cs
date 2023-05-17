@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GalleryScript : MonoBehaviour, IDataPersistence {
+public class GalleryManager : MonoBehaviour, IDataPersistence {
     private List<Journey> journeys = new List<Journey>();
     [SerializeField] private Transform placement;
 

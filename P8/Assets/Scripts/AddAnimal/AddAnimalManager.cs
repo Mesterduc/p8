@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace AddAnimal {
-    public class AddAnimalScript : MonoBehaviour, IDataPersistence
+    public class AddAnimalManager : MonoBehaviour, IDataPersistence
     {
         private List<FishTrivia> animalTrivia = new List<FishTrivia>();
         private List<Animal> animalListGameList = new List<Animal>();

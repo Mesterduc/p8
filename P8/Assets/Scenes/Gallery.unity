@@ -566,7 +566,6 @@ GameObject:
   - component: {fileID: 496541229}
   - component: {fileID: 496541228}
   - component: {fileID: 496541227}
-  - component: {fileID: 496541226}
   - component: {fileID: 496541231}
   m_Layer: 0
   m_Name: mainCanvas
@@ -575,19 +574,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &496541226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496541224}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa21a4075bb64e5ea7d4fd89dffd331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _menu: {fileID: 641325780}
 --- !u!114 &496541227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +735,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 641325784}
         m_TargetAssemblyTypeName: QuickNavigation, Assembly-CSharp
-        m_MethodName: GoToChoose
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

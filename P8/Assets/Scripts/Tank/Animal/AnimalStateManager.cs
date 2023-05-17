@@ -5,7 +5,7 @@ using Button = UnityEngine.UI.Button;
 using Random = UnityEngine.Random;
 
 namespace Tank {
-    public class AnimalState : MonoBehaviour {
+    public class AnimalStateManager : MonoBehaviour {
         public Animal animal;
         public float speed = 20;
         public float range = 10;

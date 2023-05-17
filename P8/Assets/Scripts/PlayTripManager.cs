@@ -5,7 +5,7 @@ using Models;
 using DataPersistence;
 using DataStore;
 
-public class PlayTripScript : MonoBehaviour, IDataPersistence {
+public class PlayTripManager : MonoBehaviour, IDataPersistence {
     [SerializeField] private List<Journey> journeys = new List<Journey>();
     [SerializeField] private List<Destination> destinations = new List<Destination>();
 
@@ -18,10 +18,6 @@ public class PlayTripScript : MonoBehaviour, IDataPersistence {
         Screen.orientation = ScreenOrientation.Portrait;
     }
 
-    public IEnumerator SaveImage() {
-        yield return new WaitForSecondsRealtime(2);
-    }
-    
     public void LoadData(GameData data) {
         this.destinations = data.destinations;
         this.journeys = data.journeys;

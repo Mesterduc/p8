@@ -5,7 +5,7 @@ using DataStore;
 using TMPro;
 using Models;
 
-public class ChooseTripScript : MonoBehaviour, IDataPersistence {
+public class MenuManager : MonoBehaviour, IDataPersistence {
     [SerializeField] private List<Destination> destinations = new List<Destination>();
     [SerializeField] private List<Journey> journeys = new List<Journey>();
     public GameObject content;

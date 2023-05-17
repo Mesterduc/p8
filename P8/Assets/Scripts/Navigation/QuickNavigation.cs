@@ -6,7 +6,7 @@ namespace Navigation {
     {
         public void GoToMap()
         {
-            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Menu);
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Map);
         }
 
         public void GoToPlay()
@@ -26,9 +26,9 @@ namespace Navigation {
         {
             ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.TankScene);
         }
-        public void GoToChoose()
+        public void GoToMenu()
         {
-            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.ChooseTrip);
+            ScenesManager.Instance.LoadSceneName(ScenesManager.Scene.Menu);
         }
 
         public void GoToAnimal()

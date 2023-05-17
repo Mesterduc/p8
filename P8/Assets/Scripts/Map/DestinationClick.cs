@@ -13,7 +13,7 @@ namespace Map {
         void OnMouseDown()
         {
             GameObject menu = GameObject.Find("UI");
-            MenuScript script = menu.GetComponent<MenuScript>();
+            MapManager script = menu.GetComponent<MapManager>();
 
             script.ShowModal(this.name, transform.position);
 
