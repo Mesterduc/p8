@@ -16,11 +16,7 @@ namespace DataPersistence {
 
         // Button til at manual gemme 
         [SerializeField] [CanBeNull] private Button manualSaveGame;
-
         [SerializeField] [CanBeNull] private Button manualLoadGame;
-        // [SerializeField] [CanBeNull] private Button manualLoadDataButton;
-
-        // Tom gameData class 
         public GameData gameData;
 
         // indenholder alle scenes som implementer IDataPersistence interface, så man kan loade og gemme data
@@ -29,7 +25,6 @@ namespace DataPersistence {
         // Håndtere fil konvertering fra Objekter til JSON fil
         private FileDataHandler dataHandler;
 
-
         // Static: kun en instance af denne class kan blive initialized, den bliver sat i Awake() methoden:  
         public static DataPersistenceManager Instance { get; private set; } // shorthand for en get og set methode
 
@@ -37,12 +32,10 @@ namespace DataPersistence {
             if (Instance != null) {
                 // Debug.LogError("Found more the one instance of DataPersistenceManager in the scene.");
             }
-
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
 
-        // Start bliver kaldt i starten af programmet,og giver data til alle classer
         private void Start() {
             // Application.persistentDataPath  file location
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -51,7 +44,7 @@ namespace DataPersistence {
 
             // this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             if (manualSaveGame) {
-                manualSaveGame.onClick.AddListener(SaveGame2);
+                manualSaveGame.onClick.AddListener(SaveGame);
             }
 
             if (manualLoadGame) {
@@ -67,20 +60,6 @@ namespace DataPersistence {
             this.gameData = new GameData();
         }
 
-        public void LoadGame() {
-            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-            this.gameData = dataHandler.Load();
-            if (this.gameData == null) {
-                Debug.Log("No data is found dataManager");
-                NewGame();
-            }
-
-            // Looper alle scener der implementere IDataPersistence interface, og loader alt data ind til gameData
-            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
-                dataObject.LoadData(gameData);
-            }
-        }
-
         public void SaveGame() {
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -89,13 +68,10 @@ namespace DataPersistence {
                 Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
                 return;
             }
-
             // Looper alle scener der implementere IDataPersistence interface, og gemmer alt data ind til gameData
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 dataObject.SaveData(gameData);
             }
-
-
             // gemmer gameData til fil
             dataHandler.Save(gameData);
         }
@@ -108,19 +84,19 @@ namespace DataPersistence {
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.gameData = this.dataHandler.Load();
-
+            // Looper alle aktive scener der implementere IdataPersistence
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
+                // kalder scriptes loaddata funtion
                 dataObject.LoadData(gameData);
             }
         }
 
+        // finder alle aktive scener der implementere IdataPersistence
         private List<IDataPersistence> FindAllDataPersistenceObjects() {
             IEnumerable<IDataPersistence> dataPersistencesObjects =
                 FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
             return new List<IDataPersistence>(dataPersistencesObjects);
         }
-
-        // Add things here ----------------------------------------------------------------------------------------------
 
         // init: what should be in the game when starting
         public void PreLoad() {
@@ -129,19 +105,6 @@ namespace DataPersistence {
             gameData.PreLoad();
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             dataHandler.Save(gameData);
-        }
-
-        // Manual Save
-        public void SaveGame2() {
-            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
-                dataObject.SaveData(gameData);
-            }
-
-            dataHandler.Save(gameData);
-            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
-                dataObject.LoadData(gameData);
-            }
         }
     }
 }

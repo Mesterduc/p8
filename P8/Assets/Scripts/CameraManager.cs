@@ -75,7 +75,7 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         string path = Application.persistentDataPath + "/" + journey.id + "/" + name + journey.gallery.Count + ".png";
         ScreenCapture.CaptureScreenshot(path);
         journey.gallery.Add(path);
-        DataPersistenceManager.Instance.SaveGame2();
+        DataPersistenceManager.Instance.SaveGame();
     }
 
     public void LoadData(GameData data) {

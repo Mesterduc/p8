@@ -52,7 +52,7 @@ public class MenuManager : MonoBehaviour, IDataPersistence {
         int id = this.journeys.Count + 1;
         Hogsmeade.activeTripId = id;
         journeys.Add(new Journey(id, destinations[Hogsmeade.nextTrip]));
-        DataPersistenceManager.Instance.SaveGame2();
+        DataPersistenceManager.Instance.SaveGame();
     }
 
     public void LoadData(GameData data) {
