@@ -16,7 +16,6 @@ namespace DataPersistence {
         public FileDataHandler(string dataDirPath, string dataFileName) {
             this.dataDirPath = dataDirPath;
             this.dataFileName = dataFileName;
-            // this.fullPath = Path.Combine(dataDirPath, dataFileName);
         }
 
         // Load fil data til gameData
@@ -26,7 +25,7 @@ namespace DataPersistence {
             GameData loadedData = null;
             if (File.Exists(fullPath)) {
                 try {
-                    // load data from file to objects: serialized data from the file
+                    // load data from file to a string
                     string dataToLoad = "";
                     using (FileStream stream = new FileStream(fullPath, FileMode.Open)) {
                         using (StreamReader reader = new StreamReader(stream)) {
@@ -34,11 +33,8 @@ namespace DataPersistence {
                         }
                     }
 
-                    // loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
-                    // Debug.Log("DeserializeObject");
-                    loadedData = JsonConvert.DeserializeObject<GameData>(dataToLoad);
-
                     // deserialize the data from Json back into the C# object
+                    loadedData = JsonConvert.DeserializeObject<GameData>(dataToLoad);
                 }
                 catch (Exception e) {
                     Debug.LogError("Error while trying to load data from file: " + fullPath + "\n" + e);
@@ -56,22 +52,10 @@ namespace DataPersistence {
                 // create the directory the file will be written to if it doesn't already exist
                 Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
-                // serialize the C# game data object into Json
-                // Omskriver vores object/data om til JSON format
-                // string dataToStore = JsonUtility.ToJson(data, true);
-                // string dataToStore = JsonConvert.SerializeObject(data);
+                // serialize the C# game data objects into Json
                 File.WriteAllText(fullPath, JsonConvert.SerializeObject(data, new JsonSerializerSettings {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 }));
-
-                // write the serialized data to the file
-                // using (FileStream stream = new FileStream(fullPath, FileMode.Create))
-                // {
-                //     using (StreamWriter writer = new StreamWriter(stream)) 
-                //     {
-                //         writer.Write(dataToStore);
-                //     }
-                // }
             }
             catch (Exception e) {
                 Debug.LogError("Error while trying to save data to file: " + fullPath + "\n" + e);

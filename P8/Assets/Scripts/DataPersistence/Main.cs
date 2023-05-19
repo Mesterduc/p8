@@ -7,7 +7,7 @@ namespace DataPersistence {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void LoadMain()
         {
-            GameObject main = GameObject.Instantiate(new GameObject());
+            GameObject main = GameObject.Instantiate(new GameObject("Data"));
             DataPersistenceManager data = main.AddComponent<DataPersistenceManager>();
             data.PreLoad();
             GameObject.DontDestroyOnLoad(main);

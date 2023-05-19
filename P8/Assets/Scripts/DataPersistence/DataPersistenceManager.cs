@@ -11,20 +11,15 @@ namespace DataPersistence {
     public class DataPersistenceManager : MonoBehaviour {
         [Header("File Storage Config")]
         // Data filnavn som indenholder vores data
-        [SerializeField]
-        private string fileName = "data.json";
-
+        [SerializeField] private string fileName = "data.json";
         // Button til at manual gemme 
         [SerializeField] [CanBeNull] private Button manualSaveGame;
         [SerializeField] [CanBeNull] private Button manualLoadGame;
         public GameData gameData;
-
         // indenholder alle scenes som implementer IDataPersistence interface, så man kan loade og gemme data
         private List<IDataPersistence> dataPersistenceObjects;
-
         // Håndtere fil konvertering fra Objekter til JSON fil
         private FileDataHandler dataHandler;
-
         // Static: kun en instance af denne class kan blive initialized, den bliver sat i Awake() methoden:  
         public static DataPersistenceManager Instance { get; private set; } // shorthand for en get og set methode
 
@@ -33,20 +28,16 @@ namespace DataPersistence {
                 // Debug.LogError("Found more the one instance of DataPersistenceManager in the scene.");
             }
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
 
         private void Start() {
-            // Application.persistentDataPath  file location
+            // Application.persistentDataPath file location
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-            // Udkommentere Debug hvis man vil se hvor filen bliver gemt
-            // Debug.Log(Application.persistentDataPath);
 
             // this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             if (manualSaveGame) {
                 manualSaveGame.onClick.AddListener(SaveGame);
             }
-
             if (manualLoadGame) {
                 manualLoadGame.onClick.AddListener(manualLoadData);
             }

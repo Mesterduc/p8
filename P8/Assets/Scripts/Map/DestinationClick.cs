@@ -4,12 +4,6 @@ using UnityEngine;
 namespace Map {
     public class DestinationClick : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Awake()
-        { 
-
-        }
-
         void OnMouseDown()
         {
             GameObject menu = GameObject.Find("UI");
