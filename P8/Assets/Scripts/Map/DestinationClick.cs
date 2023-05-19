@@ -2,10 +2,8 @@ using DataStore;
 using UnityEngine;
 
 namespace Map {
-    public class DestinationClick : MonoBehaviour
-    {
-        void OnMouseDown()
-        {
+    public class DestinationClick : MonoBehaviour {
+        void OnMouseDown() {
             GameObject menu = GameObject.Find("UI");
             MapManager script = menu.GetComponent<MapManager>();
 
@@ -17,10 +15,6 @@ namespace Map {
             camerascript.MoveToSelection(transform.position);
 
             Hogsmeade.nextTrip = int.Parse(this.name);
-            Debug.Log(Hogsmeade.nextTrip);
-
         }
-
-
     }
 }
