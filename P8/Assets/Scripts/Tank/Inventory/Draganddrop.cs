@@ -17,6 +17,7 @@ namespace ComponentScripts {
         private Vector3 fishSize;
 
         private void Awake() {
+            DataPersistenceManager.Instance.manualLoadData();
             fishTemp = new GameObject("FishDrag");
         }
 
@@ -39,9 +40,6 @@ namespace ComponentScripts {
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            // animalId = gameObject.GetComponent<AnimalId>();
-            DataPersistenceManager hej = DataPersistenceManager.Instance;
-            hej.manualLoadData();
             foreach (var animal in animals) {
                 if (animal.id == fishId) {
                     animal.isDisplayed = !animal.isDisplayed;

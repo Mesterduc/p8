@@ -20,8 +20,8 @@ namespace Tank {
                     GameObject newAnimal = Instantiate(prefab, scrollContent.transform);
                     newAnimal.transform.Find("image").GetComponent<Image>().sprite = Resources.Load<Sprite>(availableAnimals[i].animated);
                     newAnimal.transform.Find("name").GetComponent<TMP_Text>().text = availableAnimals[i].name;
-                    Draganddrop hej = newAnimal.AddComponent<Draganddrop>();
-                    hej.fishId = availableAnimals[i].id;
+                    Draganddrop dragAndDropScript = newAnimal.AddComponent<Draganddrop>();
+                    dragAndDropScript.fishId = availableAnimals[i].id;
                 }
             }
         }
