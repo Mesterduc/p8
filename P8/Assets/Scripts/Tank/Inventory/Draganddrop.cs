@@ -43,10 +43,9 @@ namespace ComponentScripts {
             foreach (var animal in animals) {
                 if (animal.id == fishId) {
                     animal.isDisplayed = !animal.isDisplayed;
-                    canvas = GameObject.Find("TankCanvas");
+                    canvas = GameObject.Find("TankCanvas").transform.Find("Grid").gameObject;
                     GameObject newAnimal = Instantiate(fishTemp, canvas.transform);
                     DisplayAnimal animalScript = newAnimal.AddComponent<DisplayAnimal>();
-                    animalScript.newAnimal = newAnimal;
                     animalScript.animal = animal;
                 }
             }

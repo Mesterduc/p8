@@ -24,12 +24,10 @@ namespace Tank
                 if (animal.isDisplayed) {
                     GameObject newAnimal = Instantiate(fishTemp, placement);
                     DisplayAnimal animalScript = newAnimal.AddComponent<DisplayAnimal>();
-                    animalScript.newAnimal = newAnimal;
                     animalScript.animal = animal;
                 }
             }
         }
-        // TODO: Husk position
 
         public void LoadData(GameData data)
         {
