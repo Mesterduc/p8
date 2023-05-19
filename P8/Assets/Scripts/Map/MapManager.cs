@@ -20,7 +20,6 @@ namespace Map {
         public TMP_Text bus;
         [SerializeField] private Button chooseTrip;
 
-
         private bool isHidden = true;
         private int currentWindow = -1;
 
@@ -41,11 +40,8 @@ namespace Map {
         }
 
         public void ShowModal(string tag, Vector3 position) {
-
-
             double travel = Math.Round(Vector3.Distance(position, home.transform.position), 1) * 20;
             double travelbus = travel * 2;
-
             string travelTime = travel.ToString();
             string travelTimeBus = travelbus.ToString();
 

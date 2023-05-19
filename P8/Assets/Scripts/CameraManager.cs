@@ -14,19 +14,16 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     public RawImage background;
     
     [SerializeField] private GameObject AcceptPanel;
-    
-    // Buttons
     [SerializeField] private Button snapshot;
     [SerializeField] private Button retakeImageButton;
     [SerializeField] private Button SaveImageButton;
     [SerializeField] private Button closeButton;
 
-    // TODO: front or back-side camera
     void Awake() {
         DataPersistenceManager.Instance.manualLoadData();
-        // StartCoroutine: bruges til at stoppe programmet
         snapshot.onClick.AddListener(takeSnapShot);
         retakeImageButton.onClick.AddListener(RetakeImage);
+        // StartCoroutine: bruges til at stoppe programmet
         SaveImageButton.onClick.AddListener(() => StartCoroutine(SaveImage()));
     }
 
@@ -55,7 +52,6 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     public void RetakeImage() {
         webcam.Play();
         snapshot.gameObject.SetActive(true);
-        // closeButton.gameObject.SetActive(true);
         AcceptPanel.gameObject.SetActive(false);
     }
 
