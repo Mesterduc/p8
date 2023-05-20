@@ -121,7 +121,7 @@ namespace DataStore
             Journey g2 = new Journey(1, lundby);
             Journey g3 = new Journey(2, dall_hede);
             journeys.Add(g1);
-            // addToList(g2);
+            journeys.Add(g2);
             // addToList(g3);
             // journeys.Add(g1);
             // journeys.Add(g2);
