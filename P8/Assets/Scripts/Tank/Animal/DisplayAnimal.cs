@@ -23,13 +23,13 @@ namespace Tank {
 
             switch (animal.animalSize) {
                 case AnimalSize.large:
-                    animalSize = new Vector3(20 * 2, 20 * 2, 1);
+                    animalSize = new Vector3(70, 70, 1);
                     break;
                 case AnimalSize.medium:
-                    animalSize = new Vector3(20 * 1.5f, 20 * 1.5f, 1);
+                    animalSize = new Vector3(60, 70, 1);
                     break;
                 case AnimalSize.Small:
-                    animalSize = new Vector3(20, 20, 1);
+                    animalSize = new Vector3(50, 70, 1);
                     break;
             }
 
