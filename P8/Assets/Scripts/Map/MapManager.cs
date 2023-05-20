@@ -19,8 +19,6 @@ namespace Map {
         public TMP_Text car;
         public TMP_Text bus;
         [SerializeField] private Button chooseTrip;
-
-        private bool isHidden = true;
         private int currentWindow = -1;
 
         private void Awake() {
@@ -40,7 +38,7 @@ namespace Map {
                 }
             }
         }
-
+        // Modal vises udfra panel navn/som er panel id
         public void ShowModal(string tag, Vector3 position) {
             double travel = Math.Round(Vector3.Distance(position, home.transform.position), 1) * 20;
             double travelbus = travel * 2;
@@ -48,16 +46,15 @@ namespace Map {
             string travelTimeBus = travelbus.ToString();
 
             int id = int.Parse(tag);
-            if (isHidden == true) {
+            if (!modal.activeSelf) {
                 title.GetComponent<TMP_Text>().text = destinations[id].name;
                 car.text = travelTime + " min";
                 bus.text = travelTimeBus + " min";
                 currentWindow = id;
                 PopulateAnimals(id);
-                modal.SetActive(isHidden);
-                isHidden = !isHidden;
+                modal.SetActive(true);
             }
-            else if (isHidden == false && currentWindow != id) {
+            else if (modal.activeSelf && currentWindow != id) {
                 DePopulateAnimals();
                 PopulateAnimals(id);
                 title.GetComponent<TMP_Text>().text = destinations[id].name;
@@ -67,8 +64,7 @@ namespace Map {
             }
             else {
                 DePopulateAnimals();
-                modal.SetActive(isHidden);
-                isHidden = !isHidden;
+                modal.SetActive(false);
             }
         }
 
