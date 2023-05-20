@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skovsnegl
+  m_text: Regnorme
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd49a17eb94d07f47b3e843243eb5bc3, type: 2}
   m_sharedMaterial: {fileID: -269371514363007312, guid: cd49a17eb94d07f47b3e843243eb5bc3, type: 2}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 450346795124430095}
   - component: {fileID: 450346795124430092}
   m_Layer: 5
-  m_Name: FangEnSnegl
+  m_Name: fangRegnorme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,8 +671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -44.168}
-  m_SizeDelta: {x: 351.1042, y: 233.7038}
+  m_AnchoredPosition: {x: 0.0010033, y: -48}
+  m_SizeDelta: {x: 381.144, y: 214.7112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &450346795821132914
 CanvasRenderer:
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 466f085c667114c94bfa04eefd3edf94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71fe21e7c81b9e64db61f19805af5bac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1176,6 +1176,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1821852877470087481, guid: 46c033ffb65d0b34caddd0d781bc12d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1473362270, guid: 3855492c0875742498048bffa7fd99cf, type: 3}
     - target: {fileID: 2393900378066802050, guid: 46c033ffb65d0b34caddd0d781bc12d4, type: 3}
       propertyPath: m_fontColor.a
       value: 0
