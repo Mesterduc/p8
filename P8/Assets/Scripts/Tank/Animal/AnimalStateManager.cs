@@ -25,9 +25,6 @@ namespace Tank {
         }
 
         void Start() {
-            // prefab = Resources.Load<GameObject>("prefabs/AnimalInforModal");
-            
-            
             speed = animal.movement.speed;
             maxDistance = animal.movement.maxDistance;
             range = animal.movement.range;
