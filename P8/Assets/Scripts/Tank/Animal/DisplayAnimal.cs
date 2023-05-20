@@ -11,7 +11,7 @@ namespace Tank {
         private AnimalStateManager move;
 
         private void Start() {
-            this.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
+            this.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.species.animated);
             // AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
             this.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
             Rigidbody2D rigid = this.AddComponent<Rigidbody2D>();
@@ -37,7 +37,7 @@ namespace Tank {
 
             this.transform.position = animal.movement.currentPosition; // start position
             this.AddComponent<Animator>().runtimeAnimatorController =
-                Resources.Load<RuntimeAnimatorController>(animal.animation); // animation
+                Resources.Load<RuntimeAnimatorController>(animal.species.animation); // animation
 
             move = this.AddComponent<AnimalStateManager>();
             move.animal = animal;

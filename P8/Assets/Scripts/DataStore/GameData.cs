@@ -51,21 +51,21 @@ namespace DataStore
             
             //--------------------------------------------------- Trivia -------------------------------------------------------------------------------------
             
-            FishTrivia guldsmed = new FishTrivia("Guldsmed","Fish/Sild", "", fang_insekter, "Andre insekter", "Sjælden", "Guldsmeden flyver tit ved ferskvandssøer");
-            FishTrivia hornbille = new FishTrivia("Hornbille", "Fish/Sild","",fang_insekter, "Bæ", "Almindelig", "Hornbiller har horn");
-            FishTrivia husedderkop = new FishTrivia("Husedderkop","Fish/Sild", "",fang_edderkopper, "Fluer", "Sjælden", "Husedderkoppen kan blive KÆÆÆÆMPE stor");
-            FishTrivia stinkbille = new FishTrivia("Stinkbille", "Fish/Sild","",fang_insekter, "Kolort", "Sjælden", "Stinkbillen er kendt for at stinke");
-            FishTrivia spyflue = new FishTrivia("Spyflue", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
-            FishTrivia tæge = new FishTrivia("Tæge", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
-            FishTrivia snegl = new FishTrivia("Snegl", "Fish/Sild","",fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
+            FishTrivia guldsmed = new FishTrivia("Guldsmed", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "", fang_insekter, "Andre insekter", "Sjælden", "Guldsmeden flyver tit ved ferskvandssøer");
+            FishTrivia hornbille = new FishTrivia("Hornbille", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Bæ", "Almindelig", "Hornbiller har horn");
+            FishTrivia husedderkop = new FishTrivia("Husedderkop", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "",fang_edderkopper, "Fluer", "Sjælden", "Husedderkoppen kan blive KÆÆÆÆMPE stor");
+            FishTrivia stinkbille = new FishTrivia("Stinkbille", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Kolort", "Sjælden", "Stinkbillen er kendt for at stinke");
+            FishTrivia spyflue = new FishTrivia("Spyflue", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
+            FishTrivia tæge = new FishTrivia("Tæge", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
+            FishTrivia snegl = new FishTrivia("Snegl", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
 
-            FishTrivia krabbe = new FishTrivia("Krabbe","Fish/Sild","", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
-            FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild","",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
-            FishTrivia hornfisk = new FishTrivia("Hornfisk", "Fish/Sild","",fang_fisk, "Andre fisk", "Almindelig", "Den er længere end turen hjem fra Roskilde");
-            FishTrivia skrubbe = new FishTrivia("Skrubbe", "Fish/Sild","",fang_fisk, "Rejer, muslinger", "Almindelig", "Skrubben er svær at finde (fordi den er flad)");
-            FishTrivia pighvar = new FishTrivia("Pighvar","Fish/Sild", "",fang_fisk, "Rejer, muslinger", "Sjælden", "Hans mener han er jordens bedste til at fange dem");
-            FishTrivia sild = new FishTrivia("Sild", "Fish/Sild","",fang_fisk, "Alt", "Almindelig", "Du kan næsten ikke undgå at finde sild");
-            FishTrivia torsk = new FishTrivia("Torsk", "Fish/Sild","",fang_fisk, "Alt", "Sjælden", "Engang var der mange torsk. Nu kan de være svære at finde");
+            FishTrivia krabbe = new FishTrivia("Krabbe", "Fish/Sild", "Fish/SildAnimator","Fish/Sild","", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
+            FishTrivia hornfisk = new FishTrivia("Hornfisk", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Andre fisk", "Almindelig", "Den er længere end turen hjem fra Roskilde");
+            FishTrivia skrubbe = new FishTrivia("Skrubbe", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Rejer, muslinger", "Almindelig", "Skrubben er svær at finde (fordi den er flad)");
+            FishTrivia pighvar = new FishTrivia("Pighvar", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "",fang_fisk, "Rejer, muslinger", "Sjælden", "Hans mener han er jordens bedste til at fange dem");
+            FishTrivia sild = new FishTrivia("Sild", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Alt", "Almindelig", "Du kan næsten ikke undgå at finde sild");
+            FishTrivia torsk = new FishTrivia("Torsk", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Alt", "Sjælden", "Engang var der mange torsk. Nu kan de være svære at finde");
             
             List<FishTrivia> hede_dyr = new List<FishTrivia>();
             hede_dyr.Add(hornbille);
@@ -131,13 +131,13 @@ namespace DataStore
             
            
             // Movement move = new Movement(150, 20, 400);
-            Animal predo4 = new Animal(4, "Predo4", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g1);
+            Animal predo4 = new Animal(4, "Predo4", AnimalSize.Small, krabbe, g1);
             predo4.isDisplayed = false;
-            Animal predo5 = new Animal(5, "Predo5", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g1);
+            Animal predo5 = new Animal(5, "Predo5", AnimalSize.Small, krabbe, g1);
             predo5.isDisplayed = false;
-            animals.Add(new Animal(1,"Predo", "Fish/Sild", "Fish/SildAnimator", AnimalSize.large, krabbe, g1));
-            animals.Add(new Animal(2,"Predo2", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g2));
-            animals.Add(new Animal(3,"Predo3", "Fish/Sild", "Fish/SildAnimator", AnimalSize.Small, krabbe, g3));
+            animals.Add(new Animal(1,"Predo", AnimalSize.large, krabbe, g1));
+            animals.Add(new Animal(2,"Predo2", AnimalSize.Small, krabbe, g2));
+            animals.Add(new Animal(3,"Predo3", AnimalSize.Small, krabbe, g3));
             animals.Add(predo4);
             animals.Add(predo5);
 
@@ -157,11 +157,11 @@ namespace DataStore
             Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
             Activity fang_edderkopper = new Activity("Edderkoppe-Eventyr", "Find et edderkoppenet. Find en flue. Put en flue i nettet. WIN!");
             
-            FishTrivia lundsneglen = new FishTrivia("Lundsneglen", "DyrIcon/snail", "Real/lundsnegl" , fang_krabber, "Kød", "Almindelig", "Lundsneglen er en mellemstor snegl med fladt, kugleformet hus og mørk skalåbning. Huset bliver mellem 12-22 mm i højde og 18-25 mm i brede, huset varierer i farve og tegning fra gullig til rødlig eller brunlig med eller uden mørke spiralbånd. >Kroppen er grålig");
-            FishTrivia havesnegl = new FishTrivia("Havesnegl", "DyrIcon/snail", "Real/havesnegl" ,fang_fisk, "Andre fisk", "Almindelig", "Havesneglens hus varierer meget i farven fra brunt til rødt og gult. Snailen bliver ca. 2 cm lang og huset bliver ca. 2 cm i diameter. Huset kan være ensfarvet, eller det kan have 5 mørke bånd, som snor sig rundt om sneglehuset.");
-            FishTrivia myre = new FishTrivia("Sorte havemyrer", "DyrIcon/myre", "Real/myre" ,fang_fisk, "Rejer, muslinger", "Almindelig", "Sorte arbejder havemyrer: 3,5-5 mm. lang. Farven er gråbrun til sortbrun med lysere ben, og følehorn med en matglinsende overflade. Tæt behåring med varierende længde. Skællet er lavt og bredt med parallelle sider og lige overkant.");
-            FishTrivia edderkop = new FishTrivia("Korsedderkop", "DyrIcon/spider", "Real/Korsedderkop" ,fang_edderkopper, "Insekter", "Almindelig", "Korsedderkoppen har oftest på oversiden et lyst mønster, der ligner et kors. Korset er sammensat af mindre hvide pletter, der dog hos store individer kan mangle eller være meget små, så korset er utydeligt. Bagkroppen er altid mere eller mindre trekantet, og spidser til bagtil. Forrest på bagkroppen ses som regel to små pukler, der forstærker den trekantede facon. Hannens kropsmål er ca. 8 mm, mens hunnen bliver op til ca. 17 mm, når den om efteråret er fuld af æg. I modsætning til de voksne dyr er ungerne gule med sorte aftegninger.");
-            FishTrivia kratløber = new FishTrivia("Kratløber", "DyrIcon/stinkbille", "Real/Kratløber" ,fang_edderkopper, "Insekter", "Almindelig", "Kratløber bliver 22-26 mm. i længde. En ret stor og noget kompakt løbebille, som på afstand udmærker sig ved en svagt brunlig eller blåviolet farve på dækvingerne. Kanten af pronotum og dækvingerne er ofte klart violette. Det bedste kendetegn er en generel violetfarvning kombineret med, at der på hver dækvinge er tre rækker af tydeligt runde fordybninger, ca. 10 i hver række.");
+            FishTrivia lundsneglen = new FishTrivia("Lundsneglen", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/snail", "Real/lundsnegl" , fang_krabber, "Kød", "Almindelig", "Lundsneglen er en mellemstor snegl med fladt, kugleformet hus og mørk skalåbning. Huset bliver mellem 12-22 mm i højde og 18-25 mm i brede, huset varierer i farve og tegning fra gullig til rødlig eller brunlig med eller uden mørke spiralbånd. >Kroppen er grålig");
+            FishTrivia havesnegl = new FishTrivia("Havesnegl", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/snail", "Real/havesnegl" ,fang_fisk, "Andre fisk", "Almindelig", "Havesneglens hus varierer meget i farven fra brunt til rødt og gult. Snailen bliver ca. 2 cm lang og huset bliver ca. 2 cm i diameter. Huset kan være ensfarvet, eller det kan have 5 mørke bånd, som snor sig rundt om sneglehuset.");
+            FishTrivia myre = new FishTrivia("Sorte havemyrer", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/myre", "Real/myre" ,fang_fisk, "Rejer, muslinger", "Almindelig", "Sorte arbejder havemyrer: 3,5-5 mm. lang. Farven er gråbrun til sortbrun med lysere ben, og følehorn med en matglinsende overflade. Tæt behåring med varierende længde. Skællet er lavt og bredt med parallelle sider og lige overkant.");
+            FishTrivia edderkop = new FishTrivia("Korsedderkop", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/spider", "Real/Korsedderkop" ,fang_edderkopper, "Insekter", "Almindelig", "Korsedderkoppen har oftest på oversiden et lyst mønster, der ligner et kors. Korset er sammensat af mindre hvide pletter, der dog hos store individer kan mangle eller være meget små, så korset er utydeligt. Bagkroppen er altid mere eller mindre trekantet, og spidser til bagtil. Forrest på bagkroppen ses som regel to små pukler, der forstærker den trekantede facon. Hannens kropsmål er ca. 8 mm, mens hunnen bliver op til ca. 17 mm, når den om efteråret er fuld af æg. I modsætning til de voksne dyr er ungerne gule med sorte aftegninger.");
+            FishTrivia kratløber = new FishTrivia("Kratløber", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/stinkbille", "Real/Kratløber" ,fang_edderkopper, "Insekter", "Almindelig", "Kratløber bliver 22-26 mm. i længde. En ret stor og noget kompakt løbebille, som på afstand udmærker sig ved en svagt brunlig eller blåviolet farve på dækvingerne. Kanten af pronotum og dækvingerne er ofte klart violette. Det bedste kendetegn er en generel violetfarvning kombineret med, at der på hver dækvinge er tre rækker af tydeligt runde fordybninger, ca. 10 i hver række.");
             
             // FishTrivia reje = new FishTrivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
             // FishTrivia myg = new FishTrivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");

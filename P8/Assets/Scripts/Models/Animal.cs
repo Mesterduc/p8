@@ -16,8 +16,7 @@ namespace Animals {
     public class Animal {
         public int id;
         public string name;
-        public string animated;// animal image
-        public string animation; // animal animation
+        
         public bool isDisplayed; // synlighed i inventory
         public Movement movement;
         public AnimalSize animalSize;
@@ -25,11 +24,9 @@ namespace Animals {
         public Journey journey;
         private string realLifeImage; //: har vi ikke med endnu: image of caught animal
         
-        public Animal(int id, string name, string animated, string animation, AnimalSize animalSize, FishTrivia species, Journey journey) {
+        public Animal(int id, string name, AnimalSize animalSize, FishTrivia species, Journey journey) {
             this.id = id;
             this.name = name;
-            this.animated = animated;
-            this.animation = animation;
             this.isDisplayed = true;
             this.animalSize = animalSize;
             this.movement = new Movement(150, 20, 400);
