@@ -118,6 +118,8 @@ namespace DataStore
             destinations.Add(lundby);
 
             Journey g1 = new Journey(0, rold_skov);
+            g1.gallery.Add("/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png");
+            g1.gallery.Add("/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat1.png");
             Journey g2 = new Journey(1, lundby);
             Journey g3 = new Journey(2, dall_hede);
             journeys.Add(g1);
@@ -131,13 +133,13 @@ namespace DataStore
             
            
             // Movement move = new Movement(150, 20, 400);
-            Animal predo4 = new Animal(4, "Predo4", AnimalSize.Small, krabbe, g1);
+            Animal predo4 = new Animal(4, "Predo4", AnimalSize.Small, krabbe, g1, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png");
             predo4.isDisplayed = false;
-            Animal predo5 = new Animal(5, "Predo5", AnimalSize.Small, krabbe, g1);
+            Animal predo5 = new Animal(5, "Predo5", AnimalSize.Small, krabbe, g1, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png");
             predo5.isDisplayed = false;
-            animals.Add(new Animal(1,"Predo", AnimalSize.large, krabbe, g1));
-            animals.Add(new Animal(2,"Predo2", AnimalSize.Small, krabbe, g2));
-            animals.Add(new Animal(3,"Predo3", AnimalSize.Small, krabbe, g3));
+            animals.Add(new Animal(1,"Predo", AnimalSize.large, krabbe, g1, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
+            animals.Add(new Animal(2,"Predo2", AnimalSize.Small, krabbe, g2, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
+            animals.Add(new Animal(3,"Predo3", AnimalSize.Small, krabbe, g3, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
             animals.Add(predo4);
             animals.Add(predo5);
 

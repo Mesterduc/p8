@@ -36,6 +36,7 @@ namespace AddAnimal {
 
         void Start()
         {
+            // Laver ikon til spices
             for (int i = 0; i < animalTrivia.Count; i++)
             {
                 GameObject animalSpices = Instantiate(objectToSpawn, animalList);
@@ -44,7 +45,8 @@ namespace AddAnimal {
                 var animal = animalTrivia[i];
                 animalSpices.GetComponent<Button>().onClick.AddListener(() => populateAnimalInfo(animal));
             }
-
+            
+            // hvis der findes species så tag den første i listen og fokus den
             if (animalTrivia.Count != 0) {
                 populateAnimalInfo(animalTrivia[0]);
             }
@@ -58,19 +60,14 @@ namespace AddAnimal {
         }
 
         public void AddAnimal() {
-            // Debug.Log(AnimalSize.large == (AnimalSize)size);
-            // Movement move = new Movement(150, 20, 400);
+            string name = textName.transform.GetComponent<TMP_Text>().text;
+            Animal animal = new Animal(this.animalListGameList.Count + 1, name, (AnimalSize)size, specie, Hogsmeade.animalJourneyInGallery, Hogsmeade.animalImagePath);
+            animal.setRealImage(Hogsmeade.animalImagePath);
+            // Debug.Log(animal.getRealImage());
             
-            //TODO: Husk at sette journey når der klikkes på en journey, måske sæt den ind i hogsmeade
-            Animal animal = new Animal(this.animalListGameList.Count + 1, textName.transform.GetComponent<TMP_Text>().text, (AnimalSize)size, specie, journey);
             animalListGameList.Add(animal);
             DataPersistenceManager.Instance.SaveGame();
         }
-
-        public void SetAnimalSize(int size) {
-            this.size = size;
-        }
-        // add spices
         
         // -------------------------------------------------- Panel navigation -------------------------------------------------------------------
         public void ShowSpices() {

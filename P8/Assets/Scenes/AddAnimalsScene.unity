@@ -784,6 +784,9 @@ MonoBehaviour:
   panelSpices: {fileID: 1126594460}
   panelAnimalInfo: {fileID: 56280978}
   specieInfoContainer: {fileID: 130545739}
+  journey:
+    id: 0
+    gallery: []
 --- !u!1 &235556473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126594461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2255,8 +2258,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1130818343}
-        m_TargetAssemblyTypeName: QuickNavigation, Assembly-CSharp
-        m_MethodName: GoToMenu
+        m_TargetAssemblyTypeName: Navigation.QuickNavigation, Assembly-CSharp
+        m_MethodName: GoToGallery
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3020,6 +3023,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 189654806}
+        m_TargetAssemblyTypeName: AddAnimal.AddAnimalManager, Assembly-CSharp
+        m_MethodName: AddAnimal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1475185337}
         m_TargetAssemblyTypeName: QuickNavigation, Assembly-CSharp
         m_MethodName: GoToTank
@@ -3855,19 +3870,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1939141617}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 189654806}
-        m_TargetAssemblyTypeName: AddAnimal.AddAnimalScript, Assembly-CSharp
-        m_MethodName: AddAnimal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1942157105
 GameObject:
   m_ObjectHideFlags: 0

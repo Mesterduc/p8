@@ -1,6 +1,7 @@
 using Animals;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Random = UnityEngine.Random;
 
@@ -48,15 +49,24 @@ namespace Tank {
                         foreach (var oldModal in GameObject.FindGameObjectsWithTag("AnimalModal")) {
                             Destroy(oldModal);
                         }
-                        
-                        prefabModal = Instantiate(prefab, pos, Quaternion.identity, animalClicked.transform.parent.gameObject.transform.parent);
-                        prefabModal.transform.Find("Close").transform.GetComponent<Button>().onClick.AddListener(() => CloseModal());
+
+                        prefabModal = Instantiate(prefab, pos, Quaternion.identity,
+                            animalClicked.transform.parent.gameObject.transform.parent);
+                        prefabModal.transform.Find("Close").transform.GetComponent<Button>().onClick
+                            .AddListener(() => CloseModal());
                         prefabModal.transform.Find("Name").transform.GetComponent<TMP_Text>().text = animal.name;
+                        Debug.Log(animal.realLifeImage);
+                        if (animal.getRealImage() != null) {
+                            prefabModal.transform.Find("Image").transform.GetComponent<Image>().sprite =
+                                LoadSprite(animal.getRealImage());
+                        }
+
                         // prefabModal.transform.Find("Image").transform.GetComponent<Image>().sprite = Resources.Load<Image>(animal.realLifeImage));
                         Transform infoPanel = prefabModal.transform.Find("InfoPanel");
-                        infoPanel.transform.GetChild(0).transform.GetComponent<TMP_Text>().text = animal.journey.destination.name;
-                        infoPanel.transform.GetChild(1).transform.GetComponent<TMP_Text>().text = animal.journey.GetDateTimeFormated();
-                        
+                        infoPanel.transform.GetChild(0).transform.GetComponent<TMP_Text>().text =
+                            animal.journey.destination.name;
+                        infoPanel.transform.GetChild(1).transform.GetComponent<TMP_Text>().text =
+                            animal.journey.GetDateTimeFormated();
                     }
                     else {
                         CloseModal();
@@ -70,12 +80,24 @@ namespace Tank {
             }
         }
 
+        private Sprite LoadSprite(string path) {
+            // læser billedet og conventere det til bytes
+            byte[] bytes = System.IO.File.ReadAllBytes(path);
+            Texture2D texture = new Texture2D(1, 1);
+            // laver en texture ud af byes fra billedet
+            texture.LoadImage(bytes);
+            // putter en texture(vores billede) på en sprite 
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f));
+            return sprite;
+        }
+
         private void CloseModal() {
             rigidbody2.constraints = RigidbodyConstraints2D.FreezeRotation;
             speed = 150;
             Destroy(prefabModal);
         }
-        
+
 
         void OnCollisionEnter2D(Collision2D collision) {
             if (!collision.gameObject.CompareTag("Fish")) {

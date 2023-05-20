@@ -31,6 +31,7 @@ namespace Tank {
         }
 
         public void SaveData(GameData data) {
+            data.animals = this.availableAnimals;
         }
     }
 }

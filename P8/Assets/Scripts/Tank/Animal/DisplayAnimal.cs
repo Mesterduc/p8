@@ -12,7 +12,6 @@ namespace Tank {
 
         private void Start() {
             this.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.species.animated);
-            // AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.animated);
             this.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
             Rigidbody2D rigid = this.AddComponent<Rigidbody2D>();
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
