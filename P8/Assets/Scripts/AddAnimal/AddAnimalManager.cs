@@ -25,6 +25,8 @@ namespace AddAnimal {
         public GameObject panelSpices;
         public GameObject panelAnimalInfo;
         public GameObject specieInfoContainer;
+        private FishTrivia specie;
+        public Journey journey;
 
         private void Awake() {
             DataPersistenceManager.Instance.manualLoadData();
@@ -48,20 +50,21 @@ namespace AddAnimal {
             }
         }
         
-        private void populateAnimalInfo(FishTrivia animal) {
-            specieInfoContainer.transform.Find("Title").GetComponent<TMP_Text>().text = animal.name;
-            specieInfoContainer.transform.Find("Beskrivelse").GetComponent<TMP_Text>().text = animal.bio;
-            specieInfoContainer.transform.Find("Images").GetComponent<Image>().sprite = Resources.Load<Sprite>(animal.realPicture);
+        private void populateAnimalInfo(FishTrivia animalSpecie) {
+            specie = animalSpecie;
+            specieInfoContainer.transform.Find("Title").GetComponent<TMP_Text>().text = animalSpecie.name;
+            specieInfoContainer.transform.Find("Beskrivelse").GetComponent<TMP_Text>().text = animalSpecie.bio;
+            specieInfoContainer.transform.Find("Images").GetComponent<Image>().sprite = Resources.Load<Sprite>(animalSpecie.realPicture);
         }
 
         public void AddAnimal() {
-            // Debug.Log(textName.transform.GetComponent<TMP_Text>().text);
             // Debug.Log(AnimalSize.large == (AnimalSize)size);
             // Movement move = new Movement(150, 20, 400);
-            // Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
-            // FishTrivia ørred = new FishTrivia("Ørred", "Fish/Sild",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
-            // Animal animal = new Animal(this.animalListGameList.Count + 1, textName);
-            // return animal;
+            
+            //TODO: Husk at sette journey når der klikkes på en journey, måske sæt den ind i hogsmeade
+            Animal animal = new Animal(this.animalListGameList.Count + 1, textName.transform.GetComponent<TMP_Text>().text, (AnimalSize)size, specie, journey);
+            animalListGameList.Add(animal);
+            DataPersistenceManager.Instance.SaveGame();
         }
 
         public void SetAnimalSize(int size) {
