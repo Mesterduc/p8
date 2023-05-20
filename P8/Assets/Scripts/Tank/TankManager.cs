@@ -28,6 +28,9 @@ namespace Tank
                 }
             }
         }
+        private void OnDestroy() {
+            DataPersistenceManager.Instance.SaveGame();
+        }
 
         public void LoadData(GameData data)
         {
