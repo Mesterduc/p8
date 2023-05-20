@@ -34,7 +34,8 @@ namespace Map {
                 if (objectToSpawn) {
                     GameObject location = Instantiate(objectToSpawn, destinations[i].position, Quaternion.identity);
                     location.transform.SetParent(GameObject.Find("pngdenmark").transform, false);
-                    location.name = i.ToString();
+                    location.name = destinations[i].name;
+                    location.transform.Find("DestinationName").GetComponent<TMP_Text>().text = destinations[i].name;
                 }
             }
         }
