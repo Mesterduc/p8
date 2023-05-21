@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Animals;
 using DataPersistence;
 using DataStore;
+using Models;
 using Tank;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,7 +12,7 @@ namespace ComponentScripts {
         public int fishId;
         private Draganddrop dragedItem;
         // AnimalId animalId;
-        private List<Animal> animals = new List<Animal>();
+        private Inventory inventory = new Inventory();
         private GameObject fishTemp;
         private GameObject canvas;
         private Vector3 fishSize;
@@ -40,24 +41,24 @@ namespace ComponentScripts {
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            foreach (var animal in animals) {
-                if (animal.id == fishId) {
-                    animal.isDisplayed = !animal.isDisplayed;
+            foreach (Animal item in inventory.GetInventory()) {
+                if (item.id == fishId) {
+                    item.isDisplayed = !item.isDisplayed;
                     canvas = GameObject.Find("TankCanvas").transform.Find("Grid").gameObject;
                     GameObject newAnimal = Instantiate(fishTemp, canvas.transform);
                     DisplayAnimal animalScript = newAnimal.AddComponent<DisplayAnimal>();
-                    animalScript.animal = animal;
+                    animalScript.animal = item;
                 }
             }
             Destroy(gameObject);
         }
 
         public void LoadData(GameData data) {
-            this.animals = data.animals;
+            this.inventory = data.inventory;
         }
 
         public void SaveData(GameData data) {
-            data.animals = this.animals;
+            data.inventory = this.inventory;
         }
     }
 }

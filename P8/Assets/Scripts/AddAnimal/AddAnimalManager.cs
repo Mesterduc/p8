@@ -13,7 +13,7 @@ namespace AddAnimal {
     public class AddAnimalManager : MonoBehaviour, IDataPersistence
     {
         private List<FishTrivia> animalTrivia = new List<FishTrivia>();
-        private List<Animal> animalListGameList = new List<Animal>();
+        private Inventory inventory = new Inventory();
         public Transform animalList;
         public GameObject objectToSpawn;
         
@@ -61,10 +61,10 @@ namespace AddAnimal {
 
         public void AddAnimal() {
             string name = textName.transform.GetComponent<TMP_Text>().text;
-            Animal animal = new Animal(this.animalListGameList.Count + 1, name, (AnimalSize)size, specie, Hogsmeade.animalJourneyInGallery, Hogsmeade.animalImagePath);
+            Animal animal = new Animal(this.inventory.InventoryCount() + 1, name, (AnimalSize)size, specie, Hogsmeade.animalJourneyInGallery, Hogsmeade.animalImagePath);
             animal.setRealImage(Hogsmeade.animalImagePath);
             
-            animalListGameList.Add(animal);
+            inventory.AddInventory(animal);
             DataPersistenceManager.Instance.SaveGame();
         }
         
@@ -86,13 +86,13 @@ namespace AddAnimal {
         public void LoadData(GameData data)
         {
             this.animalTrivia = data.species;
-            this.animalListGameList = data.animals;
+            this.inventory = data.inventory;
         }
 
         public void SaveData(GameData data)
         {
             data.species = this.animalTrivia;
-            data.animals = this.animalListGameList;
+            data.inventory = this.inventory;
         }
     }
 }

@@ -14,13 +14,13 @@ namespace DataStore
         public List<Friend> friends = new List<Friend>();
         public List<FishTrivia> species = new List<FishTrivia>();
         
-        public List<Animal> animals = new List<Animal>();
-        
+        public Inventory inventory = new Inventory();
         public Journeys journeys = new Journeys();
         public Map map = new Map();
 
         public GameData()
         {
+            Debug.Log("GameData");
             // PreLoad();
         }
 
@@ -139,11 +139,12 @@ namespace DataStore
             predo4.isDisplayed = false;
             Animal predo5 = new Animal(5, "Predo5", AnimalSize.Small, krabbe, g1, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png");
             predo5.isDisplayed = false;
-            animals.Add(new Animal(1,"Predo", AnimalSize.large, krabbe, g1, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
-            animals.Add(new Animal(2,"Predo2", AnimalSize.Small, krabbe, g2, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
-            animals.Add(new Animal(3,"Predo3", AnimalSize.Small, krabbe, g3, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
-            animals.Add(predo4);
-            animals.Add(predo5);
+            inventory.AddInventory(new Animal(1,"Predo", AnimalSize.large, krabbe, g1, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
+            inventory.AddInventory(new Animal(2,"Predo2", AnimalSize.Small, krabbe, g2, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
+            inventory.AddInventory(new Animal(3,"Predo3", AnimalSize.Small, krabbe, g3, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
+            inventory.AddInventory(predo4);
+            inventory.AddInventory(predo5);
+            Debug.Log(inventory.InventoryCount());
 
         }
 

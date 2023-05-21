@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Models {
     public class Journeys {
-        private List<Journey> journeys;
+        public List<Journey> journeys;
+
         public Journeys() {
             this.journeys = new List<Journey>();
         }
@@ -10,11 +13,11 @@ namespace Models {
         public void AddJourney(Journey journey) {
             journeys.Add(journey);
         }
-        
+
         public List<Journey> GetJourney() {
             return journeys;
         }
-        
+
         public int JourneyCount() {
             return journeys.Count;
         }
@@ -27,6 +30,5 @@ namespace Models {
             }
             return null;
         }
-            
     }
 }

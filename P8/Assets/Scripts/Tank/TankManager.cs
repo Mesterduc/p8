@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using Animals;
 using DataPersistence;
 using DataStore;
+using Models;
 using UnityEngine;
 
 namespace Tank
 {
     public class TankManager : MonoBehaviour, IDataPersistence
     {
-        private List<Animal> animals = new List<Animal>();
+        private Inventory inventory;
         [SerializeField] private Transform placement;
         private GameObject fishTemp;
         private Vector3 fishSize;
         private void Awake() {
             DataPersistenceManager.Instance.manualLoadData();
+            Debug.Log("awake");
             fishTemp = new GameObject("Fish");
         }
 
         void Start() {
-            foreach (var animal in animals) {
+            foreach (var item in inventory.GetInventory()) {
                 // only instantiate animals where property isDisplayed is set to true
-                if (animal.isDisplayed) {
+                if (item.isDisplayed) {
                     GameObject newAnimal = Instantiate(fishTemp, placement);
                     DisplayAnimal animalScript = newAnimal.AddComponent<DisplayAnimal>();
-                    animalScript.animal = animal;
+                    animalScript.animal = item;
                 }
             }
         }
@@ -34,12 +36,12 @@ namespace Tank
 
         public void LoadData(GameData data)
         {
-            this.animals = data.animals;
+            this.inventory = data.inventory;
         }
 
         public void SaveData(GameData data)
         {
-            data.animals = this.animals;
+            data.inventory = this.inventory;
         }
     }
 }

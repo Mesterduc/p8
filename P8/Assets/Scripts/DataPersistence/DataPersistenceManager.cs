@@ -70,15 +70,22 @@ namespace DataPersistence {
         private void OnDestroy() {
             SaveGame();
         }
-
-        public void manualLoadData() {
+        public void LoadDataFromFile() {
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             this.gameData = this.dataHandler.Load();
             // Looper alle aktive scener der implementere IdataPersistence
             foreach (IDataPersistence dataObject in dataPersistenceObjects) {
                 // kalder scriptes loaddata funtion
-                dataObject.LoadData(gameData);
+                dataObject.LoadData(this.gameData);
+            }
+        }
+
+        public void manualLoadData() {
+            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+            foreach (IDataPersistence dataObject in dataPersistenceObjects) {
+                // kalder scriptes loaddata funtion
+                dataObject.LoadData(this.gameData);
             }
         }
 
@@ -92,8 +99,9 @@ namespace DataPersistence {
         // init: what should be in the game when starting
         public void PreLoad() {
             // initialize a new clean gameData object where data is pre populate 
-            gameData = new GameData();
+            NewGame();
             gameData.PreLoad();
+            // LoadDataFromFile();
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
             dataHandler.Save(gameData);
         }
