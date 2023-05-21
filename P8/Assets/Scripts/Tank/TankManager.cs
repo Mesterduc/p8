@@ -16,7 +16,6 @@ namespace Tank
         private Vector3 fishSize;
         private void Awake() {
             DataPersistenceManager.Instance.manualLoadData();
-            Debug.Log("awake");
             fishTemp = new GameObject("Fish");
         }
 
