@@ -62,8 +62,6 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
         yield return
             new WaitForEndOfFrame(); // venter til slutningen af et frame, hvor ui elementerne er fjernet før der tages et snapshot/screenshot
         // hvis folder ikke findes, laves en ny folder
-        Debug.Log(Application.persistentDataPath);
-        Debug.Log(journey.id);
         if (!System.IO.Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
             System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/" + journey.id);
         }
@@ -77,12 +75,12 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
+        // Finder den rigtige journey
         Journey dataJourney = data.journeys.FindJourney(Hogsmeade.activeTripId);
         this.journey = dataJourney;
     }
 
     public void SaveData(GameData data) {
-        // Journey dataJourney = data.journeys.FindJourney(Hogsmeade.activeTripId);
-        // dataJourney = this.journey;
+        data.journeys.ReplaceJourney(Hogsmeade.activeTripId, this.journey);
     }
 }

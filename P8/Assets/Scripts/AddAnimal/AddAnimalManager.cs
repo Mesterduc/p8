@@ -12,21 +12,22 @@ using UnityEngine.UI;
 namespace AddAnimal {
     public class AddAnimalManager : MonoBehaviour, IDataPersistence
     {
-        private List<FishTrivia> animalTrivia = new List<FishTrivia>();
-        private Inventory inventory = new Inventory();
+        private Species species;
+        private Inventory inventory;
         public Transform animalList;
         public GameObject objectToSpawn;
         
-        public GameObject textName;
-        public int size;
-        
+        // ui
         public Button forwards;
         public Button back;
         public GameObject panelSpices;
         public GameObject panelAnimalInfo;
         public GameObject specieInfoContainer;
-        private FishTrivia specie;
+        // create animal
+        private Trivia specie;
         public Journey journey;
+        public GameObject textName;
+        public int size;
 
         private void Awake() {
             DataPersistenceManager.Instance.manualLoadData();
@@ -37,22 +38,21 @@ namespace AddAnimal {
         void Start()
         {
             // Laver ikon til spices
-            for (int i = 0; i < animalTrivia.Count; i++)
-            {
+            foreach (var trivia in species.GetSpecies()) {
                 GameObject animalSpices = Instantiate(objectToSpawn, animalList);
-                animalSpices.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(animalTrivia[i].picture);
-                animalSpices.transform.GetChild(1).GetComponent<TMP_Text>().text = animalTrivia[i].name;
-                var animal = animalTrivia[i];
+                animalSpices.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(trivia.picture);
+                animalSpices.transform.GetChild(1).GetComponent<TMP_Text>().text = trivia.name;
+                var animal = trivia;
                 animalSpices.GetComponent<Button>().onClick.AddListener(() => populateAnimalInfo(animal));
             }
             
             // hvis der findes species så tag den første i listen og fokus den
-            if (animalTrivia.Count != 0) {
-                populateAnimalInfo(animalTrivia[0]);
+            if (species.SpeciesCount() != 0) {
+                populateAnimalInfo(species.GetSpecies()[0]);
             }
         }
         
-        private void populateAnimalInfo(FishTrivia animalSpecie) {
+        private void populateAnimalInfo(Trivia animalSpecie) {
             specie = animalSpecie;
             specieInfoContainer.transform.Find("Title").GetComponent<TMP_Text>().text = animalSpecie.name;
             specieInfoContainer.transform.Find("Beskrivelse").GetComponent<TMP_Text>().text = animalSpecie.bio;
@@ -85,13 +85,13 @@ namespace AddAnimal {
     
         public void LoadData(GameData data)
         {
-            this.animalTrivia = data.species;
+            this.species = data.species;
             this.inventory = data.inventory;
         }
 
         public void SaveData(GameData data)
         {
-            data.species = this.animalTrivia;
+            data.species = this.species;
             data.inventory = this.inventory;
         }
     }

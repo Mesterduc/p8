@@ -1,10 +1,8 @@
 namespace Models {
     [System.Serializable]
-    public class FishTrivia
-
-    {
+    public class Trivia {
         public string name;
-        public string animated;// animal image
+        public string animated; // animal image
         public string animation; // animal animation
         public string picture;
         public string realPicture;
@@ -13,8 +11,8 @@ namespace Models {
         public string status;
         public string bio;
 
-        public FishTrivia(string name, string animated, string animation, string picture, string realPicture, Activity activities, string diet, string status, string bio)
-        {
+        public Trivia(string name, string animated, string animation, string picture, string realPicture,
+            Activity activities, string diet, string status, string bio) {
             this.name = name;
             this.animated = animated;
             this.animation = animation;

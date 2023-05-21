@@ -30,5 +30,12 @@ namespace Models {
             }
             return null;
         }
+        public void ReplaceJourney(int id, Journey newJourney) {
+            for (int i = 0; i < journeys.Count; i++) {
+                if (journeys[i].id == id) {
+                    journeys[i] = newJourney;
+                }
+            }
+        }
     }
 }

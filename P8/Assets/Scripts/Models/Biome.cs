@@ -5,12 +5,12 @@ namespace Models {
     public class Biome
     {   
         public string name;
-        public List<FishTrivia> available_animals;
+        public List<Trivia> available_animals;
         public List<Activity> activities;
 
 
 
-        public Biome(string name, List<Activity> activity, List<FishTrivia> trivia)
+        public Biome(string name, List<Activity> activity, List<Trivia> trivia)
         {
             this.name = name;
 
@@ -21,8 +21,8 @@ namespace Models {
 
 
         /*
-    private List<FishTrivia> PopulateAnimals(string type){
-    List<FishTrivia> list = new List<FishTrivia>();
+    private List<Trivia> PopulateAnimals(string type){
+    List<Trivia> list = new List<Trivia>();
 
         return list;
     }

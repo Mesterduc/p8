@@ -9,17 +9,14 @@ using UnityEngine.EventSystems;
 
 namespace ComponentScripts {
     public class Draganddrop : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDragHandler, IDropHandler, IDataPersistence {
-        public int fishId;
+        public int animalId;
         private Draganddrop dragedItem;
-        // AnimalId animalId;
-        private Inventory inventory = new Inventory();
-        private GameObject fishTemp;
+        private Inventory inventory;
         private GameObject canvas;
         private Vector3 fishSize;
 
         private void Awake() {
             DataPersistenceManager.Instance.manualLoadData();
-            fishTemp = new GameObject("FishDrag");
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -42,10 +39,10 @@ namespace ComponentScripts {
         public void OnEndDrag(PointerEventData eventData)
         {
             foreach (Animal item in inventory.GetInventory()) {
-                if (item.id == fishId) {
+                if (item.id == animalId) {
                     item.isDisplayed = !item.isDisplayed;
                     canvas = GameObject.Find("TankCanvas").transform.Find("Grid").gameObject;
-                    GameObject newAnimal = Instantiate(fishTemp, canvas.transform);
+                    GameObject newAnimal = Instantiate(new GameObject("FishDrag"), canvas.transform);
                     DisplayAnimal animalScript = newAnimal.AddComponent<DisplayAnimal>();
                     animalScript.animal = item;
                 }
