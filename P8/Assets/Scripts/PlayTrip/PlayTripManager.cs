@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace PlayTrip {
     public class PlayTripManager : MonoBehaviour, IDataPersistence {
-        [SerializeField] private List<Journey> journeys = new List<Journey>();
-        [SerializeField] private List<Destination> destinations = new List<Destination>();
+        [SerializeField] private Journeys journeys = new Journeys();
+        [SerializeField] private Map map = new Map();
 
         private void Awake() {
             DataPersistenceManager.Instance.manualLoadData();
@@ -19,12 +19,12 @@ namespace PlayTrip {
         }
 
         public void LoadData(GameData data) {
-            this.destinations = data.destinations;
+            this.map = data.map;
             this.journeys = data.journeys;
         }
 
         public void SaveData(GameData data) {
-            data.destinations = this.destinations;
+            data.map = this.map;
             data.journeys = this.journeys;
         }
     }

@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GalleryManager : MonoBehaviour, IDataPersistence {
-    private List<Journey> journeys = new List<Journey>();
+    private Journeys journeys = new Journeys();
     [SerializeField] private Transform placement;
     [SerializeField] private GameObject fullSceneModal;
     [SerializeField] private GameObject forwards;
@@ -19,7 +19,7 @@ public class GalleryManager : MonoBehaviour, IDataPersistence {
     }
 
     void Start() {
-        foreach (var journey in journeys) {
+        foreach (var journey in journeys.GetJourney()) {
             GameObject prefab = Resources.Load<GameObject>("prefabs/UdflugtPrefab");
             GameObject journeyItem = Instantiate(prefab, placement);
             journeyItem.transform.Find("content/activeTrip/LocationIcon/Title/Text").GetComponent<TMP_Text>().text =
@@ -31,15 +31,6 @@ public class GalleryManager : MonoBehaviour, IDataPersistence {
             // Billeder --------------------------------------------
             Transform gallery = journeyItem.transform.Find("content/activeTrip/GalleryScroller/Mask/Gallery").transform;
             if (Directory.Exists(Application.persistentDataPath + "/" + journey.id)) {
-                // for (int i = 0; i < journey.gallery.Count; i++) {
-                //     GameObject image = new GameObject("Image");
-                //     image.AddComponent<Image>().sprite = LoadSprite(journey.gallery[i]);
-                //     Debug.Log(i);
-                //     // image.AddComponent<Button>().onClick.AddListener( () => imageModal(i, journey));
-                //     // image.AddComponent<Button>().onClick.AddListener(delegate(GameObject e) { Debug.Log(e); });
-                //     image.transform.SetParent(gallery);
-                //     image.transform.localScale = new Vector3(1f, 1f, 1f);
-                // }
                 foreach (var imagePath in journey.gallery) {
                     GameObject image = new GameObject("Image");
                     image.AddComponent<Image>().sprite = LoadSprite(imagePath);

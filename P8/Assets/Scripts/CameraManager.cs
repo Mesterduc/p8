@@ -75,18 +75,11 @@ public class CameraManager : MonoBehaviour, IDataPersistence {
     }
 
     public void LoadData(GameData data) {
-        foreach (var journey in data.journeys) {
-            if (journey.id == Hogsmeade.activeTripId) {
-                this.journey = journey;
-            }
-        }
+        this.journey = data.journeys.FindJourney(Hogsmeade.activeTripId);
     }
 
     public void SaveData(GameData data) {
-        foreach (var journey in data.journeys) {
-            if (journey.id == Hogsmeade.activeTripId) {
-                journey.gallery = this.journey.gallery;
-            }
-        }
-}
+        Journey dataJourney = data.journeys.FindJourney(Hogsmeade.activeTripId);
+        dataJourney = this.journey;
+    }
 }

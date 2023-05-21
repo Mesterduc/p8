@@ -12,10 +12,12 @@ namespace DataStore
     {
         public PlayerData playerData;
         public List<Friend> friends = new List<Friend>();
-        public List<Animal> animals = new List<Animal>();
         public List<FishTrivia> species = new List<FishTrivia>();
-        public List<Journey> journeys = new List<Journey>();
-        public List<Destination> destinations = new List<Destination>();
+        
+        public List<Animal> animals = new List<Animal>();
+        
+        public Journeys journeys = new Journeys();
+        public Map map = new Map();
 
         public GameData()
         {
@@ -110,20 +112,20 @@ namespace DataStore
             Destination hals = new Destination("Hals Havn", "Jeg fandt den her strand da jeg kiggede på ugler", havn, new Vector3(-0.598f, 4.873f, 1f), "Ingen Addresse for denne destination");
             Destination lundby = new Destination("Lundby Krat", "Lundby krat er et fedt sted", skov, new Vector3(-1.146f, 4.412f, 1f), "Ingen Addresse for denne destination");
 
-            destinations.Add(dall_hede);
-            destinations.Add(rold_skov);
-            destinations.Add(oest_stranden);
-            destinations.Add(limfjorden);
-            destinations.Add(egholm);
-            destinations.Add(lundby);
+            map.destinations.Add(dall_hede);
+            map.destinations.Add(rold_skov);
+            map.destinations.Add(oest_stranden);
+            map.destinations.Add(limfjorden);
+            map.destinations.Add(egholm);
+            map.destinations.Add(lundby);
 
             Journey g1 = new Journey(0, rold_skov);
             g1.gallery.Add("/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png");
             g1.gallery.Add("/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat1.png");
             Journey g2 = new Journey(1, lundby);
             Journey g3 = new Journey(2, dall_hede);
-            journeys.Add(g1);
-            journeys.Add(g2);
+            journeys.AddJourney(g1);
+            journeys.AddJourney(g2);
             // addToList(g3);
             // journeys.Add(g1);
             // journeys.Add(g2);

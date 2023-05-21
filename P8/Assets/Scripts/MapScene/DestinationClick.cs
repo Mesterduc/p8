@@ -1,7 +1,7 @@
 using DataStore;
 using UnityEngine;
 
-namespace Map {
+namespace MapScene {
     public class DestinationClick : MonoBehaviour {
         void OnMouseDown() {
             GameObject menu = GameObject.Find("UI");

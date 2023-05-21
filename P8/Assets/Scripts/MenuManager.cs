@@ -6,8 +6,8 @@ using TMPro;
 using Models;
 
 public class MenuManager : MonoBehaviour, IDataPersistence {
-    [SerializeField] private List<Destination> destinations = new List<Destination>();
-    [SerializeField] private List<Journey> journeys = new List<Journey>();
+    [SerializeField] private Map map = new Map();
+    [SerializeField] private Journeys journeys = new Journeys();
     public GameObject content;
     [SerializeField] public GameObject tripInfo;
     public GameObject playInfo;
@@ -38,7 +38,7 @@ public class MenuManager : MonoBehaviour, IDataPersistence {
     }
 
     private void PopulatePanels() {
-        tripInfo.GetComponent<TMP_Text>().text = destinations[Hogsmeade.nextTrip].address;
+        tripInfo.GetComponent<TMP_Text>().text = map.destinations[Hogsmeade.nextTrip].address;
     }
 
     private void OpenWindows() {
@@ -49,19 +49,19 @@ public class MenuManager : MonoBehaviour, IDataPersistence {
     }
 
     public void BeginJourney() {
-        int id = this.journeys.Count + 1;
+        int id = this.journeys.JourneyCount() + 1;
         Hogsmeade.activeTripId = id;
-        journeys.Add(new Journey(id, destinations[Hogsmeade.nextTrip]));
+        journeys.AddJourney(new Journey(id, map.destinations[Hogsmeade.nextTrip]));
         DataPersistenceManager.Instance.SaveGame();
     }
 
     public void LoadData(GameData data) {
-        this.destinations = data.destinations;
+        this.map = data.map;
         this.journeys = data.journeys;
     }
 
     public void SaveData(GameData data) {
-        data.destinations = this.destinations;
+        data.map = this.map;
         data.journeys = this.journeys;
     }
 }
