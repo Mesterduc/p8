@@ -54,8 +54,7 @@ namespace DataPersistence {
 
                 // serialize the C# game data objects into Json
                 File.WriteAllText(fullPath, JsonConvert.SerializeObject(data, new JsonSerializerSettings {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                    TypeNameHandling = TypeNameHandling.All
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 }));
             }
             catch (Exception e) {
