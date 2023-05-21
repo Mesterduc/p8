@@ -55,13 +55,11 @@ namespace Tank {
                         prefabModal.transform.Find("Close").transform.GetComponent<Button>().onClick
                             .AddListener(() => CloseModal());
                         prefabModal.transform.Find("Name").transform.GetComponent<TMP_Text>().text = animal.name;
-                        Debug.Log(animal.realLifeImage);
-                        if (animal.getRealImage() != null) {
+                        if (animal.realLifeImage != null) {
                             prefabModal.transform.Find("Image").transform.GetComponent<Image>().sprite =
                                 LoadSprite(animal.getRealImage());
                         }
-
-                        // prefabModal.transform.Find("Image").transform.GetComponent<Image>().sprite = Resources.Load<Image>(animal.realLifeImage));
+                        
                         Transform infoPanel = prefabModal.transform.Find("InfoPanel");
                         infoPanel.transform.GetChild(0).transform.GetComponent<TMP_Text>().text =
                             animal.journey.destination.name;

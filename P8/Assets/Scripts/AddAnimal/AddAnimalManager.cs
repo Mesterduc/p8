@@ -63,7 +63,6 @@ namespace AddAnimal {
             string name = textName.transform.GetComponent<TMP_Text>().text;
             Animal animal = new Animal(this.animalListGameList.Count + 1, name, (AnimalSize)size, specie, Hogsmeade.animalJourneyInGallery, Hogsmeade.animalImagePath);
             animal.setRealImage(Hogsmeade.animalImagePath);
-            // Debug.Log(animal.getRealImage());
             
             animalListGameList.Add(animal);
             DataPersistenceManager.Instance.SaveGame();
