@@ -13,7 +13,7 @@ namespace DataStore
         public PlayerData playerData;
         public List<Friend> friends = new List<Friend>();
         
-        public Species species = new Species();
+        public Trivia trivia = new Trivia();
         public Inventory inventory = new Inventory();
         public Journeys journeys = new Journeys();
         public Map map = new Map();
@@ -50,44 +50,44 @@ namespace DataStore
             skov_aktiviteter.Add(fang_edderkopper);
             skov_aktiviteter.Add(fang_insekter);
             
-            //--------------------------------------------------- Trivia -------------------------------------------------------------------------------------
+            //--------------------------------------------------- Species -------------------------------------------------------------------------------------
             
-            Trivia guldsmed = new Trivia("Guldsmed", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "", fang_insekter, "Andre insekter", "Sjælden", "Guldsmeden flyver tit ved ferskvandssøer");
-            Trivia hornbille = new Trivia("Hornbille", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Bæ", "Almindelig", "Hornbiller har horn");
-            Trivia husedderkop = new Trivia("Husedderkop", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "",fang_edderkopper, "Fluer", "Sjælden", "Husedderkoppen kan blive KÆÆÆÆMPE stor");
-            Trivia stinkbille = new Trivia("Stinkbille", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Kolort", "Sjælden", "Stinkbillen er kendt for at stinke");
-            Trivia spyflue = new Trivia("Spyflue", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
-            Trivia tæge = new Trivia("Tæge", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
-            Trivia snegl = new Trivia("Snegl", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
+            Species guldsmed = new Species("Guldsmed", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "", fang_insekter, "Andre insekter", "Sjælden", "Guldsmeden flyver tit ved ferskvandssøer");
+            Species hornbille = new Species("Hornbille", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Bæ", "Almindelig", "Hornbiller har horn");
+            Species husedderkop = new Species("Husedderkop", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "",fang_edderkopper, "Fluer", "Sjælden", "Husedderkoppen kan blive KÆÆÆÆMPE stor");
+            Species stinkbille = new Species("Stinkbille", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Kolort", "Sjælden", "Stinkbillen er kendt for at stinke");
+            Species spyflue = new Species("Spyflue", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "Jeg hader den her flue");
+            Species tæge = new Species("Tæge", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Andre insekter", "Almindelig", "En tæge. Ikke en flåt.");
+            Species snegl = new Species("Snegl", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_insekter, "Blade", "almindelig", "Find din snegl i din nærmeste bøgehæk");
 
-            Trivia krabbe = new Trivia("Krabbe", "Fish/Sild", "Fish/SildAnimator","Fish/Sild","", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
-            Trivia ørred = new Trivia("Ørred", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
-            Trivia hornfisk = new Trivia("Hornfisk", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Andre fisk", "Almindelig", "Den er længere end turen hjem fra Roskilde");
-            Trivia skrubbe = new Trivia("Skrubbe", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Rejer, muslinger", "Almindelig", "Skrubben er svær at finde (fordi den er flad)");
-            Trivia pighvar = new Trivia("Pighvar", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "",fang_fisk, "Rejer, muslinger", "Sjælden", "Hans mener han er jordens bedste til at fange dem");
-            Trivia sild = new Trivia("Sild", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Alt", "Almindelig", "Du kan næsten ikke undgå at finde sild");
-            Trivia torsk = new Trivia("Torsk", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Alt", "Sjælden", "Engang var der mange torsk. Nu kan de være svære at finde");
+            Species krabbe = new Species("Krabbe", "Fish/Sild", "Fish/SildAnimator","Fish/Sild","", fang_krabber, "Kød", "Almindelig", "Krabben er fandeme over det hele man");
+            Species ørred = new Species("Ørred", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Andre fisk", "Sjælden", "Ørred finder du aldrig min dud");
+            Species hornfisk = new Species("Hornfisk", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Andre fisk", "Almindelig", "Den er længere end turen hjem fra Roskilde");
+            Species skrubbe = new Species("Skrubbe", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Rejer, muslinger", "Almindelig", "Skrubben er svær at finde (fordi den er flad)");
+            Species pighvar = new Species("Pighvar", "Fish/Sild", "Fish/SildAnimator","Fish/Sild", "",fang_fisk, "Rejer, muslinger", "Sjælden", "Hans mener han er jordens bedste til at fange dem");
+            Species sild = new Species("Sild", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Alt", "Almindelig", "Du kan næsten ikke undgå at finde sild");
+            Species torsk = new Species("Torsk", "Fish/Sild", "Fish/SildAnimator", "Fish/Sild","",fang_fisk, "Alt", "Sjælden", "Engang var der mange torsk. Nu kan de være svære at finde");
             
-            List<Trivia> hede_dyr = new List<Trivia>();
+            List<Species> hede_dyr = new List<Species>();
             hede_dyr.Add(hornbille);
             hede_dyr.Add(husedderkop);
             hede_dyr.Add(stinkbille);
             hede_dyr.Add(spyflue);
             
-            List<Trivia> skov_dyr = new List<Trivia>();
+            List<Species> skov_dyr = new List<Species>();
             skov_dyr.Add(guldsmed);
             skov_dyr.Add(spyflue);
             skov_dyr.Add(snegl);
             skov_dyr.Add(tæge);
             
-            List<Trivia> strand_dyr = new List<Trivia>();
+            List<Species> strand_dyr = new List<Species>();
             strand_dyr.Add(krabbe);
             strand_dyr.Add(ørred);
             strand_dyr.Add(hornfisk);
             strand_dyr.Add(skrubbe);
             strand_dyr.Add(pighvar);
             
-            List<Trivia> havn_dyr = new List<Trivia>();
+            List<Species> havn_dyr = new List<Species>();
             havn_dyr.Add(torsk);
             havn_dyr.Add(sild);
             havn_dyr.Add(hornfisk);
@@ -161,19 +161,19 @@ namespace DataStore
             Activity fang_fisk = new Activity("Fisketur", "Anskaf dig en fiskestang og se en video");
             Activity fang_edderkopper = new Activity("Edderkoppe-Eventyr", "Find et edderkoppenet. Find en flue. Put en flue i nettet. WIN!");
             
-            Trivia lundsneglen = new Trivia("Lundsneglen", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/snail", "Real/lundsnegl" , fang_krabber, "Kød", "Almindelig", "Lundsneglen er en mellemstor snegl med fladt, kugleformet hus og mørk skalåbning. Huset bliver mellem 12-22 mm i højde og 18-25 mm i brede, huset varierer i farve og tegning fra gullig til rødlig eller brunlig med eller uden mørke spiralbånd. >Kroppen er grålig");
-            Trivia havesnegl = new Trivia("Havesnegl", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/snail", "Real/havesnegl" ,fang_fisk, "Andre fisk", "Almindelig", "Havesneglens hus varierer meget i farven fra brunt til rødt og gult. Snailen bliver ca. 2 cm lang og huset bliver ca. 2 cm i diameter. Huset kan være ensfarvet, eller det kan have 5 mørke bånd, som snor sig rundt om sneglehuset.");
-            Trivia myre = new Trivia("Sorte havemyrer", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/myre", "Real/myre" ,fang_fisk, "Rejer, muslinger", "Almindelig", "Sorte arbejder havemyrer: 3,5-5 mm. lang. Farven er gråbrun til sortbrun med lysere ben, og følehorn med en matglinsende overflade. Tæt behåring med varierende længde. Skællet er lavt og bredt med parallelle sider og lige overkant.");
-            Trivia edderkop = new Trivia("Korsedderkop", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/spider", "Real/Korsedderkop" ,fang_edderkopper, "Insekter", "Almindelig", "Korsedderkoppen har oftest på oversiden et lyst mønster, der ligner et kors. Korset er sammensat af mindre hvide pletter, der dog hos store individer kan mangle eller være meget små, så korset er utydeligt. Bagkroppen er altid mere eller mindre trekantet, og spidser til bagtil. Forrest på bagkroppen ses som regel to små pukler, der forstærker den trekantede facon. Hannens kropsmål er ca. 8 mm, mens hunnen bliver op til ca. 17 mm, når den om efteråret er fuld af æg. I modsætning til de voksne dyr er ungerne gule med sorte aftegninger.");
-            Trivia kratløber = new Trivia("Kratløber", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/stinkbille", "Real/Kratløber" ,fang_edderkopper, "Insekter", "Almindelig", "Kratløber bliver 22-26 mm. i længde. En ret stor og noget kompakt løbebille, som på afstand udmærker sig ved en svagt brunlig eller blåviolet farve på dækvingerne. Kanten af pronotum og dækvingerne er ofte klart violette. Det bedste kendetegn er en generel violetfarvning kombineret med, at der på hver dækvinge er tre rækker af tydeligt runde fordybninger, ca. 10 i hver række.");
+            Species lundsneglen = new Species("Lundsneglen", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/snail", "Real/lundsnegl" , fang_krabber, "Kød", "Almindelig", "Lundsneglen er en mellemstor snegl med fladt, kugleformet hus og mørk skalåbning. Huset bliver mellem 12-22 mm i højde og 18-25 mm i brede, huset varierer i farve og tegning fra gullig til rødlig eller brunlig med eller uden mørke spiralbånd. >Kroppen er grålig");
+            Species havesnegl = new Species("Havesnegl", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/snail", "Real/havesnegl" ,fang_fisk, "Andre fisk", "Almindelig", "Havesneglens hus varierer meget i farven fra brunt til rødt og gult. Snailen bliver ca. 2 cm lang og huset bliver ca. 2 cm i diameter. Huset kan være ensfarvet, eller det kan have 5 mørke bånd, som snor sig rundt om sneglehuset.");
+            Species myre = new Species("Sorte havemyrer", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/myre", "Real/myre" ,fang_fisk, "Rejer, muslinger", "Almindelig", "Sorte arbejder havemyrer: 3,5-5 mm. lang. Farven er gråbrun til sortbrun med lysere ben, og følehorn med en matglinsende overflade. Tæt behåring med varierende længde. Skællet er lavt og bredt med parallelle sider og lige overkant.");
+            Species edderkop = new Species("Korsedderkop", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/spider", "Real/Korsedderkop" ,fang_edderkopper, "Insekter", "Almindelig", "Korsedderkoppen har oftest på oversiden et lyst mønster, der ligner et kors. Korset er sammensat af mindre hvide pletter, der dog hos store individer kan mangle eller være meget små, så korset er utydeligt. Bagkroppen er altid mere eller mindre trekantet, og spidser til bagtil. Forrest på bagkroppen ses som regel to små pukler, der forstærker den trekantede facon. Hannens kropsmål er ca. 8 mm, mens hunnen bliver op til ca. 17 mm, når den om efteråret er fuld af æg. I modsætning til de voksne dyr er ungerne gule med sorte aftegninger.");
+            Species kratløber = new Species("Kratløber", "Fish/Sild", "Fish/SildAnimator", "DyrIcon/stinkbille", "Real/Kratløber" ,fang_edderkopper, "Insekter", "Almindelig", "Kratløber bliver 22-26 mm. i længde. En ret stor og noget kompakt løbebille, som på afstand udmærker sig ved en svagt brunlig eller blåviolet farve på dækvingerne. Kanten af pronotum og dækvingerne er ofte klart violette. Det bedste kendetegn er en generel violetfarvning kombineret med, at der på hver dækvinge er tre rækker af tydeligt runde fordybninger, ca. 10 i hver række.");
             
-            // Trivia reje = new Trivia("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
-            // Trivia myg = new Trivia("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
-            species.AddSpecie(lundsneglen);
-            species.AddSpecie(havesnegl);
-            species.AddSpecie(myre);
-            species.AddSpecie(edderkop);
-            species.AddSpecie(kratløber);
+            // Species reje = new Species("Reje", "rejebillede", fang_rejer, "plankton", "Almindelig", "Du kan næsten ikke undgå at finde rejer");
+            // Species myg = new Species("Myg", "myggebillede", fang_myg, "BLOD!", "Almindelig", "AV AV du blev stukket af en myg");
+            trivia.AddSpecie(lundsneglen);
+            trivia.AddSpecie(havesnegl);
+            trivia.AddSpecie(myre);
+            trivia.AddSpecie(edderkop);
+            trivia.AddSpecie(kratløber);
         }
     }
 }

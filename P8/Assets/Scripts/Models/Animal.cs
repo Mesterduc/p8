@@ -21,11 +21,11 @@ namespace Animals {
         public bool isDisplayed; // synlighed i inventory
         public Movement movement;
         public AnimalSize animalSize;
-        public Trivia species;
+        public Species species;
         public Journey journey;
         public string realLifeImage; 
         
-        public Animal(int id, string name, AnimalSize animalSize, Trivia species, Journey journey, string realLifeImage) {
+        public Animal(int id, string name, AnimalSize animalSize, Species species, Journey journey, string realLifeImage) {
             this.id = id;
             this.name = name;
             this.isDisplayed = false;
