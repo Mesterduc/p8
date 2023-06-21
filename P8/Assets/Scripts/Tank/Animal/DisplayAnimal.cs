@@ -8,7 +8,8 @@ namespace Tank {
     public class DisplayAnimal : MonoBehaviour {
         public Animal animal;
         private Vector3 animalSize;
-        private AnimalStateManager move;
+        private AnimalStateManager stateModal;
+        private Movement movementScript;
 
         private void Start() {
             this.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(animal.species.animated);
@@ -38,8 +39,11 @@ namespace Tank {
             this.AddComponent<Animator>().runtimeAnimatorController =
                 Resources.Load<RuntimeAnimatorController>(animal.species.animation); // animation
 
-            move = this.AddComponent<AnimalStateManager>();
-            move.animal = animal;
+            stateModal = this.AddComponent<AnimalStateManager>();
+            stateModal.animal = animal;
+            movementScript = this.AddComponent<Movement>();
+            movementScript.animal = animal;
+            movementScript.animalMovement = new WaterMovement();
         }
 
     }
