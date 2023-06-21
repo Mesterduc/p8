@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5403999461996446576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -800.00037, y: -331.8478, z: 0}
+  m_LocalPosition: {x: 100, y: 550, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1.1502517}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,8 +97,8 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -170,7 +170,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -191,4 +191,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d859ac82ac3cf84b9351c128f521f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 40

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Tank.Food {
     public class FoodCollisionHandler : MonoBehaviour
     {
-        public float lifeTime = 40f; //Leve tid på maden
+        private float lifeTime = 20f; //Leve tid på maden
 
         void Awake() //sletter mad efter lifeTime
         { 
@@ -13,7 +13,10 @@ namespace Tank.Food {
         //Når object rammer noget med "OnTrigger" så sletter den objektet
         void OnTriggerEnter2D(Collider2D other)
         {
-            Destroy (gameObject); 
+            if(other.gameObject.layer.Equals(6))
+            {
+                Destroy (gameObject);
+            }
         }
     }
 } 

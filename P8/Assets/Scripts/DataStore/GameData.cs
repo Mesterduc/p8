@@ -143,7 +143,6 @@ namespace DataStore
             inventory.AddInventory(new Animal(3,"Predo3", AnimalSize.Small, krabbe, g3, "/Users/duchongcai/Library/Application Support/DefaultCompany/P8/3/LundbyKrat0.png"));
             inventory.AddInventory(predo4);
             inventory.AddInventory(predo5);
-            Debug.Log(inventory.InventoryCount());
 
         }
 
